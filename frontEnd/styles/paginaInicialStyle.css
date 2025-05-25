@@ -1,0 +1,213 @@
+:root {
+        /* bg colors */
+        --cor1: #CEE2BD;
+        --cor2: #98CA8D;
+        --cor3: #63B068;
+        --cor4: #3F975D;
+        --cor5: #247E5A;
+        --cor6: #106659;
+        --cor7: #00444D;
+
+        /* gd colors */
+        --grCor1: linear-gradient(#247E5B, #00444D);
+        --grCor2: linear-gradient(#247E5B, #0F6659);
+}
+
+body {
+        background-color: var(--cor1);
+        font-family: 'Poppins', sans-serif;
+        margin: 0%;
+        padding: 0%;
+        overflow: hidden;
+
+}
+
+/*      HEADER   */
+header {
+        width: 100vw;
+        height: 60vh;
+        position: relative;
+        display: flex;
+}
+
+/*      CIRCULO BACKGROUND   */
+header .bgCirculo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-4%, -40%);
+        width: 50vw;
+        height: 50vw;
+        background-image: var(--grCor1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+
+}
+
+.bolhasDecorativas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        /* evita que as bolhas atrapalhem interações */
+        z-index: 0;
+}
+
+.bolha {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--grCor1);
+}
+
+.bolha1 {
+        width: 9vw;
+        height: 9vw;
+        top: 43%;
+        right: -10%;
+}
+
+.bolha2 {
+        width: 5vw;
+        height: 5vw;
+        top: 44%;
+        right: -25%;
+}
+
+.bolha3 {
+        width: 9vw;
+        height: 9vw;
+        top: 90%;
+        left: 15%;
+}
+
+.bolha4 {
+        width: 5vw;
+        height: 5vw;
+        top: 104%;
+        left: 5%;
+}
+
+/*      CIRCULO BACKGROUND   */
+
+/*      LOGO STMusic   */
+.logo {
+        position: relative;
+        left: 8%;
+        top: 15%;
+        width: fit-content;
+        height: fit-content;
+        color: var(--cor4);
+        display: flex;
+        flex-direction: column;
+
+}
+
+.logo h1 {
+        font-size: 8vw;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        line-height: 0.8;
+        margin: auto;
+}
+
+.logo h1 .imgLogo {
+        height: 0.8em;
+        width: 0.8em;
+        background-color: var(--cor7);
+        border-radius: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.logo h1 .imgLogo img {
+        width: 50%;
+        height: 50%;
+        border-radius: 15%;
+}
+
+.logo h2 {
+        font-size: 5.3vw;
+        line-height: 1;
+        margin: auto;
+}
+
+.logo h3 {
+        font-size: 1.9vw;
+        line-height: 1;
+        margin: auto;
+}
+
+/*     FIM LOGO STMusic   */
+
+/*      TEXTO DESCRIÇÃO   */
+.text {
+        position: relative;
+        color: var(--cor5);
+        height: fit-content;
+        width: 25vw;
+        margin-left: 55vw;
+        margin-top: 10vw;
+        padding: 2%;
+}
+
+.text h1 {
+        font-size: 2vw;
+        line-height: 1.5;
+        margin: auto;
+        font-weight: lighter;
+}
+
+/*      FIM TEXTO DESCRIÇÃO   */
+
+/*      FIM HEADER   */
+
+/*      FOOTER  */
+footer {
+        width: 100vw;
+        height: fit-content;
+        position: absolute;
+        bottom: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2vw;
+}
+
+footer .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15vw;
+        height: 3.5vw;
+        border-radius: 50px;
+}
+
+footer .btn a {
+        text-decoration: none;
+        color: var(--cor1);
+        font-size: 1.5vw;
+        font-weight: lighter;
+        text-align: center;
+        width: 100%;
+        height: 3.5vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        background: var(--cor5);
+        transition: all 0.3s ease;
+}
+
+footer .btn a:hover {
+        background: var(--cor6);
+}
+
+footer img {
+        width: 3vw;
+        height: 3vw;
+        transition: all 0.3s ease;
+}
