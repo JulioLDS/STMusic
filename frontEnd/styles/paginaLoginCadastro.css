@@ -321,3 +321,317 @@ input:-webkit-autofill:active {
     right: 3vw;
     width: 3.5vw;
 }
+
+@media (max-width: 600px) {
+
+    /* CONTAINER */
+    .container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: normal;
+        gap: 10vw;
+    }
+
+    /* LOGO STMusic */
+    .logo {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        color: var(--cor4);
+        display: flex;
+        flex-direction: column;
+        margin-top: 13%;
+        margin-left: 10%;
+    }
+
+    .logo h1 {
+        font-size: 27vw;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        line-height: 0.8;
+        margin: auto;
+    }
+
+    .logo h1 .imgLogo {
+        height: 0.8em;
+        width: 0.8em;
+        background-color: var(--cor7);
+        border-radius: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo h1 .imgLogo img {
+        width: 50%;
+        height: 50%;
+        border-radius: 15%;
+    }
+
+    .logo h2 {
+        font-size: 17vw;
+        line-height: 1;
+        margin: auto;
+    }
+
+    .logo h3 {
+        font-size: 5.8vw;
+        line-height: 1;
+        margin: auto;
+    }
+
+    /* LOGIN CONTAINER */
+    .login {
+        height: 70vh;
+        width: 100vw;
+        background: var(--grCor1);
+        border-radius: 20vw 20vw 0 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3%;
+        overflow: hidden;
+    }
+
+    /* TABS */
+    .login ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20%;
+        width: 100%;
+        line-height: 2;
+        font-size: 7vw;
+        font-weight: 600;
+        color: var(--fonte);
+        position: relative;
+        margin-top: 5%;
+        z-index: 1000;
+    }
+
+    .login ul li {
+        cursor: pointer;
+    }
+
+    .login ul .underline {
+        position: absolute;
+        left: 0;
+        bottom: -0.1vw;
+        height: 2vw;
+        background-color: var(--cor3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    /* FORMULÁRIOS CONTAINER */
+    .forms-wrapper {
+        width: 200%;
+        height: 60%;
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* FORMULÁRIOS */
+    .form-container {
+        width: 50%;
+        padding: 0 8%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        left: 25%;
+        top: 0%;
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8vw;
+    }
+
+    #formCadastro {
+        position: relative;
+        gap: 3vw;
+        top: 5%;
+
+    }
+
+    /* CAMPOS DO FORMULÁRIO */
+    .gmail,
+    .nome,
+    .senha {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3vw;
+        width: 100%;
+    }
+
+    .gmail label,
+    .nome label,
+    .senha label {
+        font-size: 7vw;
+        color: var(--fonte);
+        font-weight: 600;
+        position: relative;
+        left: 3%;
+    }
+
+    .gmail input,
+    .nome input,
+    .senha input {
+        background-color: var(--cor3);
+        border: none;
+        font-size: 6vw;
+        font-weight: normal;
+        padding: 0.4vw 2vw;
+        border-radius: 2.5vw;
+        color: var(--fonte);
+        width: 100%;
+        box-sizing: border-box;
+        height: 10vw;
+        /* ou um valor fixo como 40px */
+        line-height: 3vw;
+        display: block;
+
+    }
+
+    .gmail input::placeholder,
+    .nome input::placeholder,
+    .senha input::placeholder {
+        color: var(--fonte);
+        opacity: .7;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0px 1000px var(--cor3) inset !important;
+        -webkit-text-fill-color: var(--fonte) !important;
+        transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+    }
+
+
+    .gmail input:focus,
+    .nome input:focus,
+    .senha input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .senha-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .eye-icon {
+        position: absolute;
+        right: 2vw;
+        width: 10vw;
+        height: auto;
+        cursor: pointer;
+    }
+
+    /* BOTÕES */
+    .btnEntrar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0%;
+    }
+
+    .btnEntrar a {
+        text-decoration: none;
+        width: 65%;
+        font-size: 5vw;
+        font-weight: bold;
+        text-align: center;
+        color: var(--cor7);
+        background-color: var(--cor2);
+        line-height: 2.7;
+        border-radius: 20vw;
+        box-shadow: var(--cor4) 2vw 2vw;
+        transition: all .5s;
+    }
+
+    /* GOOGLE LOGIN */
+    .google-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0%;
+    }
+
+    .google-btn {
+        background-color: white;
+        border: none;
+        border-radius: 10vw;
+        height: 13vw;
+        width: 13vw;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        cursor: pointer;
+        transition: width 0.4s ease;
+        overflow: hidden;
+        gap: 0.6vw;
+    }
+
+    .google-icon {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .google-icon img {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .google-text {
+        position: relative;
+        left: 3%;
+        white-space: nowrap;
+        color: var(--cor7);
+        font-size: 5vw;
+        font-weight: normal;
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 0.3s ease;
+    }
+
+    .google-btn:hover {
+        width: 67vw;
+    }
+
+    .google-btn:hover .google-text {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    /* BOTÃO VOLTAR */
+    .btnVoltar {
+        position: absolute;
+        bottom: 8vh;
+        right: 3vw;
+        width: 15vw;
+    }
+
+}
