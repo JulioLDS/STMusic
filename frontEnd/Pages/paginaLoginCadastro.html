@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/paginaLoginCadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>STMusic</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>ST
+                <div class="imgLogo">
+                    <img src="../img/logo.png" alt="logo">
+                </div>
+            </h1>
+            <h2>Music</h2>
+            <h3>Study Tool Music</h3>
+        </div>
+
+        <!-- Titulo Login e Cadastro -->
+        <div class="login">
+            <ul>
+                <li class="tab active">Entrar</li>
+                <li class="tab">Cadastrar</li>
+                <div class="underline"></div>
+            </ul>
+
+            <!-- Formulário de Login e Cadastro -->
+            <div class="forms-wrapper" id="formsWrapper">
+                <!-- LOGIN -->
+                <div class="form-container">
+                    <form id="formLogin" action="/pagina-processa-dados-do-form" method="post">
+                        <div class="nome">
+                            <label for="nomeLogin">Nome</label>
+                            <input type="text" id="nomeLogin" placeholder="Nome">
+                        </div>
+                        <div class="senha">
+                            <label for="senhaLogin">Senha
+                                <img id="toggleSenhaLogin" src="../img/olhoF.png" alt="Mostrar senha" class="eye-icon">
+                            </label>
+                            <input type="password" id="senhaLogin" placeholder="Senha">
+                        </div>
+                        <div class="btnEntrar">
+                            <a href="#">Entrar</a>
+                        </div>
+                        <div class="google-login">
+                            <button type="button" class="google-btn">
+                                <div class="google-icon">
+                                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                                        alt="Google logo">
+                                </div>
+                                <span class="google-text">Continuar com Google</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- CADASTRO -->
+                <div class="form-container">
+                    <form id="formCadastro" action="/pagina-processa-dados-do-form" method="post">
+                        <div class="nome">
+                            <label for="nomeCadastro">Nome</label>
+                            <input type="text" id="nomeCadastro" placeholder="Nome">
+                        </div>
+                        <div class="gmail">
+                            <label for="gmailCadastro">Gmail</label>
+                            <input type="text" id="gmailCadastro" placeholder="Gmail">
+                        </div>
+                        <div class="senha">
+                            <label for="senhaCadastro">Senha
+                                <img id="toggleSenhaCadastro" src="../img/olhoF.png" alt="Mostrar senha"
+                                    class="eye-icon">
+                            </label>
+                            <input type="password" id="senhaCadastro" placeholder="Senha">
+                        </div>
+                        <div class="btnEntrar">
+                            <a href="#">Cadastrar</a>
+                        </div>
+                        <div class="google-login">
+                            <button type="button" class="google-btn">
+                                <div class="google-icon">
+                                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                                        alt="Google logo">
+                                </div>
+                                <span class="google-text">Continuar com Google</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <a href="paginaInicial.html"><img class="btnVoltar" src="../img/voltar.png" alt="voltar"></a>
+        </div>
+    </div>
+
+    <script src="../js/paginaLoginCadastro.js"></script>
+</body>
+
+</html>
