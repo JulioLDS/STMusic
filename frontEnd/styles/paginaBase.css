@@ -1,0 +1,231 @@
+:root {
+    /* bg colors */
+    --cor1: #CEE2BD;
+    --cor2: #98CA8D;
+    --cor3: #63B068;
+    --cor4: #3F975D;
+    --cor5: #247E5A;
+    --cor6: #106659;
+    --cor7: #00444D;
+    --fonte: #FFFFFF;
+
+    /* gd colors */
+    --grCor1: linear-gradient(#247E5B, #00444D);
+    --grCor2: linear-gradient(#247E5B, #0F6659);
+}
+
+body {
+    background-color: var(--cor1);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* HEADER */
+header {
+    width: 100vw;
+    height: 15vh;
+    background-color: var(--cor7);
+    display: flex;
+    align-items: center;
+    border-radius: 0 0 1.5vw 1.5vw;
+
+}
+
+/* LOGO STMusic */
+.logo {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    color: var(--cor4);
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vw;
+
+}
+
+.logo h1 {
+    font-size: 3vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    line-height: 0.8;
+    margin: auto;
+}
+
+.logo h1 .imgLogo {
+    height: 0.8em;
+    width: 0.8em;
+    background-color: var(--cor6);
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo h1 .imgLogo img {
+    width: 50%;
+    height: 50%;
+    border-radius: 15%;
+}
+
+.logo h2 {
+    font-size: 2vw;
+    line-height: 1;
+    margin: auto;
+
+}
+
+.logo h3 {
+    font-size: .7vw;
+    line-height: 1;
+    margin: auto;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    height: calc(100vh - 25vh);
+    display: flex;
+    gap: 5vw;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 1vw;
+    box-sizing: border-box;
+
+
+}
+
+.msg1 {
+    width: 40%;
+    height: 100%;
+}
+
+.msg2 {
+    width: 40%;
+    height: 100%;
+}
+
+/* NAVIGATION */
+
+.navegacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 71px;
+    background: var(--grCor1);
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.navegacao ul {
+    position: relative;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+
+}
+
+.navegacao ul li {
+    position: relative;
+    text-decoration: none;
+    list-style: none;
+    z-index: 1;
+    width: 60px;
+    height: 100%;
+}
+
+.navegacao ul li a {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+}
+
+.navegacao ul li a .icon {
+    position: relative;
+    display: block;
+    text-align: center;
+    line-height: 71px;
+    box-sizing: border-box;
+    padding: 10px;
+    transition: .5s;
+}
+
+.navegacao ul li.active a .icon {
+    transform: translateY(-38px);
+}
+
+
+.navegacao ul li .icon img {
+    width: 35px;
+}
+
+.navegacao ul li .text {
+    position: absolute;
+    color: var(--fonte);
+    font-weight: 500;
+    font-size: .85em;
+    letter-spacing: .05em;
+    transform: translateY(20px);
+    transition: .5s;
+    opacity: 0;
+}
+
+.navegacao ul li.active .text {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+.indicador {
+    position: absolute;
+    top: -55%;
+    left: -1.88%;
+    width: 72px;
+    height: 72px;
+    background-color: var(--cor7);
+    border: 5.59999989px solid var(--cor1);
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+
+}
+
+.indicador::before {
+    content: '';
+    position: absolute;
+    top: 55%;
+    left: -31px;
+    width: 35px;
+    height: 29px;
+    border-top-right-radius: 50px;
+    box-shadow: 1px -10px 0px var(--cor1);
+
+}
+
+.indicador::after {
+    content: '';
+    position: absolute;
+    top: 55%;
+    right: -31px;
+    width: 35px;
+    height: 29px;
+    border-top-left-radius: 50px;
+    box-shadow: -1px -10px 0 var(--cor1);
+
+}
