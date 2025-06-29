@@ -86,7 +86,7 @@ header {
 /* CONTAINER */
 .container {
     width: 100%;
-    height: calc(100vh - 25vh);
+    height: calc(100vh - (25vh + 71px));
     display: flex;
     gap: 5vw;
     align-items: center;
@@ -224,18 +224,20 @@ header {
 
     /* HEADER */
     header {
+        position: relative;
         width: 100vw;
-        height: 10vh;
+        height: 13vh;
         background-color: var(--cor7);
         display: flex;
         align-items: center;
-        border-radius: 0 0 1.5vw 1.5vw;
+        border-radius: 0 0 8vw 8vw;
 
     }
 
     /* LOGO STMusic */
     .logo {
         position: relative;
+        left: 5%;
         width: fit-content;
         height: fit-content;
         color: var(--cor4);
