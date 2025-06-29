@@ -2,61 +2,61 @@ const listItems = document.querySelectorAll('.navegacao ul li');
 const indicador = document.querySelector('.indicador');
 const container = document.querySelector('.container');
 
-// Mapeia cada item de navegação para a classe correspondente da container
 const navClasses = ['home', 'conteudos', 'exercicios', 'status'];
 
-// Posição inicial (Home)
-positionIndicador(document.querySelector('.navegacao ul li.active'));
-
-listItems.forEach((item, index) => {
-    item.addEventListener('click', function () {
-        // Remove a classe 'active' de todos os itens
-        listItems.forEach(li => li.classList.remove('active'));
-
-        // Adiciona a classe 'active' apenas no item clicado
-        this.classList.add('active');
-
-        // Move o indicador para o item clicado
-        positionIndicador(this);
-
-        // Atualiza a classe da .container
-        updateContainerClass(index);
-    });
-});
-
+// Posiciona indicador no item ativo
 function positionIndicador(activeItem) {
-    const gap = 30; // O mesmo gap do CSS (30px)
-    const itemWidth = 60; // Largura do item do menu (60px)
-
-    // Calcula a posição do item ativo
-    const index = Array.from(listItems).indexOf(activeItem);
-    const position = index * (itemWidth + gap);
-
-    // Ajusta a posição do indicador
-    indicador.style.transform = `translateX(${position}px)`;
+  const gap = 30;
+  const itemWidth = 60;
+  const index = Array.from(listItems).indexOf(activeItem);
+  const position = index * (itemWidth + gap);
+  indicador.style.transform = `translateX(${position}px)`;
 }
 
-async function updateContainerClass(activeIndex) {
-    const className = navClasses[activeIndex];
+// Função que carrega o conteúdo JSON estruturado e monta HTML
+async function carregarConteudo(className) {
+  try {
+    const res = await fetch(`../../data/${className}.json`);
+    const data = await res.json();
 
-    // Remove todas as classes antigas
+    // Atualiza o conteúdo primeiro
+    container.innerHTML = `
+            <div class="${data.msg1.class}">
+                ${data.msg1.conteudo.join("\n")}
+            </div>
+            <div class="${data.msg2.class}">
+                ${data.msg2.conteudo.join("\n")}
+            </div>
+        `;
+
+    // Só depois troca a classe
     navClasses.forEach(cls => container.classList.remove(cls));
-
-    // Adiciona a nova classe
     container.classList.add(className);
 
-    try {
-        // Caminho do JSON por nome da classe
-        const res = await fetch(`../../data/${className}.json`);
-        const data = await res.json();
-
-        // Insere o conteúdo HTML vindo do JSON
-        container.innerHTML = data.html || `<h1>Conteúdo não encontrado.</h1>`;
-    } catch (error) {
-        console.error("Erro ao carregar o conteúdo:", error);
-        container.innerHTML = `<h1>Erro ao carregar conteúdo.</h1>`;
-    }
+  } catch (error) {
+    console.error("Erro ao carregar o conteúdo:", error);
+    container.innerHTML = `<h1>Erro ao carregar conteúdo.</h1>`;
+  }
 }
 
-updateContainerClass(0); // Carrega o conteúdo "home" ao iniciar
 
+// Inicializa a página com "home"
+positionIndicador(document.querySelector('.navegacao ul li.active'));
+carregarConteudo('home');
+
+// Listener para clique no menu
+listItems.forEach((item, index) => {
+  item.addEventListener('click', function (e) {
+    e.preventDefault(); // evita scroll ao topo pois o link é "#"
+
+    // Atualiza active class
+    listItems.forEach(li => li.classList.remove('active'));
+    this.classList.add('active');
+
+    // Move indicador
+    positionIndicador(this);
+
+    // Carrega conteúdo da classe selecionada
+    carregarConteudo(navClasses[index]);
+  });
+});

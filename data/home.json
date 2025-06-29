@@ -1,3 +1,22 @@
 {
-    "html": "<div class=\"msg1\">\n  <h1>Bem-vindo ao STMusic</h1>\n    <p>Somos uma plataforma de estudos sobre teoria musical.</p>\n    <p>Nossa plataforma oferece: Videoaulas, exercícios práticos e muito mais.</p>\n</div>\n<div class=\"msg2\">\n    <h1>Navegação</h1>\n    <ul>\n        <li><a href=\"#\"><img src=\"../img/home-agreement.png\" alt=\"home\"></a> Página Home</li>\n        <li><a href=\"#\"><img src=\"../img/reading-book.png\" alt=\"conteudos\"></a> Conteúdos Teóricos</li>\n        <li><a href=\"#\"><img src=\"../img/report.png\" alt=\"exercicios\"></a> Exercícios</li>\n        <li><a href=\"#\"><img src=\"../img/status.png\" alt=\"status\"></a> Status de Progresso</li>\n    </ul>\n</div>"
+    "msg1": {
+        "class": "msg1",
+        "conteudo": [
+            "<h1>Seja<br>Bem-vindo!</h1>",
+            "<p>Somos uma plataforma de estudos sobre teoria musical.</p>",
+            "<p>Nossa plataforma oferece: Videoaulas, exercícios práticos e muito mais.</p>"
+        ]
+    },
+    "msg2": {
+        "class": "msg2",
+        "conteudo": [
+            "<h1>Navegação</h1>",
+            "<ul>",
+            "  <li><a href=\"#\"><img src=\"../img/home-agreement.png\" alt=\"home\"></a> Página Home</li>",
+            "  <li><a href=\"#\"><img src=\"../img/reading-book.png\" alt=\"conteudos\"></a> Conteúdos Teóricos</li>",
+            "  <li><a href=\"#\"><img src=\"../img/report.png\" alt=\"exercicios\"></a> Exercícios</li>",
+            "  <li><a href=\"#\"><img src=\"../img/status.png\" alt=\"status\"></a> Status de Progresso</li>",
+            "</ul>"
+        ]
+    }
 }

@@ -18,32 +18,60 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+/* CONTAINER HOME */
 .container.home {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.container.home .msg1 {
-    width: 40%;
-    height: 100%;
-}
-
+.container.home .msg1,
 .container.home .msg2 {
-    width: 40%;
-    height: 100%;
+    width: 30%;
+    height: 80%;
+    box-sizing: border-box;
+    color: var(--cor6);
+    line-height: 1;
+}
+
+/* MENSAGEM 1 */
+.container.home .msg1 h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--cor4);
+}
+
+.container.home .msg1 p {
+    line-height: 1.2;
+    font-size: 1.7rem;
+    font-weight: 550;
+    margin-bottom: 0;
+    width: 90%;
+}
+
+/* MENSAGEM 2 */
+.container.home .msg2 h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--cor4);
 }
 
 .container.home .msg2 ul {
-    padding: 0%;
+    padding: 0;
+    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 1vw;
 }
 
 .container.home .msg2 ul li {
-    background-color: #106659;
     display: flex;
     align-items: center;
     gap: 1vw;
+    font-size: 1.7rem;
+    font-weight: 550;
+    margin-bottom: 0;
 }
 
 .container.home .msg2 ul li a {
@@ -55,7 +83,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 
 .container.home .msg2 ul li a img {
     width: 2.5vw;
