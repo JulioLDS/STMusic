@@ -98,16 +98,6 @@ header {
 
 }
 
-.msg1 {
-    width: 40%;
-    height: 100%;
-}
-
-.msg2 {
-    width: 40%;
-    height: 100%;
-}
-
 /* NAVIGATION */
 
 .navegacao {
@@ -162,10 +152,12 @@ header {
     box-sizing: border-box;
     padding: 10px;
     transition: .5s;
+    opacity: 0.5;
 }
 
 .navegacao ul li.active a .icon {
     transform: translateY(-38px);
+    opacity: 1;
 }
 
 
@@ -210,9 +202,9 @@ header {
     content: '';
     position: absolute;
     top: 55%;
-    left: -31px;
-    width: 35px;
-    height: 29px;
+    left: -20px;
+    width: 20px;
+    height: 20px;
     border-top-right-radius: 50px;
     box-shadow: 1px -10px 0px var(--cor1);
 
@@ -222,10 +214,76 @@ header {
     content: '';
     position: absolute;
     top: 55%;
-    right: -31px;
-    width: 35px;
-    height: 29px;
+    right: -20px;
+    width: 20px;
+    height: 20px;
     border-top-left-radius: 50px;
     box-shadow: -1px -10px 0 var(--cor1);
+
+}
+
+/*      ===MOBILE===   */
+@media (max-width: 600px) {
+
+    /* HEADER */
+    header {
+        width: 100vw;
+        height: 10vh;
+        background-color: var(--cor7);
+        display: flex;
+        align-items: center;
+        border-radius: 0 0 1.5vw 1.5vw;
+
+    }
+
+    /* LOGO STMusic */
+    .logo {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        color: var(--cor4);
+        display: flex;
+        flex-direction: column;
+        padding-left: 2vw;
+
+    }
+
+    .logo h1 {
+        font-size: 10vw;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        line-height: 0.8;
+        margin: auto;
+    }
+
+    .logo h1 .imgLogo {
+        height: 0.8em;
+        width: 0.8em;
+        background-color: var(--cor6);
+        border-radius: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo h1 .imgLogo img {
+        width: 50%;
+        height: 50%;
+        border-radius: 15%;
+    }
+
+    .logo h2 {
+        font-size: 6.5vw;
+        line-height: 1;
+        margin: auto;
+
+    }
+
+    .logo h3 {
+        font-size: 2.2vw;
+        line-height: 1;
+        margin: auto;
+    }
 
 }
