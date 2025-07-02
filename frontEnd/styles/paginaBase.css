@@ -29,6 +29,7 @@ header {
     background-color: var(--cor7);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-radius: 0 0 1.5vw 1.5vw;
 
 }
@@ -81,6 +82,13 @@ header {
     font-size: .7vw;
     line-height: 1;
     margin: auto;
+}
+
+/* BTN VOLTAR */
+.btnVoltar {
+    position: relative;
+    right: 3vw;
+    width: 3.5vw;
 }
 
 /* CONTAINER */

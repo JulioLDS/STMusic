@@ -16,6 +16,16 @@ function positionIndicador(activeItem) {
 // Função que carrega o conteúdo JSON estruturado e monta HTML
 async function carregarConteudo(className) {
   try {
+    // Se for a página de conteúdos, deixa o conteudos.js cuidar disso
+    if (className === 'conteudos') {
+      navClasses.forEach(cls => container.classList.remove(cls));
+      container.classList.add('conteudos');
+      container.innerHTML = '';
+      carregarConteudos();
+      return;
+    }
+
+
     const res = await fetch(`../../data/${className}.json`);
     const data = await res.json();
 
@@ -39,7 +49,6 @@ async function carregarConteudo(className) {
   }
 }
 
-
 // Inicializa a página com "home"
 positionIndicador(document.querySelector('.navegacao ul li.active'));
 carregarConteudo('home');
@@ -58,5 +67,10 @@ listItems.forEach((item, index) => {
 
     // Carrega conteúdo da classe selecionada
     carregarConteudo(navClasses[index]);
+
+    // Se for conteúdo, chama a função específica
+    if (navClasses[index] === 'conteudos') {
+      carregarConteudos();
+    }
   });
 });
