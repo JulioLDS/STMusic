@@ -51,6 +51,23 @@
                     "</ul>",
                     "<img src='../img/diagrama-acordes.png' alt='Diagrama de Acordes'>"
                 ]
+            },
+            {
+                "id": "ritmo",
+                "card": {
+                    "titulo": "Ritmo",
+                    "descricao": "Organização do tempo na música, incluindo batidas e compassos.",
+                    "img": "../img/ritmo.png"
+                },
+                "conteudo": [
+                    "<h1>Ritmo</h1>",
+                    "<p>Ritmo é a organização do tempo na música, incluindo batidas e compassos.</p>",
+                    "<h2>Elementos do Ritmo</h2>",
+                    "<ul>",
+                    "  <li>Tempo: Velocidade da música</li>",
+                    "  <li>Compasso: Divisão do tempo em partes iguais</li>",
+                    "</ul>"
+                ]
             }
         ],
         "intermediario": [

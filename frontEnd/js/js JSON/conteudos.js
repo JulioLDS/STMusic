@@ -19,7 +19,9 @@ async function carregarConteudos() {
                     <div class="cards-row">
                         ${conteudos.map(conteudo => `
                             <div class="card" data-id="${conteudo.id}">
-                                <img src="${conteudo.card.img}" alt="${conteudo.card.titulo}">
+                                <div class="card-image">
+                                    <img src="${conteudo.card.img}" alt="${conteudo.card.titulo}">
+                                </div>
                                 <h3>${conteudo.card.titulo}</h3>
                                 <p>${conteudo.card.descricao}</p>
                                 <button class="ver-conteudo">Ver Conteúdo</button>
