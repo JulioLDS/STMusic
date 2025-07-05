@@ -16,38 +16,59 @@ function positionIndicador(activeItem) {
 // Função que carrega o conteúdo JSON estruturado e monta HTML
 async function carregarConteudo(className) {
   try {
-    // Se for a página de conteúdos, deixa o conteudos.js cuidar disso
+    // Limpa classes do container
+    navClasses.forEach(cls => container.classList.remove(cls));
+    container.classList.add(className);
+    container.innerHTML = '';
+
+    const header = document.querySelector("header");
+    const btnVoltar = document.querySelector(".btnVoltar");
+    const btnSair = document.querySelector(".btnSair");
+
+    // Reset estilos do header e dos botões
+    header.style.backgroundColor = ""; // volta ao padrão
+    btnSair.style.display = "none";
+    btnVoltar.style.display = "none";
+    btnVoltar.onclick = null;
+
+    // STATUS
+    if (className === 'status') {
+      // Deixa header transparente e mostra botão sair
+      header.style.backgroundColor = "transparent";
+      btnSair.style.display = "block";
+
+      if (typeof carregarStatus === 'function') {
+        carregarStatus();
+      } else {
+        container.innerHTML = `<h1>Função "carregarStatus" não encontrada.</h1>`;
+      }
+      return;
+    }
+
+    // CONTEÚDOS
     if (className === 'conteudos') {
-      navClasses.forEach(cls => container.classList.remove(cls));
-      container.classList.add('conteudos');
-      container.innerHTML = '';
       carregarConteudos();
       return;
     }
 
-
+    // OUTROS (home, exercicios etc)
     const res = await fetch(`../../data/${className}.json`);
     const data = await res.json();
 
-    // Atualiza o conteúdo primeiro
     container.innerHTML = `
-            <div class="${data.msg1.class}">
-                ${data.msg1.conteudo.join("\n")}
-            </div>
-            <div class="${data.msg2.class}">
-                ${data.msg2.conteudo.join("\n")}
-            </div>
-        `;
-
-    // Só depois troca a classe
-    navClasses.forEach(cls => container.classList.remove(cls));
-    container.classList.add(className);
-
+      <div class="${data.msg1.class}">
+          ${data.msg1.conteudo.join("\n")}
+      </div>
+      <div class="${data.msg2.class}">
+          ${data.msg2.conteudo.join("\n")}
+      </div>
+    `;
   } catch (error) {
     console.error("Erro ao carregar o conteúdo:", error);
     container.innerHTML = `<h1>Erro ao carregar conteúdo.</h1>`;
   }
 }
+
 
 // Inicializa a página com "home"
 positionIndicador(document.querySelector('.navegacao ul li.active'));
@@ -67,10 +88,5 @@ listItems.forEach((item, index) => {
 
     // Carrega conteúdo da classe selecionada
     carregarConteudo(navClasses[index]);
-
-    // Se for conteúdo, chama a função específica
-    if (navClasses[index] === 'conteudos') {
-      carregarConteudos();
-    }
   });
 });

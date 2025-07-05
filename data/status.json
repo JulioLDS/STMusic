@@ -1,0 +1,13 @@
+{
+    "usuario": {
+        "nome": "João Silva"
+    },
+    "progresso": {
+        "notas-musicais": 0.5,
+        "escalas": 1,
+        "acordes": 0.7,
+        "modos": 0.3,
+        "harmonia": 0.6,
+        "improvisacao": 0.8
+    }
+}

@@ -91,6 +91,18 @@ header {
     width: 3.5vw;
 }
 
+/* BTN SAIR */
+.btnSair {
+    display: none;
+    position: absolute;
+    top: 2vw;
+    right: 3vw;
+    width: 3.5vw;
+    background-color: var(--cor7);
+    padding: 15px;
+    border-radius: 15px;
+}
+
 /* CONTAINER */
 .container {
     width: 100%;
