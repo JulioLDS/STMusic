@@ -15,122 +15,269 @@
 
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
-/*TIRANDO BARRA DE ROLAGEMs*/
-.container {
+body {
+    min-height: 100vh;
+    position: relative;
+}
+
+.container.conteudos {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    display: block;
+    height: calc(100vh - 26.4vh);
+    /* Mudamos de flex para block */
+    overflow-x: hidden;
+    /* Cor de fundo suave */
+
+    /* Remove barras de rolagem visuais */
     scrollbar-width: none;
     /* Firefox */
     -ms-overflow-style: none;
     /* IE e Edge */
 }
 
-.container::-webkit-scrollbar {
+.container.conteudos::-webkit-scrollbar {
     display: none;
     /* Chrome, Safari e Opera */
 }
 
-/* CONTAINER CONTEUDOS */
-.container.conteudos {
+/* Adicione esta nova classe para o wrapper dos cards */
+.cards-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+.level-section {
+    padding: 0px 30px;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: normal;
-    align-items: center;
-    gap: 2vw;
-    width: 100%;
-    height: 73.5vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-/*CARDS por nível*/
-.container.conteudos .nivel-container {
-    width: 100%;
-}
-
-.container.conteudos .nivel-container .nivel-titulo {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--cor4);
-}
-
-/*CARDS*/
-.container.conteudos .nivel-container .cards-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: fit-content;
-}
-
-.container.conteudos .nivel-container .cards-row .card {
-    width: 20vw;
-    height: 50vh;
-    background-color: var(--cor5);
-    border-radius: 1vw;
-    margin: 1vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    /* Distribui os itens */
-    padding: 1vh 0;
-    box-sizing: border-box;
-}
-
-.container.conteudos .nivel-container .cards-row .card .card-image {
-    width: 90%;
-    height: 40%;
-    /* ou ajuste como 35% se preferir menos */
-    background-color: var(--cor6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1vw;
-    margin-bottom: 0.5rem;
-}
-
-.container.conteudos .nivel-container .cards-row .card h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-align: center;
-    margin: 0.2rem 0;
-}
-
-.container.conteudos .nivel-container .cards-row .card p {
-    font-size: 1.2rem;
-    text-align: center;
-    width: 90%;
-    height: 20%;
-    margin: 0.2rem 0;
     overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.container.conteudos .nivel-container .cards-row .card button {
-    width: 80%;
-    height: 5vh;
-    background-color: var(--cor4);
-    color: var(--fonte);
-    border: none;
-    border-radius: 0.5vw;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-top: 0.5rem;
 }
 
 
-/*CONTEUDO DETALHADO*/
+/* Estilo dos títulos das seções */
+.section-title {
+    font-size: 1.8rem;
+    color: #6366F1;
+    text-align: center;
+    margin: 40px 0 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
 
-.container.conteudos .conteudo-detalhado {
-    width: 100%;
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    border-radius: 3px;
+}
+
+/* Estilo dos cards */
+.card {
+    background: #FFF;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     height: 100%;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease;
+    margin: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #6366F1;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    background-color: peru;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.card-profile {
+    display: flex;
+    align-items: center;
+}
+
+.card-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-profile-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.card-profile-role {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.card-button {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(99, 102, 241, 0.3);
+}
+
+.card-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* Estilo do Swiper */
+.swiper {
+    width: 100%;
+    height: auto;
+    padding: 20px 0 40px;
+
+}
+
+.swiper-slide {
+    height: auto;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #B1B3F8;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #6366F1;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    color: #6366F1;
+}
+
+.swiper-button-prev {
+    left: 20px;
+    /* dentro da padding lateral */
+}
+
+.swiper-button-next {
+    right: 20px;
+}
+
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: #8B5CF6;
+    background: white;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 1.2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
+
+    .card-image img {
+        height: 150px;
+    }
 }
