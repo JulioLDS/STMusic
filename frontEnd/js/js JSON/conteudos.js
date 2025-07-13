@@ -11,20 +11,25 @@ async function carregarConteudos() {
 
             // Mapeia os níveis sem acento para os títulos formatados corretamente
             const titulos = {
-                'iniciante': 'INICIANTE',
-                'intermediario': 'INTERMEDIÁRIO',
-                'avancado': 'AVANÇADO'
+                'iniciante': 'Iniciante',
+                'intermediario': 'Intermediário',
+                'avancado': 'Avançado'
             };
 
             return `
             <div class="level-section">
-                <h2 class="section-title">${titulos[nivel] || nivel.toUpperCase()}</h2>
+                <h2 class="section-title" id="${nivel}">${titulos[nivel] || nivel}</h2>
                 <div class="swiper-button-prev swiper-button-prev-${nivel.toLowerCase()}"></div>
                 <div class="swiper swiper-${nivel.toLowerCase()}">
-                    <div class="swiper-wrapper">
-                        ${conteudos.map((conteudo, index) => `
-                            <div class="swiper-slide">
-                                <div class="card" data-id="${conteudo.id}">
+                
+                <div class="swiper-wrapper">
+               ${conteudos.map((conteudo, index) => `
+                <div class="swiper-slide">
+                    <div class="card ${(nivel === 'intermediario' || nivel === 'avancado') ? 'card-restrito' : ''}" data-id="${conteudo.id}">
+            ${(nivel === 'intermediario' || nivel === 'avancado')
+                    ? '<div class="ribbon">RESTRITO</div>'
+                    : ''
+                }
                                     <div class="card-image">
                                         <img src="${conteudo.card.img}" alt="${conteudo.card.alt || 'Imagem do card'}">
                                         <p class="card-tag">${conteudo.card.tag || 'Música'}</p>
@@ -84,6 +89,7 @@ async function carregarConteudos() {
         console.error("Erro ao carregar os conteúdos:", error);
         container.innerHTML = `<p class="erro-carregamento">Erro ao carregar conteúdos. Tente novamente mais tarde.</p>`;
     }
+
 }
 
 function inicializarSwipers() {

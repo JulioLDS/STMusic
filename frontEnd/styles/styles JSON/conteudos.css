@@ -13,6 +13,11 @@
     --grCor1: linear-gradient(#247E5B, #00444D);
     --grCor2: linear-gradient(#247E5B, #0F6659);
 
+    /*niveis*/
+    --nivel1: #63B068;
+    --nivel2: #FBBF24;
+    --nivel3: #f5130b;
+
 }
 
 /* Reset e configurações básicas */
@@ -20,7 +25,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 body {
@@ -28,6 +34,7 @@ body {
     position: relative;
 }
 
+/*CONTAINER CONTEUDOS*/
 .container.conteudos {
     position: relative;
     width: 90%;
@@ -50,7 +57,7 @@ body {
     /* Chrome, Safari e Opera */
 }
 
-/* Adicione esta nova classe para o wrapper dos cards */
+/* CONTAINER DOS CARDS */
 .cards-wrapper {
     width: 100%;
     max-width: 1200px;
@@ -60,42 +67,51 @@ body {
 
 
 .level-section {
-    padding: 0px 30px;
+    padding: 10px 30px;
     border-radius: 15px;
     margin: 20px 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    height: fit-content;
 }
 
 
-/* Estilo dos títulos das seções */
+/* NÍVEIS */
 .section-title {
-    font-size: 1.8rem;
-    color: #6366F1;
-    text-align: center;
-    margin: 40px 0 20px;
+    font-size: 2rem;
+    color: var(--fonte);
+    text-align: left;
+    margin: 40px 20px 20px;
     position: relative;
     padding-bottom: 10px;
 }
 
-.section-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
-    border-radius: 3px;
+#iniciante {
+    background-color: var(--nivel1);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 20px;
 }
+
+#intermediario {
+    background-color: var(--nivel2);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#avancado {
+    background-color: var(--nivel3);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 20px;
+}
+
 
 /* Estilo dos cards */
 .card {
-    background: #FFF;
+    background: var(--cor3);
     border-radius: 15px;
-    overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     height: 100%;
     display: flex;
@@ -108,23 +124,53 @@ body {
     transform: translateY(-5px);
 }
 
+/*FAIXA DE RESTRITO*/
+.ribbon {
+    position: absolute;
+    top: 12px;
+    left: -40px;
+    transform: rotate(-45deg);
+    background-color: var(--nivel3);
+    color: white;
+    padding: 5px 50px;
+    font-weight: bold;
+    font-size: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-restrito:hover {
+    transform: none !important;
+}
+
+
+
 .card-image {
     position: relative;
 }
 
 .card-image img {
-    width: 100%;
+    position: relative;
+    top: -10%;
+    left: 5%;
+    width: 90%;
     height: 180px;
     object-fit: cover;
     display: block;
+    background: var(--grCor1);
+    border-radius: 15px;
+
+
 }
 
 .card-tag {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    background: rgba(255, 255, 255, 0.9);
-    color: #6366F1;
+    top: 0px;
+    left: 8%;
+    background: var(--cor7);
+    color: var(--fonte);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -140,59 +186,28 @@ body {
 }
 
 .card-title {
-    font-size: 1.2rem;
-    color: #333;
+    font-size: 1.5rem;
+    color: var(--fonte);
     margin-bottom: 10px;
 }
 
 .card-text {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--cor1);
     margin-bottom: 15px;
     flex: 1;
 }
 
 .card-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
     padding-top: 15px;
-    border-top: 1px solid #eee;
-}
-
-.card-profile {
-    display: flex;
-    align-items: center;
-}
-
-.card-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.card-profile-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.card-profile-name {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #333;
-}
-
-.card-profile-role {
-    font-size: 0.8rem;
-    color: #888;
+    border-top: 2px solid var(--cor7);
 }
 
 .card-button {
-    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    background: var(--grCor2);
     color: white;
     padding: 8px 15px;
     border-radius: 20px;
@@ -200,12 +215,12 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 3px 10px var(--cor6);
 }
 
 .card-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 5px 15px var(--cor6);
 }
 
 /* Estilo do Swiper */
@@ -221,49 +236,50 @@ body {
 }
 
 .swiper-pagination-bullet {
+    position: relative;
+    top: 1vw;
     width: 12px;
     height: 12px;
-    background: #B1B3F8;
+    background: var(--cor2);
     opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-    background: #6366F1;
+    background: var(--cor4);
 }
 
 .swiper-button-prev,
 .swiper-button-next {
     position: absolute;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
     z-index: 10;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.9);
+    width: 5vw;
+    height: 5vw;
+    background: var(--cor1);
     border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    color: #6366F1;
+    color: var(--cor7);
 }
 
 .swiper-button-prev {
-    left: 20px;
+    left: 3px;
     /* dentro da padding lateral */
 }
 
 .swiper-button-next {
-    right: 20px;
+    right: 3px;
 }
 
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    color: #8B5CF6;
-    background: white;
+    opacity: 0.8;
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-    font-size: 1.2rem;
+    font-size: 2rem;
 }
 
 /* Responsividade */
