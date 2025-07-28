@@ -34,22 +34,18 @@ body {
     position: relative;
 }
 
-/*CONTAINER CONTEUDOS*/
+/*  CONTAINER CONTEUDOS  */
 .container.conteudos {
     position: relative;
     width: 90%;
     margin: auto;
     display: block;
     height: calc(100vh - 26.4vh);
-    /* Mudamos de flex para block */
     overflow-x: hidden;
-    /* Cor de fundo suave */
 
     /* Remove barras de rolagem visuais */
     scrollbar-width: none;
-    /* Firefox */
     -ms-overflow-style: none;
-    /* IE e Edge */
 }
 
 .container.conteudos::-webkit-scrollbar {
@@ -69,7 +65,7 @@ body {
 .level-section {
     padding: 10px 30px;
     border-radius: 15px;
-    margin: 20px 0;
+    margin-bottom: 20px;
     position: relative;
     overflow: hidden;
     height: fit-content;
@@ -108,7 +104,7 @@ body {
 }
 
 
-/* Estilo dos cards */
+/* ESTILOS DOS CARDS */
 .card {
     background: var(--cor3);
     border-radius: 15px;
@@ -145,7 +141,7 @@ body {
     transform: none !important;
 }
 
-
+/* FIM FAIXA DE RESTRITO*/
 
 .card-image {
     position: relative;
@@ -203,7 +199,6 @@ body {
     justify-content: right;
     align-items: center;
     padding-top: 15px;
-    border-top: 2px solid var(--cor7);
 }
 
 .card-button {
@@ -223,7 +218,7 @@ body {
     box-shadow: 0 5px 15px var(--cor6);
 }
 
-/* Estilo do Swiper */
+/* ESTILO DO SWIPER */
 .swiper {
     width: 100%;
     height: auto;
@@ -264,7 +259,6 @@ body {
 
 .swiper-button-prev {
     left: 3px;
-    /* dentro da padding lateral */
 }
 
 .swiper-button-next {
@@ -282,8 +276,313 @@ body {
     font-size: 2rem;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
+/*      ===CONTEÚDO DETALHADO===   */
+
+.conteudo-detalhado {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 73.5vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    color: var(--cor6);
+    line-height: 1;
+    /* Remove barras de rolagem visuais */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* MATERIAL */
+
+.conteudo-detalhado .material {
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    padding: 2rem 2rem 5rem 2rem;
+    border-radius: 15px;
+    overflow-y: auto;
+    /* Remove barras de rolagem visuais */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.conteudo-detalhado .material h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--cor4);
+    padding-bottom: 2rem;
+}
+
+.conteudo-detalhado .material p {
+    line-height: 1.2;
+    font-size: 1.7rem;
+    font-weight: 550;
+    margin-bottom: 0;
+    width: 90%;
+    padding-bottom: 1.5rem;
+}
+
+/* PRÁTICA */
+.conteudo-detalhado .pratica {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.conteudo-detalhado .pratica .btn-praticar {
+    width: fit-content;
+    background: var(--grCor2);
+    color: var(--fonte);
+    padding: .6rem 4rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px var(--cor6);
+}
+
+.conteudo-detalhado .pratica .btn-praticar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--cor6);
+}
+
+/*      ===MOBILE===   */
+@media (max-width: 600px) {
+
+
+    /*  RESETANDO TAMANHO PARA OCUPAR A TELA TODA*/
+    .container.conteudos,
+    .cards-wrapper,
+    .level-section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    .swiper {
+        width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card {
+        width: 80vw;
+        margin: 0;
+    }
+
+
+
+    /*  CONTAINER CONTEUDOS  */
+    .container.conteudos {
+        position: relative;
+        width: 100vw;
+        margin: auto;
+        display: block;
+        height: 72vh;
+        overflow-x: hidden;
+
+        /* Remove barras de rolagem visuais */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .container.conteudos::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari e Opera */
+    }
+
+    /* CONTAINER DOS CARDS */
+    .cards-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+
+    .level-section {
+        padding: 10px 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+        height: fit-content;
+    }
+
+    /* NÍVEIS */
+    .section-title {
+        font-size: 2rem;
+        color: var(--fonte);
+        text-align: left;
+        margin: 40px 20px 20px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    #iniciante {
+        background-color: var(--nivel1);
+        width: fit-content;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    #intermediario {
+        background-color: var(--nivel2);
+        width: fit-content;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    #avancado {
+        background-color: var(--nivel3);
+        width: fit-content;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+
+    /* ESTILOS DOS CARDS */
+    .card {
+        background: var(--cor3);
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+        margin: 10px;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    /*FAIXA DE RESTRITO*/
+    .ribbon {
+        position: absolute;
+        top: 12px;
+        left: 0px;
+        transform: rotate(-45deg);
+        background-color: var(--nivel3);
+        color: white;
+        padding: 5px 50px;
+        font-weight: bold;
+        font-size: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .card-restrito:hover {
+        transform: none !important;
+    }
+
+    /* FIM FAIXA DE RESTRITO*/
+
+    .card-image {
+        position: relative;
+    }
+
+    .card-image img {
+        position: relative;
+        top: -10%;
+        left: 5%;
+        width: 90%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        background: var(--grCor1);
+        border-radius: 15px;
+    }
+
+    .card-tag {
+        position: absolute;
+        top: 0px;
+        left: 8%;
+        background: var(--cor7);
+        color: var(--fonte);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .card-content {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        color: var(--fonte);
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+        color: var(--cor1);
+        margin-bottom: 15px;
+        flex: 1;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding-top: 15px;
+    }
+
+    .card-button {
+        background: var(--grCor2);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px var(--cor6);
+    }
+
+    .card-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px var(--cor6);
+    }
+
+    /* ESTILO DO SWIPER */
+
+    .swiper {
+        width: 100%;
+        height: auto;
+        padding: 20px 0 40px;
+    }
+
+
+    .swiper-slide {
+        height: auto;
+    }
+
+
     .section-title {
         font-size: 1.5rem;
     }
@@ -293,7 +592,93 @@ body {
         display: none;
     }
 
-    .card-image img {
-        height: 150px;
+
+    /*      ===CONTEÚDO DETALHADO===   */
+
+    .conteudo-detalhado {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        color: var(--cor6);
+        line-height: 1;
+        /* Remove barras de rolagem visuais */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    /* MATERIAL */
+
+    .conteudo-detalhado .material {
+        width: 100%;
+        height: fit-content;
+        margin: auto;
+        padding: 2rem 2rem 5rem 2rem;
+        border-radius: 15px;
+        overflow-y: visible;
+        /* Remove barras de rolagem visuais */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .conteudo-detalhado .material h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--cor4);
+        padding-bottom: 2rem;
+    }
+
+    .conteudo-detalhado .material p {
+        line-height: 1.2;
+        font-size: 1.7rem;
+        font-weight: 550;
+        margin-bottom: 0;
+        width: 90%;
+        padding-bottom: 1.5rem;
+    }
+
+    /* PRÁTICA */
+    .conteudo-detalhado .pratica {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 3rem;
+    }
+
+    .conteudo-detalhado .pratica .btn-praticar {
+        width: fit-content;
+        background: var(--grCor2);
+        color: var(--fonte);
+        padding: .6rem 4rem;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px var(--cor6);
+    }
+
+    .conteudo-detalhado .pratica .btn-praticar:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px var(--cor6);
+    }
+
+
+    /*BTN VOLTAR*/
+
+    .btnVoltar {
+        position: relative;
+        right: 5vw;
+        width: 14vw;
     }
 }

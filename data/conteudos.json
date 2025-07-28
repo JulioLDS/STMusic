@@ -9,12 +9,18 @@
                     "img": "../img/nota-musical.png"
                 },
                 "conteudo": [
+                    "<div class='material'>",
                     "<h1>Notas Musicais</h1>",
                     "<p>As notas musicais são os sons fundamentais da música, representados por letras de A a G.</p>",
                     "<p>Na música ocidental, as notas são organizadas em uma escala de 12 semitons, que formam uma oitava.</p>",
                     "<p>As notas naturais são: A (Lá), B (Si), C (Dó), D (Ré), E (Mi), F (Fá), G (Sol).</p>",
                     "<p>Além disso, existem notas alteradas como sustenidos (#) e bemóis (b).</p>",
-                    "<img src='../img/escala-musical.png' alt='Escala Musical'>"
+                    "<img src='../img/escala-musical.png' alt='Escala Musical'>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
                 ]
             },
             {
@@ -25,13 +31,19 @@
                     "img": "../img/escalas.png"
                 },
                 "conteudo": [
+                    "<div class='material'>",
                     "<h1>Escalas Musicais</h1>",
                     "<p>Escalas são sequências ordenadas de notas que formam a base da melodia.</p>",
                     "<h2>Escala Maior</h2>",
                     "<p>Padrão de intervalos: T-T-S-T-T-T-S (T = Tom, S = Semitom)</p>",
                     "<h2>Escala Menor</h2>",
                     "<p>Existem três tipos: natural, harmônica e melódica.</p>",
-                    "<img src='../img/escalas-piano.png' alt='Escalas no Piano'>"
+                    "<img src='../img/escalas-piano.png' alt='Escalas no Piano'>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
                 ]
             },
             {
@@ -42,6 +54,7 @@
                     "img": "../img/acordes.png"
                 },
                 "conteudo": [
+                    "<div class='material'>",
                     "<h1>Acordes</h1>",
                     "<p>Combinação de três ou mais notas tocadas simultaneamente.</p>",
                     "<h2>Acordes Básicos</h2>",
@@ -49,7 +62,12 @@
                     "  <li>Maior: Tônica + 3ª maior + 5ª justa</li>",
                     "  <li>Menor: Tônica + 3ª menor + 5ª justa</li>",
                     "</ul>",
-                    "<img src='../img/diagrama-acordes.png' alt='Diagrama de Acordes'>"
+                    "<img src='../img/diagrama-acordes.png' alt='Diagrama de Acordes'>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
                 ]
             },
             {
@@ -60,13 +78,19 @@
                     "img": "../img/ritmo.png"
                 },
                 "conteudo": [
+                    "<div class='material'>",
                     "<h1>Ritmo</h1>",
                     "<p>Ritmo é a organização do tempo na música, incluindo batidas e compassos.</p>",
                     "<h2>Elementos do Ritmo</h2>",
                     "<ul>",
                     "  <li>Tempo: Velocidade da música</li>",
                     "  <li>Compasso: Divisão do tempo em partes iguais</li>",
-                    "</ul>"
+                    "</ul>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
                 ]
             }
         ],
@@ -79,6 +103,7 @@
                     "img": "../img/modos.png"
                 },
                 "conteudo": [
+                    "<div class='material'>",
                     "<h1>Modos Musicais</h1>",
                     "<p>Modos são escalas derivadas da escala maior, cada uma com seu próprio caráter.</p>",
                     "<ul>",
@@ -86,7 +111,12 @@
                     "  <li>Frígio</li>",
                     "  <li>Lídio</li>",
                     "  <li>Mixo</li>",
-                    "</ul>"
+                    "</ul>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
                 ]
             },
             {
@@ -97,11 +127,17 @@
                     "img": "../img/harmonia.png"
                 },
                 "conteudo": [
+                    "<div class='material'>",
                     "<h1>Harmonia</h1>",
                     "<p>Estudo das relações entre acordes e como eles se combinam.</p>",
                     "<h2>Progressões Harmônicas</h2>",
                     "<p>Sequências de acordes que criam movimento musical.</p>",
-                    "<img src='../img/progressao-harmonicas.png' alt='Progressões Harmônicas'>"
+                    "<img src='../img/progressao-harmonicas.png' alt='Progressões Harmônicas'>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
                 ]
             }
         ],
@@ -114,6 +150,7 @@
                     "img": "../img/improvisacao.png"
                 },
                 "conteudo": [
+                    "<div class='material'>",
                     "<h1>Improvisação</h1>",
                     "<p>Improvisação é a arte de criar música de forma espontânea.</p>",
                     "<h2>Técnicas de Improvisação</h2>",
@@ -121,7 +158,12 @@
                     "  <li>Uso de escalas</li>",
                     "  <li>Frases melódicas</li>",
                     "  <li>Interação com outros músicos</li>",
-                    "</ul>"
+                    "</ul>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
                 ]
             }
         ]
