@@ -28,7 +28,9 @@
 
     </header>
     <!-- BOTÃO SAIR -->
-    <a href="./paginaInicial.html"><img class="btnSair" src="../img/sair.png" alt="sair"></a>
+    <a href="../Pages/paginaInicial.html">
+        <img class="btnSair" src="../img/sair.png" alt="sair">
+    </a>
 
     <!-- CONTEÚDO DAS PÁGINAS CARREGADO AQUI -->
     <div class="container home"></div>
@@ -63,12 +65,23 @@
             <div class="indicador"></div>
         </ul>
     </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO -->
+    <div id="modalSair" class="modal-sair hidden">
+        <div class="modal-conteudo">
+            <p>Deseja sair desta conta?</p>
+            <div class="botoes">
+                <button id="confirmarSair">Sim</button>
+                <button id="cancelarSair">Não</button>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../js/paginaBase.js"></script>
     <script src="../js/js%20JSON/home.js"></script>
     <script src="../js/js%20JSON/conteudos.js"></script>
     <script src="../js/js%20JSON/status.js"></script>
-
 </body>
 
 </html>

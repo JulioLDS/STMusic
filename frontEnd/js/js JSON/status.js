@@ -18,9 +18,7 @@ async function carregarStatus() {
                 <div class="status-item">
                     <label>${label}</label>
                     <progress value="${valor}" max="1"></progress>
-                    <div class="status-circular-individual">
-                        
-                    </div>
+                    <div class="status-circular-individual" style="left: ${percent}%;"></div>
                 </div>
             `;
         }).join('');
@@ -52,14 +50,62 @@ async function carregarStatus() {
                 </div>
             </div>
         `;
+
+        //POP UP BTN SAIR
+        const btnSair = document.querySelector(".btnSair");
+        const modal = document.getElementById("modalSair");
+        const btnConfirmar = document.getElementById("confirmarSair");
+        const btnCancelar = document.getElementById("cancelarSair");
+        const modalConteudo = document.querySelector(".modal-conteudo");
+
+        // Abre o modal
+        btnSair.addEventListener("click", (e) => {
+            e.preventDefault();
+            modal.classList.remove("hidden");
+        });
+
+        // Fecha ao clicar no botão "Cancelar"
+        btnCancelar.addEventListener("click", () => {
+            modal.classList.add("hidden");
+        });
+
+        // Fecha ao clicar em "Sim"
+        btnConfirmar.addEventListener("click", () => {
+            window.location.href = "../Pages/paginaInicial.html";
+        });
+
+        // Fecha ao clicar fora da caixa
+        modal.addEventListener("click", (e) => {
+            if (!modalConteudo.contains(e.target)) {
+                modal.classList.add("hidden");
+            }
+        });
+
     } catch (err) {
         console.error("Erro ao carregar status:", err);
         container.innerHTML = `<h1>Erro ao carregar status do usuário.</h1>`;
     }
 }
 
+const barrasHtml = Object.entries(progresso).map(([chave, valor]) => {
+    const label = chave.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    const percent = Math.round(valor * 100);
+    soma += valor;
+
+    return `
+        <div class="status-item">
+            <label>${label}</label>
+            <progress value="${valor}" max="1"></progress>
+            <div class="status-circular-individual" style="left: ${percent}%;"></div>
+        </div>
+    `;
+}).join('');
+
+
+
 // Verifica se estamos na página de status
 if (document.querySelector(".container").classList.contains("status")) {
     document.querySelector('.btnVoltar').style.display = 'none';
     carregarStatus();
 }
+
