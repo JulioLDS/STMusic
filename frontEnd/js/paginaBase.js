@@ -51,6 +51,12 @@ async function carregarConteudo(className) {
       return;
     }
 
+    // EXERCÍCIOS
+    if (className === 'exercicios') {
+      carregarExercicios();
+      return;
+    }
+
     // OUTROS (home, exercicios etc)
     const res = await fetch(`../../data/${className}.json`);
     const data = await res.json();
