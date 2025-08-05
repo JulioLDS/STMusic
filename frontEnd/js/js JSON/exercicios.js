@@ -20,16 +20,22 @@ async function carregarExercicios() {
                     <div class="swiper-wrapper">
                         ${exercicios.map(ex => `
                             <div class="swiper-slide">
-                                <div class="card" data-id="${ex.id}" data-nivel="${nivel}">
+                            <div class="card ${(nivel === 'intermediario' || nivel === 'avancado') ? 'card-restrito' : ''}" data-id="${ex.id}" data-nivel="${nivel}">
+            ${(nivel === 'intermediario' || nivel === 'avancado')
+                    ? '<div class="ribbon">RESTRITO</div>'
+                    : ''
+                }
                                     <div class="card-image">
                                         <img src="${ex.card.img}" alt="${ex.card.titulo}">
                                         <p class="card-tag">Exercício</p>
+                                        <p class="card-pontuation">0/10</p>
+                                        <p class="card-try">Tentativas: 0</p>
                                     </div>
                                     <div class="card-content">
                                         <h3 class="card-title">${ex.card.titulo}</h3>
                                         <p class="card-text">${ex.card.descricao}</p>
                                         <div class="card-footer">
-                                            <a href="#" class="card-button saiba-mais">Saiba Mais</a>
+                                            <a href="#" class="card-button saiba-mais">Praticar</a>
                                         </div>
                                     </div>
                                 </div>

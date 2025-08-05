@@ -34,7 +34,7 @@ body {
     position: relative;
 }
 
-/*  CONTAINER CONTEUDOS  */
+/*  CONTAINER EXERCÍCIOS  */
 .container.exercicios {
     position: relative;
     width: 90%;
@@ -109,11 +109,11 @@ body {
     background: var(--cor3);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    height: 100%;
+    height: 85%;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
-    margin: 10px;
+    margin: 15px 10px;
 }
 
 .card:hover {
@@ -145,6 +145,8 @@ body {
 
 .card-image {
     position: relative;
+    width: 100%;
+    height: 80%;
 }
 
 .card-image img {
@@ -152,11 +154,11 @@ body {
     top: -10%;
     left: 5%;
     width: 90%;
-    height: 180px;
+    height: 290px;
     object-fit: cover;
     display: block;
     background: var(--grCor1);
-    border-radius: 15px;
+    border-radius: 25px;
 
 
 }
@@ -174,7 +176,37 @@ body {
     text-transform: uppercase;
 }
 
+.card-pontuation {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+    color: var(--cor1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.card-try {
+    position: absolute;
+    width: 40%;
+    height: fit-content;
+    top: 70%;
+    left: 30%;
+    color: var(--cor1);
+    background-color: var(--cor5);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
 .card-content {
+    position: relative;
+    top: -10%;
     padding: 20px;
     flex: 1;
     display: flex;
