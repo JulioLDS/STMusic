@@ -1,3 +1,7 @@
+import { ConteudoController } from "./controllers/ConteudoController.js";
+import { ExercicioController } from "./controllers/ExercicioController.js";
+import { StatusController } from "./controllers/StatusController.js";
+
 const listItems = document.querySelectorAll('.navegacao ul li');
 const indicador = document.querySelector('.indicador');
 const container = document.querySelector('.container');
@@ -38,7 +42,7 @@ async function carregarConteudo(className) {
       btnSair.style.display = "block";
 
       if (typeof carregarStatus === 'function') {
-        carregarStatus();
+        new StatusController().init();
       } else {
         container.innerHTML = `<h1>Função "carregarStatus" não encontrada.</h1>`;
       }
@@ -47,13 +51,13 @@ async function carregarConteudo(className) {
 
     // CONTEÚDOS
     if (className === 'conteudos') {
-      carregarConteudos();
+      new ConteudoController().init();
       return;
     }
 
     // EXERCÍCIOS
     if (className === 'exercicios') {
-      carregarExercicios();
+      new ExercicioController().init();
       return;
     }
 

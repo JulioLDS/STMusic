@@ -12,7 +12,7 @@ function limparFormulario(formId) {
                 const toggleId = `toggle${input.id.charAt(0).toUpperCase() + input.id.slice(1)}`;
                 const toggle = document.getElementById(toggleId);
                 if (toggle) {
-                    toggle.src = '../img/olhoF.png';
+                    toggle.src = '../assets/img/olhoF.png';
                 }
             }
         });
@@ -28,10 +28,10 @@ function setupPasswordToggle(passwordFieldId, toggleIconId) {
         toggleIcon.addEventListener('click', function () {
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
-                toggleIcon.src = '../img/olhoA.png'; // Olho aberto (mostrando senha)
+                toggleIcon.src = '../assets/img/olhoA.png'; // Olho aberto (mostrando senha)
             } else {
                 passwordField.type = 'password';
-                toggleIcon.src = '../img/olhoF.png'; // Olho fechado (escondendo senha)
+                toggleIcon.src = '../assets/img/olhoF.png'; // Olho fechado (escondendo senha)
             }
         });
     }

@@ -12,10 +12,10 @@
         "conteudo": [
             "<h1>Navegação</h1>",
             "<ul>",
-            "  <li><a href=\"#\"><img src=\"../img/home-agreement.png\" alt=\"home\"></a> Página Home</li>",
-            "  <li><a href=\"#\"><img src=\"../img/reading-book.png\" alt=\"conteudos\"></a> Conteúdos Teóricos</li>",
-            "  <li><a href=\"#\"><img src=\"../img/report.png\" alt=\"exercicios\"></a> Exercícios</li>",
-            "  <li><a href=\"#\"><img src=\"../img/status.png\" alt=\"status\"></a> Status de Progresso</li>",
+            "  <li><a href=\"#\"><img src=\"../assets/img/home-agreement.png\" alt=\"home\"></a> Página Home</li>",
+            "  <li><a href=\"#\"><img src=\"../assets/img/reading-book.png\" alt=\"conteudos\"></a> Conteúdos Teóricos</li>",
+            "  <li><a href=\"#\"><img src=\"../assets/img/report.png\" alt=\"exercicios\"></a> Exercícios</li>",
+            "  <li><a href=\"#\"><img src=\"../assets/img/status.png\" alt=\"status\"></a> Status de Progresso</li>",
             "</ul>"
         ]
     }
