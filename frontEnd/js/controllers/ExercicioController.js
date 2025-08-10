@@ -32,11 +32,10 @@ export class ExercicioController {
     mostrarDetalhe(id, nivel) {
         const exercicio = this.exercicios.find(e => e.id === id && e.nivel === nivel);
         if (exercicio) {
-            this.view.renderDetalhe(exercicio);
-            this.view.bindFormSubmit(exercicio);
-            document.querySelector(".btnVoltar").onclick = () => this.init();
+            this.view.renderDetalhe(exercicio, () => this.init());
         }
     }
+
 
     inicializarSwipers() {
         const configs = [

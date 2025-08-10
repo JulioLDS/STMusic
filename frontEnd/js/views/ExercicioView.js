@@ -58,32 +58,92 @@ export class ExercicioView {
     }
 
     renderDetalhe(exercicio) {
-        this.container.innerHTML = `
-            <div class="exercicio-detalhado">
-                <h2>${exercicio.card.titulo}</h2>
-                <form class="quiz-form">
-                    ${exercicio.perguntas.map((q, i) => `
-                        <div class="pergunta-group">
-                            <p class="pergunta-titulo"><strong>${i + 1}. ${q.pergunta}</strong></p>
-                            <div class="opcoes-container">
-                                ${q.opcoes.map((opcao, j) => `
-                                    <label class="opcao-label">
-                                        <input type="radio" name="q${i}" value="${j}" class="opcao-input">
-                                        <span class="opcao-texto">${opcao}</span>
-                                    </label>
-                                `).join('')}
-                            </div>
-                            ${q.explicacao ? `<div class="explicacao" id="explicacao-${i}" style="display:none;">${q.explicacao}</div>` : ''}
-                        </div>
-                    `).join('')}
-                    <button type="submit" class="btn-enviar">Verificar Respostas</button>
-                    <div class="resultado-container"></div>
-                </form>
-                <a href="#" class="btnVoltar">← Voltar para Exercícios</a>
-            </div>
-        `;
-        this.btnVoltar.style.display = "block";
+        this.currentIndex = 0; // começa na primeira pergunta
+        this.exercicioAtual = exercicio;
+        this.mostrarPergunta();
     }
+
+    renderDetalhe(exercicio, onVoltar) {
+        this.currentIndex = 0;
+        this.exercicioAtual = exercicio;
+        this.onVoltar = onVoltar;
+        this.mostrarPergunta();
+    }
+
+    mostrarPergunta() {
+        const q = this.exercicioAtual.perguntas[this.currentIndex];
+
+        this.container.innerHTML = `
+        <div class="exercicio-detalhado">
+            <h2>${this.exercicioAtual.card.titulo}</h2>
+            <div class="pergunta-group">
+                <p class="pergunta-titulo"><strong>${this.currentIndex + 1}. ${q.pergunta}</strong></p>
+                <div class="opcoes-container">
+                    ${q.opcoes.map((opcao, j) => `
+                        <button class="opcao-btn" data-index="${j}">${opcao}</button>
+                    `).join('')}
+                </div>
+                ${q.explicacao ? `<div class="explicacao" style="display:none;">${q.explicacao}</div>` : ''}
+            </div>
+            <div class="navegacao-pergunta"></div>
+        </div>
+    `;
+
+        // Configura o botão voltar global
+        this.btnVoltar.style.display = "block";
+        this.btnVoltar.onclick = () => {
+            if (this.onVoltar) this.onVoltar();
+        };
+
+        // Eventos para alternativas
+        this.container.querySelectorAll(".opcao-btn").forEach(btn => {
+            btn.addEventListener("click", e => {
+                e.preventDefault();
+                const index = parseInt(btn.getAttribute("data-index"));
+                this.validarResposta(index, btn, q.resposta, q.explicacao);
+            });
+        });
+    }
+
+    validarResposta(indiceEscolhido, botao, respostaCerta, explicacao) {
+        const botoes = this.container.querySelectorAll(".opcao-btn");
+
+        botoes.forEach(b => b.disabled = true);
+
+        if (indiceEscolhido === respostaCerta) {
+            botao.style.backgroundColor = "green";
+        } else {
+            botao.style.backgroundColor = "red";
+            if (explicacao) {
+                const exp = this.container.querySelector(".explicacao");
+                exp.style.display = "block";
+            }
+        }
+
+        const nav = this.container.querySelector(".navegacao-pergunta");
+        if (this.currentIndex < this.exercicioAtual.perguntas.length - 1) {
+            const btnAvancar = document.createElement("button");
+            btnAvancar.textContent = "Avançar →";
+            btnAvancar.addEventListener("click", () => {
+                this.currentIndex++;
+                this.mostrarPergunta();
+            });
+            nav.appendChild(btnAvancar);
+        } else {
+            nav.innerHTML = `
+            <p>Fim do exercício!</p>
+            <button class="btn-refazer">Refazer Questionário</button>
+        `;
+
+            // Evento do botão refazer
+            const btnRefazer = nav.querySelector(".btn-refazer");
+            btnRefazer.addEventListener("click", () => {
+                this.currentIndex = 0;
+                this.mostrarPergunta();
+            });
+        }
+    }
+
 
     bindSaibaMais(handler) {
         this.container.querySelectorAll(".saiba-mais").forEach(btn => {
@@ -95,28 +155,4 @@ export class ExercicioView {
         });
     }
 
-    bindFormSubmit(exercicio) {
-        const form = this.container.querySelector(".quiz-form");
-        form.addEventListener("submit", e => {
-            e.preventDefault();
-            const resultadoContainer = this.container.querySelector(".resultado-container");
-            let pontuacao = 0;
-
-            exercicio.perguntas.forEach((pergunta, index) => {
-                const respostaSelecionada = form.querySelector(`input[name="q${index}"]:checked`);
-                const explicacaoEl = this.container.querySelector(`#explicacao-${index}`);
-
-                if (explicacaoEl) explicacaoEl.style.display = "block";
-                if (respostaSelecionada && parseInt(respostaSelecionada.value) === pergunta.resposta) {
-                    pontuacao++;
-                }
-            });
-
-            resultadoContainer.innerHTML = `
-                <div class="resultado-alerta ${pontuacao === exercicio.perguntas.length ? 'sucesso' : 'aviso'}">
-                    Você acertou ${pontuacao} de ${exercicio.perguntas.length} perguntas!
-                </div>
-            `;
-        });
-    }
 }
