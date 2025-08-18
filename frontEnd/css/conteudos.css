@@ -474,7 +474,7 @@ body {
     }
 
     /*FAIXA DE RESTRITO*/
-    .ribbon {
+    .container.conteudos .ribbon {
         position: absolute;
         top: 12px;
         left: 0px;
@@ -545,14 +545,18 @@ body {
         flex: 1;
     }
 
-    .card-footer {
+    .container.conteudos .card-footer {
         display: flex;
-        justify-content: right;
-        align-items: center;
+        align-items: flex-end;
+        justify-content: flex-end;
         padding-top: 15px;
+        bottom: 15px;
+        right: 15px;
+        width: auto;
+        display: flex;
     }
 
-    .card-button {
+    .container.conteudos .card-button {
         background: var(--grCor2);
         color: white;
         padding: 8px 15px;
@@ -595,46 +599,43 @@ body {
 
     /*      ===CONTEÚDO DETALHADO===   */
 
-    .conteudo-detalhado {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: fit-content;
-        overflow-y: auto;
-        overflow-x: hidden;
+    .container.conteudos .conteudo-detalhado {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        height: auto !important;
+        /* <- em vez de 73.5vh */
+        max-height: none !important;
+        overflow: visible !important;
+        /* <- libera a rolagem da página */
+        gap: 1.25rem !important;
+        padding: 1.25rem !important;
         box-sizing: border-box;
-        color: var(--cor6);
-        line-height: 1;
-        /* Remove barras de rolagem visuais */
-        scrollbar-width: none;
-        -ms-overflow-style: none;
     }
 
     /* MATERIAL */
 
-    .conteudo-detalhado .material {
+    .container.conteudos .conteudo-detalhado .material {
+        position: relative;
         width: 100%;
         height: fit-content;
-        margin: auto;
-        padding: 2rem 2rem 5rem 2rem;
+        margin-bottom: 2rem;
+        padding: 2rem;
         border-radius: 15px;
-        overflow-y: visible;
-        /* Remove barras de rolagem visuais */
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        overflow-y: hidden;
+        overflow-x: hidden;
     }
 
-    .conteudo-detalhado .material h1 {
+    .container.conteudos .conteudo-detalhado .material h1 {
         font-size: 2.5rem;
         font-weight: 600;
         color: var(--cor4);
         padding-bottom: 2rem;
     }
 
-    .conteudo-detalhado .material p {
+    .container.conteudos .conteudo-detalhado .material p {
         line-height: 1.2;
         font-size: 1.7rem;
         font-weight: 550;
@@ -644,18 +645,18 @@ body {
     }
 
     /* PRÁTICA */
-    .conteudo-detalhado .pratica {
+    .container.conteudos .conteudo-detalhado .pratica {
         width: 100%;
-        height: fit-content;
+        height: auto;
         display: flex;
-        gap: 2rem;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        padding-bottom: 3rem;
+        padding: 2rem;
+        gap: 1.5rem;
     }
 
-    .conteudo-detalhado .pratica .btn-praticar {
+    .container.conteudos .conteudo-detalhado .pratica .btn-praticar {
         width: fit-content;
         background: var(--grCor2);
         color: var(--fonte);
@@ -668,7 +669,7 @@ body {
         box-shadow: 0 3px 10px var(--cor6);
     }
 
-    .conteudo-detalhado .pratica .btn-praticar:hover {
+    .container.conteudos .conteudo-detalhado .pratica .btn-praticar:hover {
         transform: translateY(-2px);
         box-shadow: 0 5px 15px var(--cor6);
     }

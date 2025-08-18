@@ -31,7 +31,7 @@ header {
     align-items: center;
     justify-content: space-between;
     border-radius: 0 0 1.5vw 1.5vw;
-
+    z-index: 999;
 }
 
 /* LOGO STMusic */

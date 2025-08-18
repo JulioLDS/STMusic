@@ -240,7 +240,7 @@ body.no-scroll {
 
 .card-footer {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
     padding-top: 15px;
 }
@@ -531,4 +531,494 @@ body.no-scroll {
 
 .btn-refazer:hover {
     background: var(--cor4);
+}
+
+/*      ===MOBILE===   */
+@media (max-width: 600px) {
+
+    /*  RESETANDO TAMANHO PARA OCUPAR A TELA TODA*/
+    .container.exercicios,
+    .cards-wrapper,
+    .level-section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    .swiper {
+        width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card {
+        width: 80vw;
+        margin: 0;
+    }
+
+    /*  CONTAINER EXERCICIOS  */
+    .container.exercicios {
+        position: relative;
+        width: 100vw;
+        margin: auto;
+        display: block;
+        height: 72vh;
+        overflow-x: hidden;
+
+        /* Remove barras de rolagem visuais */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .container.exercicios::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari e Opera */
+    }
+
+
+    /* CONTAINER DOS CARDS */
+    .cards-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+
+    .level-section {
+        padding: 10px 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+        height: fit-content;
+    }
+
+    /* NÍVEIS */
+    .section-title {
+        font-size: 2rem;
+        color: var(--fonte);
+        text-align: left;
+        margin: 40px 20px 20px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    #iniciante {
+        background-color: var(--nivel1);
+        width: fit-content;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    #intermediario {
+        background-color: var(--nivel2);
+        width: fit-content;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    #avancado {
+        background-color: var(--nivel3);
+        width: fit-content;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+
+    /* ESTILOS DOS CARDS */
+    .card {
+        background: var(--cor3);
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+        margin: 10px;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    /*FAIXA DE RESTRITO*/
+    .ribbon {
+        position: absolute;
+        top: 12px;
+        left: 0px;
+        transform: rotate(-45deg);
+        background-color: var(--nivel3);
+        color: white;
+        padding: 5px 50px;
+        font-weight: bold;
+        font-size: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .card-restrito:hover {
+        transform: none !important;
+    }
+
+    /* FIM FAIXA DE RESTRITO*/
+
+    .card-image {
+        position: relative;
+        width: 100%;
+        height: 80%;
+    }
+
+    .card-image img {
+        position: relative;
+        top: -10%;
+        left: 5%;
+        width: 90%;
+        height: 290px;
+        object-fit: cover;
+        display: block;
+        background: var(--grCor1);
+        border-radius: 25px;
+
+
+    }
+
+    .card-tag {
+        position: absolute;
+        top: 0px;
+        left: 8%;
+        background: var(--cor7);
+        color: var(--fonte);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .card-pontuation {
+        position: absolute;
+        width: 60%;
+        height: 50%;
+        top: 20%;
+        left: 20%;
+        color: var(--cor1);
+        padding: 5px 0px;
+        border-radius: 20px;
+        font-size: 5rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .card-try {
+        position: absolute;
+        width: 70%;
+        height: fit-content;
+        top: 70%;
+        left: 15%;
+        color: var(--cor1);
+        background-color: var(--cor5);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .card-content {
+        position: relative;
+        top: -10%;
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        color: var(--fonte);
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+        color: var(--cor1);
+        margin-bottom: 15px;
+        flex: 1;
+    }
+
+    .container.exercicios .card-footer {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding-top: 15px;
+    }
+
+    .card-button {
+        background: var(--grCor2);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px var(--cor6);
+    }
+
+    .card-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px var(--cor6);
+    }
+
+    /* ESTILO DO SWIPER */
+
+    .swiper {
+        width: 100%;
+        height: auto;
+        padding: 20px 0 40px;
+    }
+
+
+    .swiper-slide {
+        height: auto;
+    }
+
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
+
+    /*      ===EXERCÍCIO DETALHADO===   */
+
+    /* Card detalhado com rolagem quando necessário */
+    .exercicio-detalhado {
+        position: relative;
+        width: 100vw;
+        min-height: calc(80vh - 5vh);
+        height: auto;
+        /* ocupa quase toda a tela */
+        margin-top: calc(5vh + 50px);
+        /* pequena margem no topo */
+        margin-bottom: 0;
+        border-radius: 60px 60px 0 0;
+        /* sem bordas arredondadas */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1.5rem 1.5rem 1.5rem;
+        background-color: var(--cor7);
+        color: var(--cor1);
+        box-shadow: none;
+        overflow-y: hidden;
+    }
+
+    .exercicio-titulo {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .pergunta-titulo {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .opcoes-grid-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin: 2rem 0;
+    }
+
+    /* Grid das alternativas */
+    .opcoes-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 90%;
+        max-width: 500px;
+        margin: 2rem 0;
+    }
+
+    /* Alternativas transparentes com borda e animação de preenchimento */
+    .opcao-btn {
+        position: relative;
+        overflow: hidden;
+        /* para clipar o preenchimento */
+        border: 2px solid var(--cor1);
+        background: transparent;
+        color: var(--cor1);
+        border-radius: 30px;
+        padding: 0.9rem 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform .15s ease, border-color .2s ease;
+    }
+
+    .opcao-btn:hover:not(:disabled) {
+        transform: scale(1.02);
+    }
+
+    .opcao-texto {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* camada que preenche (animada) */
+    .opcao-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: transparent;
+        /* trocaremos pela cor correta/errada */
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .35s ease;
+        /* anima o preenchimento */
+        z-index: 1;
+    }
+
+    /* estados após escolher */
+    .opcao-btn.correta {
+        border-color: var(--cor3);
+    }
+
+    .opcao-btn.correta::before {
+        background: var(--cor3);
+        transform: scaleX(1);
+    }
+
+    .opcao-btn.correta .opcao-texto {
+        color: var(--fonte);
+    }
+
+    .opcao-btn.errada {
+        border-color: var(--nivel3);
+    }
+
+    .opcao-btn.errada::before {
+        background: var(--nivel3);
+        transform: scaleX(1);
+    }
+
+    .opcao-btn.errada .opcao-texto {
+        color: var(--fonte);
+    }
+
+    /* emoji sutil que aparece e some */
+    .emoji-feedback {
+        position: absolute;
+        right: .6rem;
+        top: 50%;
+        transform: translateY(-50%) scale(.6);
+        opacity: 0;
+        font-size: 1.25rem;
+        z-index: 3;
+        animation: emojiIn .50s ease forwards;
+    }
+
+    @keyframes emojiIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-50%) scale(.6);
+        }
+
+        60% {
+            opacity: 1;
+            transform: translateY(-50%) scale(2);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.15);
+        }
+    }
+
+    .emoji-feedback.fade-out {
+        animation: emojiOut .4s ease forwards;
+    }
+
+    @keyframes emojiOut {
+        to {
+            opacity: 0;
+            transform: translateY(-60%) scale(.9);
+        }
+    }
+
+    /* Explicação: caixa cor1 com fonte cor5 */
+    .explicacao {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: var(--cor1);
+        color: var(--cor5);
+        border-radius: 10px;
+        font-size: .95rem;
+        text-align: center;
+    }
+
+    /* Botão Avançar no canto inferior direito do card (sem duplicar) */
+    .navegacao-pergunta {
+        position: static;
+        width: 100%;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .btn-avancar {
+        background: var(--cor3);
+        color: var(--fonte);
+        padding: .6rem 1.2rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background .2s ease, transform .1s ease;
+    }
+
+    .btn-avancar:disabled {
+        background: var(--cor3);
+        cursor: not-allowed;
+    }
+
+    .btn-avancar:hover:enabled {
+        background: var(--cor6);
+        transform: translateY(-1px);
+    }
+
+    /* Botão Refazer central */
+    .btn-refazer {
+        display: block;
+        margin: 3rem auto 0;
+        background: var(--cor3);
+        color: var(--fonte);
+        padding: 1rem 1.8rem;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .btn-refazer:hover {
+        background: var(--cor4);
+    }
+
 }
