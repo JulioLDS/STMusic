@@ -1,0 +1,136 @@
+:root {
+    /* bg colors */
+    --cor1: #CEE2BD;
+    --cor2: #98CA8D;
+    --cor3: #63B068;
+    --cor4: #3F975D;
+    --cor5: #247E5A;
+    --cor6: #106659;
+    --cor7: #00444D;
+    --fonte: #FFFFFF;
+
+    /* gd colors */
+    --grCor1: linear-gradient(#247E5B, #00444D);
+    --grCor2: linear-gradient(#247E5B, #0F6659);
+
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*TIRANDO BARRA DE ROLAGEMs*/
+.container {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE e Edge */
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari e Opera */
+}
+
+/* CONTAINER CONTEUDOS */
+.container.conteudos {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    align-items: center;
+    gap: 2vw;
+    width: 100%;
+    height: 73.5vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/*CARDS por nível*/
+.container.conteudos .nivel-container {
+    width: 100%;
+}
+
+.container.conteudos .nivel-container .nivel-titulo {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--cor4);
+}
+
+/*CARDS*/
+.container.conteudos .nivel-container .cards-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.container.conteudos .nivel-container .cards-row .card {
+    width: 20vw;
+    height: 50vh;
+    background-color: var(--cor5);
+    border-radius: 1vw;
+    margin: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* Distribui os itens */
+    padding: 1vh 0;
+    box-sizing: border-box;
+}
+
+.container.conteudos .nivel-container .cards-row .card .card-image {
+    width: 90%;
+    height: 40%;
+    /* ou ajuste como 35% se preferir menos */
+    background-color: var(--cor6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1vw;
+    margin-bottom: 0.5rem;
+}
+
+.container.conteudos .nivel-container .cards-row .card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0.2rem 0;
+}
+
+.container.conteudos .nivel-container .cards-row .card p {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 90%;
+    height: 20%;
+    margin: 0.2rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.container.conteudos .nivel-container .cards-row .card button {
+    width: 80%;
+    height: 5vh;
+    background-color: var(--cor4);
+    color: var(--fonte);
+    border: none;
+    border-radius: 0.5vw;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+
+/*CONTEUDO DETALHADO*/
+
+.container.conteudos .conteudo-detalhado {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: peru;
+}

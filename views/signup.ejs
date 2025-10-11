@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/paginaLoginCadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>STMusic</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>ST
+                <div class="imgLogo">
+                    <img src="/assets/img/logo.png" alt="logo">
+                </div>
+            </h1>
+            <h2>Music</h2>
+            <h3>Study Tool Music</h3>
+        </div>
+
+        <!-- Titulo Login e Cadastro -->
+        <div class="login">
+            <ul>
+                <li class="tab"><a href="/login">Entrar</a></li>
+                <li class="tab active"><a href="/signup">Cadastrar</a></li>
+                <div class="underline"></div>
+            </ul>
+
+            <!-- Formulário de Login e Cadastro -->
+            <div class="forms-wrapper" id="formsWrapper">
+                <!-- CADASTRO-->
+                <div class="form-container">
+                    <form id="formLogin" action="/signup" method="post">
+                        <div class="nome">
+                            <label for="nomeLogin">Nome</label>
+                            <input type="text" id="nomeLogin" name="username" placeholder="Nome" required>
+                        </div>
+                        <div class="senha">
+                            <label for="senhaLogin">Senha
+                                <img id="toggleSenhaLogin" src="/assets/img/olhoF.png" alt="Mostrar senha" class="eye-icon">
+                            </label>
+                            <input type="password" id="senhaLogin" name="password" placeholder="Senha" required>
+                        </div>
+                        <div class="btnEntrar">
+                            <a href="/login"><button type="submit" class="submit-btn">Cadastrar</button></a>
+                            <!-- <a href="paginaBase.html">Inscrever-se</a> -->
+                        </div>
+                        <div class="google-login">
+                            <button type="button" class="google-btn">
+                                <div class="google-icon">
+                                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                                        alt="Google logo">
+                                </div>
+                                <span class="google-text">Continuar com Google</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+
+            <a href="paginaInicial.html"><img class="btnVoltar" src="/assets/img/voltar.png" alt="voltar"></a>
+        </div>
+    </div>
+
+    <script src="/js/paginaLoginCadastro.js"></script>
+</body>
+
+</html>
