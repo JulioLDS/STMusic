@@ -38,6 +38,10 @@
                             <label for="nomeLogin">Nome</label>
                             <input type="text" id="nomeLogin" name="username" placeholder="Nome" required>
                         </div>
+                        <div class="email">
+                            <label for="emailLogin">Email</label>
+                            <input type="text" id="emailLogin" name="email" placeholder="Email" required>
+                        </div>
                         <div class="senha">
                             <label for="senhaLogin">Senha
                                 <img id="toggleSenhaLogin" src="/assets/img/olhoF.png" alt="Mostrar senha" class="eye-icon">
@@ -64,6 +68,12 @@
             <a href="paginaInicial.html"><img class="btnVoltar" src="/assets/img/voltar.png" alt="voltar"></a>
         </div>
     </div>
+
+    <% if (typeof mensagem !== "undefined") { %>
+    <script>
+        alert("<%= mensagem %>");
+    </script>
+    <% } %>
 
     <script src="/js/paginaLoginCadastro.js"></script>
 </body>

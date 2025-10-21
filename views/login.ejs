@@ -66,6 +66,12 @@
         </div>
     </div>
 
+    <% if (typeof mensagem !== "undefined") { %>
+    <script>
+        alert("<%= mensagem %>");
+    </script>
+    <% } %>
+
     <script src="/js/paginaLoginCadastro.js"></script>
 </body>
 

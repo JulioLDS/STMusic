@@ -1,0 +1,6 @@
+#arquivos que não irão para o git
+
+node_modules/
+
+*.zip
+*.rar
