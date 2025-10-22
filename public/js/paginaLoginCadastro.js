@@ -5,14 +5,14 @@ function limparFormulario(formId) {
         const inputs = form.querySelectorAll('input[type="text"], input[type="password"]');
         inputs.forEach(input => {
             input.value = '';
-            // Resetar campos de senha
-            if (input.type === 'text' && input.id.includes('senha')) {
+            // Resetar campos de senha (garante que o campo volte a type="password" e ícone fechado)
+            if (input.id && input.id.includes('senha')) {
                 input.type = 'password';
                 // Atualizar o ícone do olho correspondente
                 const toggleId = `toggle${input.id.charAt(0).toUpperCase() + input.id.slice(1)}`;
                 const toggle = document.getElementById(toggleId);
                 if (toggle) {
-                    toggle.src = '../assets/img/olhoF.png';
+                    toggle.src = '/assets/img/olhoF.png';
                 }
             }
         });
@@ -79,13 +79,6 @@ function setupTabs() {
 
 // Função para ajustar o tamanho da fonte dinamicamente
 
-
-// Adiciona ao carregamento
-document.addEventListener('DOMContentLoaded', () => {
-    setupTabs();
-    setupPasswordToggle('senhaLogin', 'toggleSenhaLogin');
-    setupPasswordToggle('senhaCadastro', 'toggleSenhaCadastro');
-});
 
 // Exibir mensagens vindas do backend (EJS)
 document.addEventListener("DOMContentLoaded", () => {
