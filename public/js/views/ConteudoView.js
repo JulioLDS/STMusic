@@ -56,10 +56,16 @@ export class ConteudoView {
 
     renderDetalhe(conteudo) {
         this.container.innerHTML = `
-            <div class="conteudo-detalhado">
+        <div class="conteudo-detalhado">
+            <div class="material">
                 ${conteudo.conteudo.join("\n")}
             </div>
-        `;
+            <div class="pratica">
+                <iframe width='560' height='315' src='${conteudo.video || ""}' ...></iframe>
+                <a href='#' class='btn-praticar'>Praticar</a>
+            </div>
+        </div>
+    `;
         this.btnVoltar.style.display = "block";
     }
 
