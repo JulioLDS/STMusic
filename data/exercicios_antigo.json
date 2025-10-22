@@ -2,74 +2,37 @@
     "exercicios": {
         "iniciante": [
             {
-                "id": "propriedades-do-som-ex",
+                "id": "notas-musicais-ex",
                 "card": {
-                    "titulo": "Exercícios: Propriedades do Som",
-                    "descricao": "Teste seu conhecimento sobre as propriedades do som",
+                    "titulo": "Exercícios: Notas Musicais",
+                    "descricao": "Teste seu conhecimento sobre as notas musicais básicas",
                     "img": "../img/exercicio-notas.png"
                 },
                 "perguntas": [
                     {
-                        "pergunta": "O que define se um som é grave ou agudo?",
+                        "pergunta": "Qual é a ordem correta das notas naturais na escala musical ocidental?",
                         "tipo": "multipla_escolha",
                         "opcoes": [
-                            "a) Intensidade",
-                            "b) Timbre",
-                            "c) Altura",
-                            "d) Duração"
+                            "A-B-C-D-E-F-G",
+                            "C-D-E-F-G-A-B",
+                            "D-E-F-G-A-B-C"
                         ],
-                        "resposta": 2
+                        "resposta": 1,
+                        "explicacao": "A escala padrão começa em C (Dó) e segue: C-D-E-F-G-A-B"
                     },
                     {
-                        "pergunta": "A propriedade relacionada ao tempo de um som:",
+                        "pergunta": "Qual nota vem imediatamente após E (Mi) na escala natural?",
                         "tipo": "multipla_escolha",
                         "opcoes": [
-                            "a) Duração",
-                            "b) Intensidade",
-                            "c) Timbre",
-                            "d) Altura"
+                            "D (Ré)",
+                            "F (Fá)",
+                            "G (Sol)"
                         ],
-                        "resposta": 0
-                    },
-                    {
-                        "pergunta": "O que caracteriza a intensidade do som?",
-                        "tipo": "multipla_escolha",
-                        "opcoes": [
-                            "a) Forte ou fraco",
-                            "b) Curto ou longo",
-                            "c) Grave ou agudo",
-                            "d) Brilhante ou opaco"
-                        ],
-                        "resposta": 0
-                    },
-
-                    {
-                        "pergunta": "O que nos permite reconhecer a origem do som?",
-                        "tipo": "multipla_escolha",
-                        "opcoes": [
-                            "a) Altura",
-                            "b) Timbre ",
-                            "c) Intensidade",
-                            "d) Duração"
-                        ],
-                        "resposta": 1
-                    },
-
-                    {
-                        "pergunta": "Qual propriedade indica quanto tempo dura um som?",
-                        "tipo": "multipla_escolha",
-                        "opcoes": [
-                            "a) Altura",
-                            "b) Intensidade ",
-                            "c) Timbre",
-                            "d) Duração"
-                        ],
-                        "resposta": 3
-                    }                   
+                        "resposta": 1,
+                        "explicacao": "A sequência é: C-D-E-F-G-A-B"
+                    }
                 ]
             },
-
-            
             {
                 "id": "escalas-ex",
                 "card": {
