@@ -1,83 +1,81 @@
 {
     "conteudos": {
         "iniciante": [
-                {
-                    "id": "introducao",
-                    "card": {
-                        "titulo": "Introdução",
-                        "descricao": "Inicio do aprendizado",
-                        "img": ""
-                    },
-                    "conteudo": [
-                        "<h1>Introdução</h1>",
-                        "<p>A música faz parte das sete artes clássicas e se entende como “A arte dos sons”.</p>",
-                        "<p>O som é tudo que ouvimos e a matéria-prima da música, há duas espécies principais de sons:</p>",
-                        "<p>Sons naturais – emitidos pela natureza (trovões, ventos, chuva, etc...)</p>",
-                        "<p>Sons produzidos – voz ou instrumentos (A partir deles a música é feita).</p>",
-                        "<img src=''>"
-                    ]
+            {
+                "id": "introducao",
+                "card": {
+                    "titulo": "Introdução",
+                    "descricao": "Inicio do aprendizado",
+                    "img": ""
                 },
-                {
-                    "id": "propriedades-som",
-                    "card": {
-                        "titulo": "Propriedades do Som",
-                        "descricao": "As propriedades do som da música.",
-                        "img": ""
-                    },
-                    "conteudo": [
-                        "<h1>Propriedades do Som</h1>",
-                        "<p>O som possui quatro propriedades: duração, intensidade, altura e timbre.</p>",
-                        "<p><b>Duração</b>: É a propriedade do som ser curto ou longo.</p>",
-                        "<p><b>Intensidade</b>: É a propriedade do ser fraco ou forte (volume).</p>",
-                        "<p><b>Altura</b>: É a propriedade do som ser grave, médio ou agudo.</p>",
+                "conteudo": [
+                    "<h1>Introdução</h1>",
+                    "<p>A música faz parte das sete artes clássicas e se entende como “A arte dos sons”.</p>",
+                    "<p>O som é tudo que ouvimos e a matéria-prima da música, há duas espécies principais de sons:</p>",
+                    "<p>Sons naturais – emitidos pela natureza (trovões, ventos, chuva, etc...)</p>",
+                    "<p>Sons produzidos – voz ou instrumentos (A partir deles a música é feita).</p>",
+                    "<img src=''>"
+                ]
+            },
+            {
+                "id": "propriedades-som",
+                "card": {
+                    "titulo": "Propriedades do Som",
+                    "descricao": "As propriedades do som da música.",
+                    "img": ""
+                },
+                "conteudo": [
+                    "<h1>Propriedades do Som</h1>",
+                    "<p>O som possui quatro propriedades: duração, intensidade, altura e timbre.</p>",
+                    "<p><b>Duração</b>: É a propriedade do som ser curto ou longo.</p>",
+                    "<p><b>Intensidade</b>: É a propriedade do ser fraco ou forte (volume).</p>",
+                    "<p><b>Altura</b>: É a propriedade do som ser grave, médio ou agudo.</p>",
                     "<p>Todos os sons possuem as quatro propriedades, independentes entre si.</p>",
-                        "<img src=''>"
-                    ]
+                    "<img src=''>"
+                ]
+            },
+            {
+                "id": "pentagrama",
+                "card": {
+                    "titulo": "Nota - Pentagrama",
+                    "descricao": "As figuras usadas para representar os sons.",
+                    "img": ""
                 },
-                {
-                    "id": "pentagrama",
-                    "card": {
-                        "titulo": "Nota - Pentagrama",
-                        "descricao": "As figuras usadas para representar os sons.",
-                        "img": ""
-                    },
-                    "conteudo": [
-                        "<h1>Nota - Pentagrama</h1>",
-                        "<p>Existem figuras usadas para representar os sons, as notas, que são colocados dentro um Pentagrama, um conjunto de 5 linhas e 4 espaços.</p>",
+                "conteudo": [
+                    "<h1>Nota - Pentagrama</h1>",
+                    "<p>Existem figuras usadas para representar os sons, as notas, que são colocados dentro um Pentagrama, um conjunto de 5 linhas e 4 espaços.</p>",
                     "<img src='' alt='pentagrama'>",
-                        "<p>As linhas e espaços do pentagrama são contados de baixo para cima.</p>",
-                        "<p>São sete notas musicais: <b>dó – ré – mi- fá – sol – lá – si. </b></p>",
-                        "<p>Cada nota musical determina o nome da figura, o seu valor e a sua altura.</p>",
+                    "<p>As linhas e espaços do pentagrama são contados de baixo para cima.</p>",
+                    "<p>São sete notas musicais: <b>dó – ré – mi- fá – sol – lá – si. </b></p>",
+                    "<p>Cada nota musical determina o nome da figura, o seu valor e a sua altura.</p>",
                     "<p>As notas escritas de maneira consecutiva formam uma Escala, que pode ser ascendente ou descendente.</p>",
                     "<p>Em alguns lugares se utiliza as primeiras letras do alfabeto para a representação das notas:</p>",
                     "<p>A - lá     B - si     C - dó     D - ré     E - mi     F - fá     G - sol</p>",
                     "<p>Para o conjunto de sinais que representam a escrita musical, como pentagramas, claves e notas dá-se o nome <b>Notação Musical.</b></p>",
-                        "<img src=''>"
-                    ]
-                }
-        ],
-        "intermediario": [
-{
-    "id": "claves",
-    "card": {
-        "titulo": "Clave",
-        "descricao": "Os três sinais de clave",
-        "img": ""
-    },
-    "conteudo": [
+                    "<img src=''>"
+                ]
+            },
+            {
+                "id": "claves",
+                "card": {
+                    "titulo": "Clave",
+                    "descricao": "Os três sinais de clave",
+                    "img": ""
+                },
+                "conteudo": [
                     "<h1>Clave</h1>",
                     "<p>O nome e altura das figuras no pentagrama são determinadas pela Clave, que é escrita no inicio do pentagrama dando o seu nome à nota escrita em sua linha de referência. Há três sinais de clave:</p>",
                     "<p>• Clave de sol </p>",
                     "<p>• Clave de fá </p>",
                     "<p>• Clave de dó </p>",
-                "<img src='' alt='claves'>",
+                    "<img src='' alt='claves'>",
                     "<p>Utiliza-se 7 claves representadas pelos três sinais.</p>",
                     "<p><b>• Clave de sol:</b> é escrita na 2ª linha. Violino, flauta, trompete são alguns dos instrumentos que a utilizam.</p>",
                     "<img src='' alt='clavea de sol no pentagrama'>",
-                "<p><b>• Clave de fá:</b> é escrita na 3ª ou 4ª linha. Tuba, trombone e fagote são alguns dos instrumentos que a utilizam.</p>",
-                "<img src='' alt='clavea de fá no pentagrama'>",
-                "<p><b> Clave de dó:</b> é escrita na 1ª, 2ª, 3ª ou 4ª linha. Viola e violoncelo são uns dos principais instrumentos que a utilizam.</p>",
-                "<img src='' alt='clavea de dó no pentagrama'>"
+                    "<p><b>• Clave de fá:</b> é escrita na 3ª ou 4ª linha. Tuba, trombone e fagote são alguns dos instrumentos que a utilizam.</p>",
+                    "<img src='' alt='clavea de fá no pentagrama'>",
+                    "<p><b> Clave de dó:</b> é escrita na 1ª, 2ª, 3ª ou 4ª linha. Viola e violoncelo são uns dos principais instrumentos que a utilizam.</p>",
+                    "<img src='' alt='clavea de dó no pentagrama'>"
                 ]
             },
             {
@@ -92,24 +90,24 @@
                     "<p>Os ritmos e as diferentes durações dos sons podem ser representados por Figuras. Cada figura de som tem sua respectiva <b>figura de silêncio (pausa).</b></p>",
                     "<p>As partem que compõem a figura são:</p>",
                     "<p>• Cabeça: tem uma forma elíptica (imagem da cabeça)</p>",
-                "<p> • Haste: é um traço vertical colocado para cima e à direita da cabeça, ou para baixo e à esquerda da cabeça. (imagem da haste) </p>",
-               "<p> • Bandeirola ou colchete: está sempre à direita da haste (imagem do colchete)</p>",
+                    "<p> • Haste: é um traço vertical colocado para cima e à direita da cabeça, ou para baixo e à esquerda da cabeça. (imagem da haste) </p>",
+                    "<p> • Bandeirola ou colchete: está sempre à direita da haste (imagem do colchete)</p>",
                     "<p>Figuras de som e de silêncio:</p>",
-                "<p> -> Semibreve: é a figura de maior duração utilizada atualmente e as demais figuras são frações dela. Representada pelo número 1. </p>",
+                    "<p> -> Semibreve: é a figura de maior duração utilizada atualmente e as demais figuras são frações dela. Representada pelo número 1. </p>",
                     "<img src='' alt='semibreve'>",
-                "<p> -> Mínima: vale metade da semibreve. Representada pelo número 2 pois cabem 2 mínimas em uma semibreve. </p>",
-                "<img src='' alt='minima'>",
-                "<p> -> Semínima: vale metade da mínima. É representada pelo número 4 pois cabem 4 semínimas em uma semibreve.</p>",
-                "<img src='' alt='seminima'>",
-                "<p> -> Colcheia: vale metade da semínima. É representada pelo número 8, pois cabem 8 colcheias em uma semibreve. </p>",
-                "<img src='' alt='colcheia'>",
-                "<p> -> Semicolcheia: vale metade da colcheia. É representada pelo número 16, pois cabem 16 semicolcheias em uma semibre. </p>",
-                "<img src='' alt='semicolcheia'>",
-                "<p> -> Fusa: vale metade da semicolcheia. É representada pelo número 32, pois cabem 32 fusas em uma semibreve. </p>",
-                "<img src='' alt='fusa'>",
-                "<p> -> Semifusa: vale metade da fusa. É representada pelo número 64, pois cabem 64 semifusas em uma semibreve. </p>",
-                "<img src='' alt='semifusa'>",
-                "<p>As colcheias, semicolcheias, fusas e semifusas podem ser escritas com bandeirolas ou ligadas por barras de união.</p>"
+                    "<p> -> Mínima: vale metade da semibreve. Representada pelo número 2 pois cabem 2 mínimas em uma semibreve. </p>",
+                    "<img src='' alt='minima'>",
+                    "<p> -> Semínima: vale metade da mínima. É representada pelo número 4 pois cabem 4 semínimas em uma semibreve.</p>",
+                    "<img src='' alt='seminima'>",
+                    "<p> -> Colcheia: vale metade da semínima. É representada pelo número 8, pois cabem 8 colcheias em uma semibreve. </p>",
+                    "<img src='' alt='colcheia'>",
+                    "<p> -> Semicolcheia: vale metade da colcheia. É representada pelo número 16, pois cabem 16 semicolcheias em uma semibre. </p>",
+                    "<img src='' alt='semicolcheia'>",
+                    "<p> -> Fusa: vale metade da semicolcheia. É representada pelo número 32, pois cabem 32 fusas em uma semibreve. </p>",
+                    "<img src='' alt='fusa'>",
+                    "<p> -> Semifusa: vale metade da fusa. É representada pelo número 64, pois cabem 64 semifusas em uma semibreve. </p>",
+                    "<img src='' alt='semifusa'>",
+                    "<p>As colcheias, semicolcheias, fusas e semifusas podem ser escritas com bandeirolas ou ligadas por barras de união.</p>"
                 ]
             },
             {
@@ -124,10 +122,10 @@
                     "<p>A ligadura é uma linha curva que se coloca acima ou abaixo das notas e serve para unir os sons.</p>",
                     "<p>Há três tipos:</p>",
                     "<p>• De valor: liga notas da mesma altura. </p>",
-                "<img src='' alt='Ligadura de valor'>",
+                    "<img src='' alt='Ligadura de valor'>",
                     "<p>• De portamento: liga duas notas de diferentes alturas. (exemplo de ligadura de portamento)</p>",
-                "<img src='' alt='Ligadura de portamento'>",
-                "<p>• De fraseado: liga diversas notas ou compassos e identifica semifrases ou frases. </p>",
+                    "<img src='' alt='Ligadura de portamento'>",
+                    "<p>• De fraseado: liga diversas notas ou compassos e identifica semifrases ou frases. </p>",
                     "<img src='' alt='Ligadura de fraseado'>"
                 ]
             },
@@ -143,8 +141,8 @@
                     "<p>O ponto de aumento é colocado ao lado direito da cabeça de uma figura para aumentar metade de seu valor. As pausas também podem ser pontuadas.</p>",
                     "<p>Pode-se usar até 3 pontos de aumento: o 2º ponto aumenta metade do valor do 1º ponto e o 3º ponto aumenta metade do valor do 2º ponto.</p>",
                     "<p>• Ponto simples </p>",
-                "<p>• Ponto duplo </p>",
-                "<p>• Ponto triplo </p>",
+                    "<p>• Ponto duplo </p>",
+                    "<p>• Ponto triplo </p>",
                     "<p>Há também o ponto de diminuição, que se escreve em cima ou embaixo da nota para diminuir metade do seu valor.</p>",
                     "<img src='' alt='Exemplo dos pontos'>"
                 ]
@@ -159,16 +157,14 @@
                 "conteudo": [
                     "<h1>Fermata</h1>",
                     "<p>Fermata é um sinal que se coloca acima ou abaixo das notas, pausas ou barras de compasso e <b>serve para prolongar o som</b> ou silêncio por tempo indeterminado, além do seu próprio valor. Também pode ser chamado de coroa ou infinito. </p>",
-                "<img src='' alt='Sinal fermata'>",
+                    "<img src='' alt='Sinal fermata'>",
                     "<p>Quando é colocada sobre uma pausa chama-se suspensão; quando colocada sobre a barra de compasso, indica uma pequena interrupção entre dois sons (cesura).</p>",
                     "<p>As notas naturais são: A (Lá), B (Si), C (Dó), D (Ré), E (Mi), F (Fá), G (Sol).</p>",
                     "<p>As fermatas podem ser suspensivas ou conclusivas:</p>",
-                "<p>• Suspensiva: quando aparece durante o período ou trecho musical (duração curta). </p>",
-                "<p> • Conclusiva: quando aparece no final de um período (duração longa). </p>"
+                    "<p>• Suspensiva: quando aparece durante o período ou trecho musical (duração curta). </p>",
+                    "<p> • Conclusiva: quando aparece no final de um período (duração longa). </p>"
                 ]
-            }
-        ],
-        "avancado": [
+            },
             {
                 "id": "compasso",
                 "card": {
@@ -183,7 +179,6 @@
                     "<p>Os compassos podem ser simples ou compostos.</p>"
                 ]
             },
-
             {
                 "id": "barras-de-compasso",
                 "card": {
@@ -194,11 +189,11 @@
                 "conteudo": [
                     "<h1>Barras de Compasso</h1>",
                     "<p>Na escrita musical se utiliza as barras de compasso para representar os compassos, também podem ser chamadas de barras simples.</p>",
-                "<img src='' alt='Barras de compasso'>",
+                    "<img src='' alt='Barras de compasso'>",
                     "<p>Para concluir a escrita musical usa-se a barra final.</p>",
-                "<img src='' alt='Barra final'>",
+                    "<img src='' alt='Barra final'>",
                     "<p>Para separar trechos e períodos da música usa-se a barra dupla.</p>",
-                "<img src='' alt='Barra dupla'>"
+                    "<img src='' alt='Barra dupla'>"
                 ]
             },
             {
@@ -213,7 +208,7 @@
                     "<p>Os compassos binários, ternários, quaternários, etc. são indicados no início do primeiro compasso por dois números sobrepostos, chamados Fórmula de Compasso.</p>",
                     "<p>Nos compassos simples, o número superior é representado pelos números 2, 3 ou 4 e indica quantidade de tempos em cada compasso.</p>",
                     "<p>O número inferior indica a figura que tem valor de um tempo, chamada <b>Unidade de Tempo (U.T.)</b> que é representada pelos números 2 (mínima), 4 (semínima), 8 (colcheia), etc.</p>",
-                "<img src='' alt='Exemplo de compasso simples'>",
+                    "<img src='' alt='Exemplo de compasso simples'>",
                     "<p>A soma das U.T. forma a <b>Unidade de Compasso (U.C)</b>, que é a figura que representa o compasso inteiro.</p>",
                     "<img src='' alt='Exemplo de unidade de compasso'>"
                 ]
@@ -230,12 +225,69 @@
                     "<p>No compasso composto sua unidade de tempo tem uma subdivisão ternária e cada subdivisão é chamada <b>Movimento.</b> Ao invés da música ser escrita em compassos simples com os tempos alterados (tercinas), elimina-se as indicações de quiálteras (grupos de notas que alteram a divisão rítmica padrão de um compasso) e obtém-se os compassos compostos.</p>",
                     "<p>Sua fórmula é indicada no início do primeiro compasso ou trecho por dois números sobrepostos. O número superior é representado pelos números: 6, 9 ou 12 e indica a <b>quantidade de movimentos</b> em cada compasso. Para saber se o compasso composto é binário, ternário ou quaternário basta dividir o número superior por três.</p>",
                     "<p>O número inferior indica a figura de Movimento; é representado pelos números 2, 4, 8, etc. A U.T. é formada por três figuras de Movimento. Portando para se obter a U.T basta multiplicar o número inferior por três.</p>",
-                "<img src='' alt='Exemplo de compasso composto'>",
+                    "<img src='' alt='Exemplo de compasso composto'>",
                     "<p>As Unidades de Tempo (U.T) e de Compasso (U.C.) nos compassos compostos são sempre formadas por figuras pontuadas. Nos ternários compostos não há uma figura única que indique a U.C.: são utilizadas figuras com ligadura, ao que se dá o nome de <b>Unidade de Som (U.S.).</b></p>",
                     "<img src='' alt='Exemplo de unidade de som'>"
                 ]
             }
-   
+        ],
+        "intermediario": [
+            {
+                "id": "modos",
+                "card": {
+                    "titulo": "Modos Musicais",
+                    "descricao": "Diferentes escalas derivadas da escala maior",
+                    "img": "../img/modos.png"
+                },
+                "conteudo": [
+                    "<div class='material'>",
+                    "<h1>Modos Musicais</h1>",
+                    "<p>Os modos são diferentes escalas derivadas da escala maior...</p>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' frameborder='0' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
+                ]
+            },
+            {
+                "id": "harmonia",
+                "card": {
+                    "titulo": "Harmonia",
+                    "descricao": "Estudo da construção e progressão de acordes",
+                    "img": "../img/harmonia.png"
+                },
+                "conteudo": [
+                    "<div class='material'>",
+                    "<h1>Harmonia</h1>",
+                    "<p>A harmonia é o estudo de como os acordes se relacionam...</p>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' frameborder='0' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
+                ]
+            }
+        ],
+        "avancado": [
+            {
+                "id": "improvisacao",
+                "card": {
+                    "titulo": "Improvisação",
+                    "descricao": "A arte de criar música espontaneamente",
+                    "img": "../img/improvisacao.png"
+                },
+                "conteudo": [
+                    "<div class='material'>",
+                    "<h1>Improvisação</h1>",
+                    "<p>A improvisação é uma habilidade fundamental para músicos...</p>",
+                    "</div>",
+                    "<div class='pratica'>",
+                    "<iframe width='560' height='315' src='https://youtu.be/RuTFju9QkqM?si=zFAsXwgiSsKFoRZH' frameborder='0' allowfullscreen></iframe>",
+                    "<a href='#' class='btn-praticar'>Praticar</a>",
+                    "</div>"
+                ]
+            }
         ]
     }
 }
