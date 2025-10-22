@@ -114,12 +114,6 @@ body {
 .login ul li {
     cursor: pointer;
 }
-.login ul li a{
-    font-size: 2vw;
-    font-weight: 600;
-    color: #FFFFFF;
-    text-decoration: none;
-}
 
 .login ul .underline {
     position: absolute;
@@ -160,11 +154,11 @@ form {
 }
 
 #formCadastro {
-    gap: 1vw;
+    gap: 0.8vw;
 }
 
 /* CAMPOS DO FORMULÁRIO */
-.email,
+.gmail,
 .nome,
 .senha {
     display: flex;
@@ -173,7 +167,7 @@ form {
     width: 100%;
 }
 
-.email label,
+.gmail label,
 .nome label,
 .senha label {
     font-size: 1.6vw;
@@ -183,7 +177,7 @@ form {
     left: 3%;
 }
 
-.email input,
+.gmail input,
 .nome input,
 .senha input {
     background-color: var(--cor3);
@@ -202,7 +196,7 @@ form {
 
 }
 
-.email input::placeholder,
+.gmail input::placeholder,
 .nome input::placeholder,
 .senha input::placeholder {
     color: var(--fonte);
@@ -219,7 +213,7 @@ input:-webkit-autofill:active {
 }
 
 
-.email input:focus,
+.gmail input:focus,
 .nome input:focus,
 .senha input:focus {
     outline: none;
@@ -247,10 +241,10 @@ input:-webkit-autofill:active {
     justify-content: center;
     align-items: center;
     margin-top: 10%;
-    cursor: pointer;
 }
 
-.btnEntrar a {
+.btnEntrar a,
+.btnEntrar button {
     text-decoration: none;
     width: 65%;
     font-size: 1.2vw;
@@ -262,17 +256,6 @@ input:-webkit-autofill:active {
     border-radius: 20vw;
     box-shadow: var(--cor4) .4vw .4vw;
     transition: all .5s;
-    cursor: pointer;
-}
-
-.btnEntrar a button{
-    text-decoration: none;
-    font-size: 1.2vw;
-    font-weight: bold;
-    text-align: center;
-    color: var(--cor7);
-    background-color: var(--cor2);
-    line-height: 2.7;
     border: none;
     cursor: pointer;
 }
@@ -340,6 +323,115 @@ input:-webkit-autofill:active {
     bottom: 2vw;
     right: 3vw;
     width: 3.5vw;
+}
+
+/* Estilos do modal de confirmação */
+.modal-sair {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-conteudo {
+    background: var(--cor1);
+    border: var(--cor3) solid 3px;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    height: 35vh;
+    max-width: 35vw;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-conteudo p {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    font-weight: 600;
+    width: 50%;
+    margin-bottom: 20px;
+    color: var(--cor7);
+}
+
+.modal-conteudo .botoes {
+    display: flex;
+    gap: 2rem;
+}
+
+.modal-conteudo button {
+    padding: .8rem 3rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#fecharMensagem {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--cor3);
+    color: var(--cor1);
+    z-index: 1;
+}
+
+#fecharMensagem::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--cor2);
+    width: 100%;
+    height: 0%;
+    z-index: -1;
+    transition: height 0.2s ease-in-out;
+}
+
+#fecharMensagem:hover::after {
+    height: 100%;
+}
+
+#cancelarSair {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--cor7);
+    color: var(--cor1);
+    z-index: 1;
+}
+
+#cancelarSair::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--cor6);
+    width: 100%;
+    height: 0%;
+    z-index: -1;
+    transition: height 0.2s ease-in-out;
+}
+
+#cancelarSair:hover::after {
+    height: 100%;
+}
+
+
+
+.modal-sair.hidden {
+    display: none;
 }
 
 @media (max-width: 600px) {
@@ -487,7 +579,7 @@ input:-webkit-autofill:active {
     }
 
     /* CAMPOS DO FORMULÁRIO */
-    .email,
+    .gmail,
     .nome,
     .senha {
         display: flex;
@@ -496,7 +588,7 @@ input:-webkit-autofill:active {
         width: 100%;
     }
 
-    .email label,
+    .gmail label,
     .nome label,
     .senha label {
         font-size: 7vw;
@@ -506,7 +598,7 @@ input:-webkit-autofill:active {
         left: 3%;
     }
 
-    .email input,
+    .gmail input,
     .nome input,
     .senha input {
         background-color: var(--cor3);
@@ -525,7 +617,7 @@ input:-webkit-autofill:active {
 
     }
 
-    .email input::placeholder,
+    .gmail input::placeholder,
     .nome input::placeholder,
     .senha input::placeholder {
         color: var(--fonte);
@@ -542,7 +634,7 @@ input:-webkit-autofill:active {
     }
 
 
-    .email input:focus,
+    .gmail input:focus,
     .nome input:focus,
     .senha input:focus {
         outline: none;
@@ -572,7 +664,8 @@ input:-webkit-autofill:active {
         margin-top: 0%;
     }
 
-    .btnEntrar a {
+    .btnEntrar a,
+    .btnEntrar button {
         text-decoration: none;
         width: 65%;
         font-size: 5vw;
@@ -584,6 +677,8 @@ input:-webkit-autofill:active {
         border-radius: 20vw;
         box-shadow: var(--cor4) 2vw 2vw;
         transition: all .5s;
+        border: none;
+        cursor: pointer;
     }
 
     /* GOOGLE LOGIN */

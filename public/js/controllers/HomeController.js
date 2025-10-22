@@ -1,5 +1,5 @@
-import { HomeService } from "../services/HomeService.js";
-import { HomeView } from "../views/HomeView.js";
+import { HomeService } from "/js/services/HomeService.js";
+import { HomeView } from "/js/views/HomeView.js";
 
 export class HomeController {
     constructor() {

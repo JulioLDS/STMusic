@@ -64,7 +64,7 @@ export class StatusView {
 
         // Confirmar
         this.btnConfirmar.addEventListener("click", () => {
-            window.location.href = "../Pages/paginaInicial.html";
+            window.location.href = "/";
         });
 
         // Fechar clicando fora

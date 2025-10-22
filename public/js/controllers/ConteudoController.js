@@ -1,6 +1,6 @@
-import { Conteudo } from "../models/ConteudoModel.js";
-import { ConteudoService } from "../services/ConteudoService.js";
-import { ConteudoView } from "../views/ConteudoView.js";
+import { Conteudo } from "/js/models/ConteudoModel.js";
+import { ConteudoService } from "/js/services/ConteudoService.js";
+import { ConteudoView } from "/js/views/ConteudoView.js";
 
 export class ConteudoController {
     constructor() {

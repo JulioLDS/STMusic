@@ -1,6 +1,6 @@
-import { ConteudoController } from "./controllers/ConteudoController.js";
-import { ExercicioController } from "./controllers/ExercicioController.js";
-import { StatusController } from "./controllers/StatusController.js";
+import { ConteudoController } from "/js/controllers/ConteudoController.js";
+import { ExercicioController } from "/js/controllers/ExercicioController.js";
+import { StatusController } from "/js/controllers/StatusController.js";
 
 const listItems = document.querySelectorAll('.navegacao ul li');
 const indicador = document.querySelector('.indicador');

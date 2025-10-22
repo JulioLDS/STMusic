@@ -1,6 +1,6 @@
-import { Exercicio } from "../models/ExercicioModel.js";
-import { ExercicioService } from "../services/ExercicioService.js";
-import { ExercicioView } from "../views/ExercicioView.js";
+import { Exercicio } from "/js/models/ExercicioModel.js";
+import { ExercicioService } from "/js/services/ExercicioService.js";
+import { ExercicioView } from "/js/views/ExercicioView.js";
 
 export class ExercicioController {
     constructor() {

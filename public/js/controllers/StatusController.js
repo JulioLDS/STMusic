@@ -1,6 +1,6 @@
-import { Status } from "../models/StatusModel.js";
-import { StatusService } from "../services/StatusService.js";
-import { StatusView } from "../views/StatusView.js";
+import { Status } from "/js/models/StatusModel.js";
+import { StatusService } from "/js/services/StatusService.js";
+import { StatusView } from "/js/views/StatusView.js";
 
 export class StatusController {
     constructor() {

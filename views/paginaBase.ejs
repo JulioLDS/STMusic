@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="/css/paginaBase.css">
-    <link rel="stylesheet" href="/css/styles%20JSON/home.css">
-    <link rel="stylesheet" href="/css/styles%20JSON/conteudos.css">
-    <link rel="stylesheet" href="/css/styles%20JSON/status.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/conteudos.css">
+    <link rel="stylesheet" href="/css/exercicios.css">
+    <link rel="stylesheet" href="/css/status.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <title>STMusic</title>
 </head>
@@ -27,13 +29,12 @@
 
     </header>
     <!-- BOTÃO SAIR -->
-    <a href="/logout">
-        <img class="btnSair" src="/assets/img/sair.png" alt="Sair">
+    <a href="/">
+        <img class="btnSair" src="/assets/img/sair.png" alt="sair">
     </a>
 
     <!-- CONTEÚDO DAS PÁGINAS CARREGADO AQUI -->
-    <div class="container home">
-    </div>
+    <div class="container home"></div>
 
     <!-- NAVBAR -->
     <div class="navegacao">
@@ -66,11 +67,23 @@
         </ul>
     </div>
 
-    <script src="/js/paginaBase.js"></script>
-    <script src="/js/js%20JSON/home.js"></script>
-    <script src="/js/js%20JSON/conteudos.js"></script>
-    <script src="/js/js%20JSON/status.js"></script>
+    <!-- MODAL DE CONFIRMAÇÃO -->
+    <div id="modalSair" class="modal-sair hidden">
+        <div class="modal-conteudo">
+            <p>Deseja sair desta conta?</p>
+            <div class="botoes">
+                <button id="confirmarSair">Sim</button>
+                <button id="cancelarSair">Não</button>
+            </div>
+        </div>
+    </div>
 
+    <!-- Animações swiper-bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Script da página base -->
+    <script type="module" src="/js/paginaBase.js"></script>
+    <!-- Ponto de entrada geral -->
+    <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

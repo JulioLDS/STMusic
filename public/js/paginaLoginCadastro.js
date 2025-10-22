@@ -87,6 +87,18 @@ document.addEventListener('DOMContentLoaded', () => {
     setupPasswordToggle('senhaCadastro', 'toggleSenhaCadastro');
 });
 
+// Exibir mensagens vindas do backend (EJS)
+document.addEventListener("DOMContentLoaded", () => {
+    setupTabs();
+    setupPasswordToggle('senhaLogin', 'toggleSenhaLogin');
+    setupPasswordToggle('senhaCadastro', 'toggleSenhaCadastro');
+
+    // Captura mensagem passada pelo servidor (EJS)
+    const mensagem = document.body.dataset.mensagem;
+    setupMensagemModal(mensagem);
+});
+
+
 function autoResizeInputFont(input, minFontSize = 12, maxFontSize = 28) {
     const span = document.createElement("span");
     span.style.visibility = "hidden";
@@ -116,6 +128,33 @@ function autoResizeInputFont(input, minFontSize = 12, maxFontSize = 28) {
     window.addEventListener("resize", resizeFont);
     resizeFont(); // chamar inicialmente
 }
+
+// --- Modal de mensagens de sucesso/erro --- //
+function setupMensagemModal(mensagem) {
+    const modal = document.getElementById("modalMensagem");
+    const texto = document.getElementById("textoMensagem");
+    const btnFechar = document.getElementById("fecharMensagem");
+
+    if (!modal || !texto || !btnFechar) return;
+
+    if (mensagem && mensagem.trim() !== "") {
+        texto.textContent = mensagem;
+        modal.classList.remove("hidden");
+    }
+
+    btnFechar.addEventListener("click", () => {
+        modal.classList.add("hidden");
+    });
+
+    // Fecha clicando fora
+    modal.addEventListener("click", (e) => {
+        const conteudo = modal.querySelector(".modal-conteudo");
+        if (!conteudo.contains(e.target)) {
+            modal.classList.add("hidden");
+        }
+    });
+}
+
 
 // Pegue todos os inputs que precisam se adaptar
 const inputsAdaptaveis = document.querySelectorAll("input[type='text'], input[type='password']");

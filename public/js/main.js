@@ -1,7 +1,7 @@
-import { ConteudoController } from "./controllers/ConteudoController.js";
-import { ExercicioController } from "./controllers/ExercicioController.js";
-import { StatusController } from "./controllers/StatusController.js";
-import { HomeController } from "./controllers/HomeController.js";
+import { ConteudoController } from "/js/controllers/ConteudoController.js";
+import { ExercicioController } from "/js/controllers/ExercicioController.js";
+import { StatusController } from "/js/controllers/StatusController.js";
+import { HomeController } from "/js/controllers/HomeController.js";
 
 window.carregarHome = () => {
     new HomeController().init();
