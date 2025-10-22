@@ -18,7 +18,8 @@
                             "c) Altura",
                             "d) Duração"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "A propriedade relacionada ao tempo de um som:",
@@ -29,7 +30,8 @@
                             "c) Timbre",
                             "d) Altura"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O que caracteriza a intensidade do som?",
@@ -40,9 +42,9 @@
                             "c) Grave ou agudo",
                             "d) Brilhante ou opaco"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
-
                     {
                         "pergunta": "O que nos permite reconhecer a origem do som?",
                         "tipo": "multipla_escolha",
@@ -52,9 +54,9 @@
                             "c) Intensidade",
                             "d) Duração"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
-
                     {
                         "pergunta": "Qual propriedade indica quanto tempo dura um som?",
                         "tipo": "multipla_escolha",
@@ -64,12 +66,11 @@
                             "c) Timbre",
                             "d) Duração"
                         ],
-                        "resposta": 3
-                    }                   
+                        "resposta": 3,
+                        "explicacao": ""
+                    }
                 ]
             },
-
-            
             {
                 "id": "pentagrama-ex",
                 "card": {
@@ -87,7 +88,8 @@
                             "c) 6",
                             "d) 7"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Qual é a sequência correta das sete notas?",
@@ -98,7 +100,8 @@
                             "c) dó – ré – mi – fá – sol – lá – si",
                             "d) dó – mi – ré – fá – sol – lá – si"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O pentagrama tem quantos espaços?",
@@ -109,7 +112,8 @@
                             "c) 5",
                             "d) 6"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O que representa a letra C na notação internacional?",
@@ -120,7 +124,8 @@
                             "c) si",
                             "d) ré"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O conjunto de sinais usados para escrever música se chama:",
@@ -131,7 +136,8 @@
                             "c) Notação musical",
                             "d) Compasso"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     }
                 ]
             },
@@ -152,7 +158,8 @@
                             "c) Clave de sol",
                             "d) Clave de si"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "A clave de fá normalmente aparece na:",
@@ -163,7 +170,8 @@
                             "c) 5ª linha ",
                             "d) 4ª linha "
                         ],
-                        "resposta": 3
+                        "resposta": 3,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Qual clave pode ser escrita em qualquer linha?",
@@ -174,7 +182,8 @@
                             "c) Fá",
                             "d) Si"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Qual instrumento utiliza a clave de dó:",
@@ -185,7 +194,8 @@
                             "c) Trombone",
                             "d) Viola"
                         ],
-                        "resposta": 3
+                        "resposta": 3,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "A clave define:",
@@ -196,11 +206,11 @@
                             "c) O ritmo",
                             "d) O timbre do som"
                         ],
-                        "resposta": 3
+                        "resposta": 3,
+                        "explicacao": ""
                     }
                 ]
             },
-
             {
                 "id": "figuras-ex",
                 "card": {
@@ -218,7 +228,8 @@
                             "c) Fusa",
                             "d) Colcheia"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Quantas colcheias cabem em uma semibreve?",
@@ -229,7 +240,8 @@
                             "c) 8",
                             "d) 16"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Qual figura tem valor 4?",
@@ -240,7 +252,8 @@
                             "c) Colcheia",
                             "d) Fusa"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O elemento “bandeirola” está presente em:",
@@ -251,7 +264,8 @@
                             "c) Colcheia",
                             "d) Todas as figuras"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Qual figura vale metade da mínima?",
@@ -262,11 +276,11 @@
                             "c) Fusa",
                             "d) Semínima"
                         ],
-                        "resposta": 3
+                        "resposta": 3,
+                        "explicacao": ""
                     }
                 ]
             },
-
             {
                 "id": "ligadura-ex",
                 "card": {
@@ -284,7 +298,8 @@
                             "c) De fraseado",
                             "d) De altura"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Qual ligadura identifica semifrases ou frases?",
@@ -295,7 +310,8 @@
                             "c) De união",
                             "d) De fraseado"
                         ],
-                        "resposta": 3
+                        "resposta": 3,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "A ligadura de portamento liga:",
@@ -306,7 +322,8 @@
                             "c) Compassos",
                             "d) Silêncios"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Ligaduras aparecem como:",
@@ -317,7 +334,8 @@
                             "c) Linha pontilhada",
                             "d) Nenhuma"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "A ligadura pode ligar notas de compassos diferentes?",
@@ -325,14 +343,12 @@
                         "opcoes": [
                             "a) Sim",
                             "b) Não"
-
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     }
                 ]
             },
-
-
             {
                 "id": "ponto-de-aumento-ex",
                 "card": {
@@ -350,7 +366,8 @@
                             "c) Um terço do valor",
                             "d) O valor inteiro"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Quantos pontos podem ser usados no máximo?",
@@ -361,7 +378,8 @@
                             "c) 3",
                             "d) 4"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O 2º ponto aumenta:",
@@ -372,7 +390,8 @@
                             "c) O dobro",
                             "d) Nada"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "É possível pontuar uma pausa?",
@@ -381,7 +400,8 @@
                             "a) Sim",
                             "b) Não"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O ponto de diminuição faz o quê?",
@@ -392,11 +412,11 @@
                             "c) Mantém o valor",
                             "d) Duplica"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     }
                 ]
             },
-
             {
                 "id": "fermata-ex",
                 "card": {
@@ -414,7 +434,8 @@
                             "c) Prolonga o som ou silêncio ",
                             "d) Muda a clave"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Outro nome para fermata:",
@@ -425,7 +446,8 @@
                             "c) Cruz",
                             "d) Pausa"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Uma fermata sobre pausa chama-se:",
@@ -436,7 +458,8 @@
                             "c) Ligadura",
                             "d) Suspensão"
                         ],
-                        "resposta": 3
+                        "resposta": 3,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Quando aparece no final de um trecho é:",
@@ -447,7 +470,8 @@
                             "c) Suspensiva",
                             "d) Unida"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Fermata sobre a barra de compasso indica:",
@@ -458,11 +482,11 @@
                             "c) Cesura",
                             "d) Diminuição"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     }
                 ]
             },
-
             {
                 "id": "compasso-ex",
                 "card": {
@@ -480,7 +504,8 @@
                             "c) Silêncios apenas",
                             "d) Figuras"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Quantos tempos há em um compasso ternário?",
@@ -491,7 +516,8 @@
                             "c) 4",
                             "d) 6"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O compasso binário agrupa:",
@@ -502,7 +528,8 @@
                             "c) 4 tempos",
                             "d) 6 tempos"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Como se chama a barra que finaliza a música?",
@@ -513,7 +540,8 @@
                             "c) Barra final",
                             "d) Cesura"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O que são barras de compasso?",
@@ -524,11 +552,11 @@
                             "c) Marcam notas",
                             "d) Aumentam o ritmo"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     }
                 ]
             },
-
             {
                 "id": "formula-compasso-simples-ex",
                 "card": {
@@ -546,7 +574,8 @@
                             "c) Dois números sobrepostos",
                             "d) Um sinal de clave"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "No compasso simples, o número superior indica:",
@@ -557,7 +586,8 @@
                             "c) Quantidade de tempos",
                             "d) Figura musical"
                         ],
-                        "resposta": 2
+                        "resposta": 2,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O número inferior indica:",
@@ -568,7 +598,8 @@
                             "c) A clave ",
                             "d) O compasso"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Um compasso 3/4 tem:",
@@ -579,7 +610,8 @@
                             "c) 4 semínimas ",
                             "d) 4 colcheias"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "A unidade de compasso é a soma de:",
@@ -590,11 +622,11 @@
                             "c) Pausas",
                             "d) Semibreves"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     }
                 ]
             },
-
             {
                 "id": "formula-compasso-composto-ex",
                 "card": {
@@ -612,7 +644,8 @@
                             "c) 12",
                             "d) 4"
                         ],
-                        "resposta": 3
+                        "resposta": 3,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Os compassos compostos possuem subdivisão:",
@@ -623,7 +656,8 @@
                             "c) Quaternária",
                             "d) Quinária"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "Uma fórmula composta 6/8 indica:",
@@ -634,7 +668,8 @@
                             "c) 3 tempos compostos",
                             "d) 6 tempos simples"
                         ],
-                        "resposta": 1
+                        "resposta": 1,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "No compasso composto, a U.T. é formada por:",
@@ -645,7 +680,8 @@
                             "c) 4 figuras de movimento",
                             "d) 6 figuras de movimento"
                         ],
-                        "resposta": 0
+                        "resposta": 0,
+                        "explicacao": ""
                     },
                     {
                         "pergunta": "O que indica a unidade de som?",
@@ -656,11 +692,11 @@
                             "c) Compasso duplo",
                             "d) Ligadura"
                         ],
-                        "resposta": 3
+                        "resposta": 3,
+                        "explicacao": ""
                     }
                 ]
             }
-
         ],
         "intermediario": [
             {
