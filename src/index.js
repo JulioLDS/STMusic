@@ -81,12 +81,18 @@ app.post("/signup", async (req, res) => {
             password: req.body.password,
         },
         "progresso": {
-            "notas-musicais": 0.0,
-            "escalas": 0.0,
-            "acordes": 0.0,
-            "modos": 0.0,
-            "harmonia": 0.0,
-            "improvisacao": 0.0,
+            "introducao": 0.0,
+            "propriedades-som": 0.0,
+            "pentagrama": 0.0,
+            "claves": 0.0,
+            "figuras": 0.0,
+            "ligadura": 0.0,
+            "ponto-de-aumento": 0.0,
+            "fermata": 0.0,
+            "compasso": 0.0,
+            "barras-de-compasso": 0.0,
+            "formula-compasso-simples": 0.0,
+            "formula-compasso-composto": 0.0,
         }
     };
 
