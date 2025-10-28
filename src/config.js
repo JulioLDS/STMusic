@@ -17,17 +17,27 @@ connect.then(() => {
 
 // Create Schema
 const Loginschema = new mongoose.Schema({
-    name: {
-        type:String,
-        required: true
+    usuario: {
+        name: {
+            type:String,
+            required: true
+        },
+        email: {
+            type:String,
+            required: true
+        },
+        password: {
+            type: String,
+            required: true
+        }
     },
-    email: {
-        type:String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
+    progresso: {
+        "notas-musicais": Number,
+        "escalas": Number,
+        "acordes": Number,
+        "modos": Number,
+        "harmonia": Number,
+        "improvisacao": Number,
     }
 });
 
