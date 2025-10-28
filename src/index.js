@@ -54,7 +54,7 @@ app.get("/status", async (req, res) => {
         }
 
         // Normaliza para { usuario, progresso } e fornece ambos os campos nome/name
-        const payload = {
+        const infoUsuario = {
             usuario: {
                 nome: usuarioDoc.usuario.nome || usuarioDoc.usuario.name || "Usuário",
                 name: usuarioDoc.usuario.name || usuarioDoc.usuario.nome || "Usuário",
@@ -64,7 +64,7 @@ app.get("/status", async (req, res) => {
         };
 
         console.log("Deu certo pegar o json, enviando objeto normalizado para o front");
-        return res.json(payload);
+        return res.json(infoUsuario);
     } catch (err) {
         console.error(err);
         return res.status(500).json({ erro: "Erro ao buscar progresso" });

@@ -6,7 +6,7 @@
                 "card": {
                     "titulo": "Exercícios: Propriedades do Som",
                     "descricao": "Teste seu conhecimento sobre as propriedades do som",
-                    "img": "../img/exercicio-notas.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -76,7 +76,7 @@
                 "card": {
                     "titulo": "Exercícios: Pentagrama",
                     "descricao": "Pratique seu connhecimento sobre pentagrama",
-                    "img": "../img/exercicio-escalas.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -146,7 +146,7 @@
                 "card": {
                     "titulo": "Exercícios: Clave",
                     "descricao": "Teste seu conhecimento sobre clave",
-                    "img": "../img/exercicio-acordes.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -216,7 +216,7 @@
                 "card": {
                     "titulo": "Exercícios: Figuras",
                     "descricao": "Teste seu conhecimento sobre figuras",
-                    "img": "../img/exercicio-acordes.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -286,7 +286,7 @@
                 "card": {
                     "titulo": "Exercícios: Ligadura",
                     "descricao": "Teste seu conhecimento sobre ligadura",
-                    "img": "../img/exercicio-acordes.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -354,7 +354,7 @@
                 "card": {
                     "titulo": "Exercícios: Ponto de aumento",
                     "descricao": "Teste seu conhecimento sobre ponto de aumento",
-                    "img": "../img/exercicio-acordes.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -422,7 +422,7 @@
                 "card": {
                     "titulo": "Exercícios: Fermata",
                     "descricao": "Teste seu conhecimento sobre fermata",
-                    "img": "../img/exercicio-acordes.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -492,7 +492,7 @@
                 "card": {
                     "titulo": "Exercícios: Compasso",
                     "descricao": "Teste seu conhecimento sobre compasso",
-                    "img": "../img/exercicio-acordes.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -562,7 +562,7 @@
                 "card": {
                     "titulo": "Exercícios: Fórmula do compasso simples",
                     "descricao": "Teste seu conhecimento sobre Fórmula do compasso simples",
-                    "img": "../img/exercicio-acordes.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -632,7 +632,7 @@
                 "card": {
                     "titulo": "Exercícios: Fórmula do compasso composto",
                     "descricao": "Teste seu conhecimento sobre Fórmula do compasso composto",
-                    "img": "../img/exercicio-acordes.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -704,7 +704,7 @@
                 "card": {
                     "titulo": "Exercícios: Modos",
                     "descricao": "Pratique identificando modos musicais",
-                    "img": "../img/exercicio-modos.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {
@@ -727,7 +727,7 @@
                 "card": {
                     "titulo": "Exercícios: Improvisação",
                     "descricao": "Desafios para desenvolver sua improvisação",
-                    "img": "../img/exercicio-improvisacao.png"
+                    "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
                     {

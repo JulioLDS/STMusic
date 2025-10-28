@@ -6,7 +6,7 @@
                 "card": {
                     "titulo": "Introdução",
                     "descricao": "Inicio do aprendizado",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Introdução</h1>",
@@ -22,7 +22,7 @@
                 "card": {
                     "titulo": "Propriedades do Som",
                     "descricao": "As propriedades do som da música.",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Propriedades do Som</h1>",
@@ -39,7 +39,7 @@
                 "card": {
                     "titulo": "Nota - Pentagrama",
                     "descricao": "As figuras usadas para representar os sons.",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Nota - Pentagrama</h1>",
@@ -60,7 +60,7 @@
                 "card": {
                     "titulo": "Clave",
                     "descricao": "Os três sinais de clave",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Clave</h1>",
@@ -83,7 +83,7 @@
                 "card": {
                     "titulo": "Figuras",
                     "descricao": "Figuras que representam os ritmos e durações dos sons",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Figuras</h1>",
@@ -115,7 +115,7 @@
                 "card": {
                     "titulo": "Ligadura",
                     "descricao": "Linha curva colocada acima ou abaixo dos sons",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Ligadura</h1>",
@@ -134,7 +134,7 @@
                 "card": {
                     "titulo": "Ponto de Aumento",
                     "descricao": "Ponto colocado ao lado direito da cabeça de uma figura",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Ponto de Aumento</h1>",
@@ -152,7 +152,7 @@
                 "card": {
                     "titulo": "Fermata",
                     "descricao": "Sinal usada para prolongar o som ou silêncio",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Fermata</h1>",
@@ -170,7 +170,7 @@
                 "card": {
                     "titulo": "Compasso",
                     "descricao": "O compasso é o agrupamento de tempos.",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Compasso</h1>",
@@ -184,7 +184,7 @@
                 "card": {
                     "titulo": "Barras de Compasso",
                     "descricao": "Barras utilizadas para representar os compassos.",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Barras de Compasso</h1>",
@@ -201,7 +201,7 @@
                 "card": {
                     "titulo": "Fórmula de Compasso Simples",
                     "descricao": "Os compassos binários, ternários, quaternários, etc.",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Fórmula de Compasso Simples</h1>",
@@ -218,7 +218,7 @@
                 "card": {
                     "titulo": "Fórmula de Compasso Composto",
                     "descricao": "No compasso composto sua unidade de tempo tem uma subdivisão ternária.",
-                    "img": ""
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<h1>Fórmula de Compasso Composto</h1>",
@@ -237,7 +237,7 @@
                 "card": {
                     "titulo": "Modos Musicais",
                     "descricao": "Diferentes escalas derivadas da escala maior",
-                    "img": "../img/modos.png"
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<div class='material'>",
@@ -255,7 +255,7 @@
                 "card": {
                     "titulo": "Harmonia",
                     "descricao": "Estudo da construção e progressão de acordes",
-                    "img": "../img/harmonia.png"
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<div class='material'>",
@@ -275,7 +275,7 @@
                 "card": {
                     "titulo": "Improvisação",
                     "descricao": "A arte de criar música espontaneamente",
-                    "img": "../img/improvisacao.png"
+                    "img": "../assets/img/default2.png"
                 },
                 "conteudo": [
                     "<div class='material'>",
