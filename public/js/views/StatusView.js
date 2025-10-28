@@ -16,8 +16,10 @@ export class StatusView {
             return `
                 <div class="status-item">
                     <label>${label}</label>
-                    <progress value="${valor}" max="1"></progress>
-                    <div class="status-circular-individual" style="left: ${percent}%;"></div>
+                    <div class="progress-wrap">
+                        <progress value="${valor}" max="1" style="width:100%;"></progress>
+                        <div class="status-circular-individual" style="left: ${percent}%;"></div>
+                    </div>
                 </div>
             `;
         }).join('');

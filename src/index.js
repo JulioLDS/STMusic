@@ -35,14 +35,36 @@ app.get("/logout", (req, res) => {
 
 //provisório PRA CARALHO (Mas fui eu que pensei nisso :3)
 app.get("/status", async (req, res) => {
-    try{
-    const usuario = await collection.findOne({ "usuario.name": nomeUsuario });
-     if (!usuario) {
-            return res.status(404).json({ erro: "Nenhum usuário encontrado" });
+    try {
+        if (!nomeUsuario) {
+            console.log("Requisição /status sem usuário autenticado");
+            return res.status(401).json({ erro: "Usuário não autenticado" });
         }
 
-    console.log("Deu certo pegar o json, o problema tá no front");    
-    return res.json(usuario.progresso);
+        const usuarioDoc = await collection.findOne({
+            $or: [
+                { "usuario.name": nomeUsuario },
+                { "usuario.nome": nomeUsuario }
+            ]
+        });
+
+        if (!usuarioDoc) {
+            console.log("Usuário não encontrado / não autenticado");
+            return res.status(404).json({ erro: "Usuário não encontrado" });
+        }
+
+        // Normaliza para { usuario, progresso } e fornece ambos os campos nome/name
+        const payload = {
+            usuario: {
+                nome: usuarioDoc.usuario.nome || usuarioDoc.usuario.name || "Usuário",
+                name: usuarioDoc.usuario.name || usuarioDoc.usuario.nome || "Usuário",
+                email: usuarioDoc.usuario.email || ""
+            },
+            progresso: usuarioDoc.progresso || {}
+        };
+
+        console.log("Deu certo pegar o json, enviando objeto normalizado para o front");
+        return res.json(payload);
     } catch (err) {
         console.error(err);
         return res.status(500).json({ erro: "Erro ao buscar progresso" });
@@ -53,12 +75,12 @@ app.get("/status", async (req, res) => {
 // --- CADASTRO DE USUÁRIO ---
 app.post("/signup", async (req, res) => {
     const data = {
-        "usuario" : {
+        "usuario": {
             name: req.body.username,
             email: req.body.email,
             password: req.body.password,
         },
-        "progresso" : {
+        "progresso": {
             "notas-musicais": 0.0,
             "escalas": 0.0,
             "acordes": 0.0,
@@ -66,7 +88,6 @@ app.post("/signup", async (req, res) => {
             "harmonia": 0.0,
             "improvisacao": 0.0,
         }
-
     };
 
     try {
@@ -82,7 +103,7 @@ app.post("/signup", async (req, res) => {
         const criptoSenha = await bcrypt.hash(data.usuario.password, saltRounds);
         data.usuario.password = criptoSenha;
 
-        const userdata = await collection.insertMany(data);
+        const userdata = await collection.insertOne(data);
         console.log("Usuário cadastrado:", userdata);
 
         // Após cadastro bem-sucedido, volta para o login com mensagem
@@ -94,18 +115,20 @@ app.post("/signup", async (req, res) => {
 });
 
 
+
+
 // --- LOGIN DO USUÁRIO ---
 app.post("/login", async (req, res) => {
     try {
-        const check = await collection.findOne({ "usuario.name": req.body.username });
+        const check = await collection.findOne({ $or: [{ "usuario.name": req.body.username }, { "usuario.nome": req.body.username }] });
         if (!check) {
             return res.render("login", { mensagem: "Usuário não encontrado" });
         }
 
         const senhaConfere = await bcrypt.compare(req.body.password, check.usuario.password);
         if (senhaConfere) {
-            //provisório
-            usuario = check.usuario.name;
+            // provisório: armazena corretamente o nome do usuário logado (aceita name ou nome)
+            nomeUsuario = check.usuario.name || check.usuario.nome;
 
             return res.render("paginaBase", { mensagem: "Login efetuado com sucesso!" });
         } else {
