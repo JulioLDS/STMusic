@@ -1,0 +1,748 @@
+{
+    "exercicios": {
+        "iniciante": [
+            {
+                "id": "propriedades-do-som-ex",
+                "card": {
+                    "titulo": "Exercícios: Propriedades do Som",
+                    "descricao": "Teste seu conhecimento sobre as propriedades do som",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "O que define se um som é grave ou agudo?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Intensidade",
+                            "b) Timbre",
+                            "c) Altura",
+                            "d) Duração"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "A propriedade relacionada ao tempo de um som:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Duração",
+                            "b) Intensidade",
+                            "c) Timbre",
+                            "d) Altura"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O que caracteriza a intensidade do som?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Forte ou fraco",
+                            "b) Curto ou longo",
+                            "c) Grave ou agudo",
+                            "d) Brilhante ou opaco"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O que nos permite reconhecer a origem do som?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Altura",
+                            "b) Timbre ",
+                            "c) Intensidade",
+                            "d) Duração"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Qual propriedade indica quanto tempo dura um som?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Altura",
+                            "b) Intensidade ",
+                            "c) Timbre",
+                            "d) Duração"
+                        ],
+                        "resposta": 3,
+                        "explicacao": ""
+                    }
+                ]
+            },
+            {
+                "id": "pentagrama-ex",
+                "card": {
+                    "titulo": "Exercícios: Pentagrama",
+                    "descricao": "Pratique seu connhecimento sobre pentagrama",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Quantas linhas tem o pentagrama?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 4",
+                            "b) 5  ",
+                            "c) 6",
+                            "d) 7"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Qual é a sequência correta das sete notas?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) dó – fá – ré – mi – sol – lá – si",
+                            "b) dó – ré – fá – sol – lá – si – mi",
+                            "c) dó – ré – mi – fá – sol – lá – si",
+                            "d) dó – mi – ré – fá – sol – lá – si"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O pentagrama tem quantos espaços?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 3",
+                            "b) 4",
+                            "c) 5",
+                            "d) 6"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O que representa a letra C na notação internacional?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) dó",
+                            "b) lá",
+                            "c) si",
+                            "d) ré"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O conjunto de sinais usados para escrever música se chama:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Partitura",
+                            "b) Escala",
+                            "c) Notação musical",
+                            "d) Compasso"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    }
+                ]
+            },
+            {
+                "id": "clave-ex",
+                "card": {
+                    "titulo": "Exercícios: Clave",
+                    "descricao": "Teste seu conhecimento sobre clave",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual clave é utilizada para o violino?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Clave de fá",
+                            "b) Clave de dó",
+                            "c) Clave de sol",
+                            "d) Clave de si"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "A clave de fá normalmente aparece na:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 3ª linha",
+                            "b) 2ª linha",
+                            "c) 5ª linha ",
+                            "d) 4ª linha "
+                        ],
+                        "resposta": 3,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Qual clave pode ser escrita em qualquer linha?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Sol",
+                            "b) Dó",
+                            "c) Fá",
+                            "d) Si"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Qual instrumento utiliza a clave de dó:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Violino",
+                            "b) Flauta",
+                            "c) Trombone",
+                            "d) Viola"
+                        ],
+                        "resposta": 3,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "A clave define:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) O compasso",
+                            "b) A altura das figuras no pentagrama",
+                            "c) O ritmo",
+                            "d) O timbre do som"
+                        ],
+                        "resposta": 3,
+                        "explicacao": ""
+                    }
+                ]
+            },
+            {
+                "id": "figuras-ex",
+                "card": {
+                    "titulo": "Exercícios: Figuras",
+                    "descricao": "Teste seu conhecimento sobre figuras",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual figura representa o maior valor?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Semibreve",
+                            "b) Semínima",
+                            "c) Fusa",
+                            "d) Colcheia"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Quantas colcheias cabem em uma semibreve?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 2",
+                            "b) 4",
+                            "c) 8",
+                            "d) 16"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Qual figura tem valor 4?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Mínima",
+                            "b) Semínima",
+                            "c) Colcheia",
+                            "d) Fusa"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O elemento “bandeirola” está presente em:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Semibreve",
+                            "b) Mínima",
+                            "c) Colcheia",
+                            "d) Todas as figuras"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Qual figura vale metade da mínima?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Semibreve",
+                            "b) Mínima",
+                            "c) Fusa",
+                            "d) Semínima"
+                        ],
+                        "resposta": 3,
+                        "explicacao": ""
+                    }
+                ]
+            },
+            {
+                "id": "ligadura-ex",
+                "card": {
+                    "titulo": "Exercícios: Ligadura",
+                    "descricao": "Teste seu conhecimento sobre ligadura",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual ligadura une notas de mesma altura?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) De valor",
+                            "b) De portamento",
+                            "c) De fraseado",
+                            "d) De altura"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Qual ligadura identifica semifrases ou frases?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) De valor",
+                            "b) De portamento",
+                            "c) De união",
+                            "d) De fraseado"
+                        ],
+                        "resposta": 3,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "A ligadura de portamento liga:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Notas de alturas iguais",
+                            "b) Notas alturas diferentes ",
+                            "c) Compassos",
+                            "d) Silêncios"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Ligaduras aparecem como:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Linha reta",
+                            "b) Linha curva",
+                            "c) Linha pontilhada",
+                            "d) Nenhuma"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "A ligadura pode ligar notas de compassos diferentes?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Sim",
+                            "b) Não"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    }
+                ]
+            },
+            {
+                "id": "ponto-de-aumento-ex",
+                "card": {
+                    "titulo": "Exercícios: Ponto de aumento",
+                    "descricao": "Teste seu conhecimento sobre ponto de aumento",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "O ponto de aumento aumenta:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) O dobro do valor",
+                            "b) Metade do valor ",
+                            "c) Um terço do valor",
+                            "d) O valor inteiro"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Quantos pontos podem ser usados no máximo?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 1",
+                            "b) 2",
+                            "c) 3",
+                            "d) 4"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O 2º ponto aumenta:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) O valor total",
+                            "b) Metade do primeiro ponto ",
+                            "c) O dobro",
+                            "d) Nada"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "É possível pontuar uma pausa?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Sim",
+                            "b) Não"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O ponto de diminuição faz o quê?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Aumenta metade",
+                            "b) Diminui metade ",
+                            "c) Mantém o valor",
+                            "d) Duplica"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    }
+                ]
+            },
+            {
+                "id": "fermata-ex",
+                "card": {
+                    "titulo": "Exercícios: Fermata",
+                    "descricao": "Teste seu conhecimento sobre fermata",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "O que a fermata faz?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Diminui o tempo",
+                            "b) Aumenta o volume",
+                            "c) Prolonga o som ou silêncio ",
+                            "d) Muda a clave"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Outro nome para fermata:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Ponto",
+                            "b) Coroa",
+                            "c) Cruz",
+                            "d) Pausa"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Uma fermata sobre pausa chama-se:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Cesura",
+                            "b) Portamento",
+                            "c) Ligadura",
+                            "d) Suspensão"
+                        ],
+                        "resposta": 3,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Quando aparece no final de um trecho é:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Ligadura",
+                            "b) Conclusiva",
+                            "c) Suspensiva",
+                            "d) Unida"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Fermata sobre a barra de compasso indica:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Final",
+                            "b) Pausa",
+                            "c) Cesura",
+                            "d) Diminuição"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    }
+                ]
+            },
+            {
+                "id": "compasso-ex",
+                "card": {
+                    "titulo": "Exercícios: Compasso",
+                    "descricao": "Teste seu conhecimento sobre compasso",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "O compasso agrupa:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Tempos",
+                            "b) Notas",
+                            "c) Silêncios apenas",
+                            "d) Figuras"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Quantos tempos há em um compasso ternário?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 2",
+                            "b) 3",
+                            "c) 4",
+                            "d) 6"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O compasso binário agrupa:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 2 tempos",
+                            "b) 3 tempos",
+                            "c) 4 tempos",
+                            "d) 6 tempos"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Como se chama a barra que finaliza a música?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Barra simples",
+                            "b) Barra dupla",
+                            "c) Barra final",
+                            "d) Cesura"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O que são barras de compasso?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Marcam silêncios",
+                            "b) Dividem compassos",
+                            "c) Marcam notas",
+                            "d) Aumentam o ritmo"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    }
+                ]
+            },
+            {
+                "id": "formula-compasso-simples-ex",
+                "card": {
+                    "titulo": "Exercícios: Fórmula do compasso simples",
+                    "descricao": "Teste seu conhecimento sobre Fórmula do compasso simples",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "A fórmula de compasso é indicada por:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Uma letra",
+                            "b) Uma figura",
+                            "c) Dois números sobrepostos",
+                            "d) Um sinal de clave"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "No compasso simples, o número superior indica:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Unidade de tempo",
+                            "b) Unidade de compasso",
+                            "c) Quantidade de tempos",
+                            "d) Figura musical"
+                        ],
+                        "resposta": 2,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O número inferior indica:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) A figura de unidade de tempo ",
+                            "b) O tom",
+                            "c) A clave ",
+                            "d) O compasso"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Um compasso 3/4 tem:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 3 semínimas",
+                            "b) 3 mínimas",
+                            "c) 4 semínimas ",
+                            "d) 4 colcheias"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "A unidade de compasso é a soma de:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Claves",
+                            "b) Unidades de tempo ",
+                            "c) Pausas",
+                            "d) Semibreves"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    }
+                ]
+            },
+            {
+                "id": "formula-compasso-composto-ex",
+                "card": {
+                    "titulo": "Exercícios: Fórmula do compasso composto",
+                    "descricao": "Teste seu conhecimento sobre Fórmula do compasso composto",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual destes não indica compasso composto?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 6",
+                            "b) 9",
+                            "c) 12",
+                            "d) 4"
+                        ],
+                        "resposta": 3,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Os compassos compostos possuem subdivisão:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Binária",
+                            "b) Ternária",
+                            "c) Quaternária",
+                            "d) Quinária"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "Uma fórmula composta 6/8 indica:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 6 tempos binários",
+                            "b) 2 tempos compostos",
+                            "c) 3 tempos compostos",
+                            "d) 6 tempos simples"
+                        ],
+                        "resposta": 1,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "No compasso composto, a U.T. é formada por:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) 3 figuras de movimento",
+                            "b) 2 figuras de movimento",
+                            "c) 4 figuras de movimento",
+                            "d) 6 figuras de movimento"
+                        ],
+                        "resposta": 0,
+                        "explicacao": ""
+                    },
+                    {
+                        "pergunta": "O que indica a unidade de som?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Figura pontuada",
+                            "b) Nota dobrada",
+                            "c) Compasso duplo",
+                            "d) Ligadura"
+                        ],
+                        "resposta": 3,
+                        "explicacao": ""
+                    }
+                ]
+            }
+        ],
+        "intermediario": [
+            {
+                "id": "modos-ex",
+                "card": {
+                    "titulo": "Exercícios: Modos",
+                    "descricao": "Pratique identificando modos musicais",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual modo começa no segundo grau da escala maior?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "Dórico",
+                            "Frígio",
+                            "Lídio"
+                        ],
+                        "resposta": 0,
+                        "explicacao": "O modo dórico é o segundo modo da escala maior"
+                    }
+                ]
+            }
+        ],
+        "avancado": [
+            {
+                "id": "improvisacao-ex",
+                "card": {
+                    "titulo": "Exercícios: Improvisação",
+                    "descricao": "Desafios para desenvolver sua improvisação",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual destes NÃO é um elemento importante na improvisação?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "Escutar os outros músicos",
+                            "Decorar frases prontas",
+                            "Desenvolver ideias melódicas"
+                        ],
+                        "resposta": 1,
+                        "explicacao": "Improvisação é sobre criatividade, não repetição"
+                    }
+                ]
+            }
+        ]
+    }
+}

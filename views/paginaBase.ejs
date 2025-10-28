@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/paginaBase.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/conteudos.css">
+    <link rel="stylesheet" href="/css/exercicios.css">
+    <link rel="stylesheet" href="/css/status.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>STMusic</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>ST
+                <div class="imgLogo">
+                    <img src="/assets/img/logo.png" alt="logo">
+                </div>
+            </h1>
+            <h2>Music</h2>
+            <h3>Study Tool Music</h3>
+        </div>
+        <a href="#"><img class="btnVoltar" src="/assets/img/voltar.png" alt="voltar"></a>
+
+    </header>
+    <!-- BOTÃO SAIR -->
+    <a href="/">
+        <img class="btnSair" src="/assets/img/sair.png" alt="sair">
+    </a>
+
+    <!-- CONTEÚDO DAS PÁGINAS CARREGADO AQUI -->
+    <div class="container home"></div>
+
+    <!-- NAVBAR -->
+    <div class="navegacao">
+        <ul>
+            <li class="list active">
+                <a href="#">
+                    <span class="icon"><img src="/assets/img/home-agreement.png" alt="home"></span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><img src="/assets/img/reading-book.png" alt="conteudos"></span>
+                    <span class="text">Conteúdos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><img src="/assets/img/report.png" alt="exercicios"></span>
+                    <span class="text">Exercícios</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><img src="/assets/img/status.png" alt="status"></span>
+                    <span class="text">Status</span>
+                </a>
+            </li>
+            <div class="indicador"></div>
+        </ul>
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO -->
+    <div id="modalSair" class="modal-sair hidden">
+        <div class="modal-conteudo">
+            <p>Deseja sair desta conta?</p>
+            <div class="botoes">
+                <button id="confirmarSair">Sim</button>
+                <button id="cancelarSair">Não</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animações swiper-bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Script da página base -->
+    <script type="module" src="/js/paginaBase.js"></script>
+    <!-- Ponto de entrada geral -->
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

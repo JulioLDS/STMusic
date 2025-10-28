@@ -1,0 +1,610 @@
+:root {
+    /* Cores de fundo */
+    --cor1: #CEE2BD;
+    --cor2: #98CA8D;
+    --cor3: #63B068;
+    --cor4: #3F975D;
+    --cor5: #247E5A;
+    --cor6: #106659;
+    --cor7: #00444D;
+    --fonte: #FFFFFF;
+
+    /* Gradientes */
+    --grCor1: linear-gradient(#247E5B, #00444D);
+    --grCor2: linear-gradient(#247E5B, #0F6659);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*  CONTAINER STATUS  */
+
+.container.status {
+    position: relative;
+    top: 0vh;
+    left: 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    width: 60%;
+    height: 70vh;
+    overflow: hidden;
+    background-color: var(--cor7);
+    border-radius: 30px;
+}
+
+/*  CONTEÚDO DO PAINEL DE STATUS    */
+.container.status .status-painel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+}
+
+/* Área com nome do usuário e as barras */
+.container.status .status-painel .status-info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+/* Botão com o nome do usuário */
+.container.status .status-painel .status-info button.status-nome {
+    width: fit-content;
+    max-width: 100%;
+    background-color: var(--cor3);
+    color: var(--fonte);
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Container geral das barras individuais */
+.container.status .status-painel .status-info .status-barras {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1rem;
+    border-radius: 10px;
+    height: 50vh;
+    overflow-y: auto;
+}
+
+.container.status .status-painel .status-info .status-barras::-webkit-scrollbar {
+    width: .5rem;
+}
+
+.container.status .status-painel .status-info .status-barras::-webkit-scrollbar-thumb {
+    background: linear-gradient(transparent 0%, var(--cor6) 40%, var(--cor6) 60%, transparent 100%);
+    border: var(--cor7) solid 2px;
+    border-radius: 10px;
+    min-height: 30px;
+}
+
+
+
+/* =========================================
+   CADA ITEM DE STATUS (rótulo + barra + bolinha)
+   ========================================= */
+.container.status .status-painel .status-info .status-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+}
+
+/* Rótulo do conteúdo (ex: Teoria Musical) */
+.container.status .status-painel .status-info .status-item label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--cor1);
+    margin-bottom: .3rem;
+}
+
+/* Container para a barra de progresso e o marcador */
+.progress-wrap {
+    position: relative;
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+/* Barra de progresso */
+.progress-wrap progress {
+    width: 100%;
+    height: .8rem;
+    border-radius: 8px;
+    appearance: none;
+    overflow: hidden;
+}
+
+/* Estilo do fundo da barra (Chrome, Edge, Safari) */
+.container.status .status-painel .status-info .status-item progress::-webkit-progress-bar {
+    background-color: var(--cor1);
+    border-radius: 8px;
+}
+
+/* Cor da parte preenchida da barra (Chrome, Edge, Safari) */
+.container.status .status-painel .status-info .status-item progress::-webkit-progress-value {
+    background-color: var(--cor4);
+    border-radius: 8px;
+}
+
+/* Cor da parte preenchida da barra (Firefox) */
+.container.status .status-painel .status-info .status-item progress::-moz-progress-bar {
+    background-color: var(--cor4);
+    border-radius: 8px;
+}
+
+/* Circulozinho opcional de status individual */
+.status-circular-individual {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background-color: var(--cor6);
+    border: var(--cor2) solid 4px;
+    z-index: 1;
+}
+
+/* =========================================
+   GRÁFICO CIRCULAR DE MÉDIA GERAL (LADO DIREITO)
+   ========================================= */
+.container.status .status-painel .status-circular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.container.status .status-painel .status-circular svg.circular-chart {
+    width: 90%;
+    height: 90%;
+}
+
+.container.status .status-painel .status-circular svg .circle-bg {
+    fill: none;
+    stroke: var(--cor1);
+    stroke-width: 2.8;
+}
+
+.container.status .status-painel .status-circular svg .circle {
+    fill: none;
+    stroke: var(--cor3);
+    stroke-width: 2.8;
+    stroke-linecap: butt;
+    transition: stroke-dasharray 0.3s ease;
+}
+
+.container.status .status-painel .status-circular svg .percentage {
+    fill: var(--cor4);
+    font-weight: 600;
+    font-size: .6rem;
+    text-anchor: middle;
+}
+
+/*  BTN SAIR    */
+
+.btnSair {
+    width: 13vh;
+    padding: 1.5rem 1rem;
+}
+
+/* Estilos do modal de confirmação */
+.modal-sair {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-conteudo {
+    background: var(--cor1);
+    border: var(--cor3) solid 3px;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    height: 35vh;
+    max-width: 35vw;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-conteudo p {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    font-weight: 600;
+    width: 50%;
+    margin-bottom: 20px;
+    color: var(--cor7);
+}
+
+.modal-conteudo .botoes {
+    display: flex;
+    gap: 2rem;
+}
+
+.modal-conteudo button {
+    padding: .8rem 3rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#confirmarSair {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--cor3);
+    color: var(--cor1);
+    z-index: 1;
+}
+
+#confirmarSair::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--cor2);
+    width: 100%;
+    height: 0%;
+    z-index: -1;
+    transition: height 0.2s ease-in-out;
+}
+
+#confirmarSair:hover::after {
+    height: 100%;
+}
+
+#cancelarSair {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--cor7);
+    color: var(--cor1);
+    z-index: 1;
+}
+
+#cancelarSair::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--cor6);
+    width: 100%;
+    height: 0%;
+    z-index: -1;
+    transition: height 0.2s ease-in-out;
+}
+
+#cancelarSair:hover::after {
+    height: 100%;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+/*      ===MOBILE===   */
+@media (max-width: 600px) {
+
+    /*  CONTAINER STATUS  */
+
+    .container.status {
+        position: relative;
+        top: 2vh;
+        left: 0vw;
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+        width: 100%;
+        height: 70vh;
+        overflow: hidden;
+        background-color: var(--cor7);
+        border-radius: 60px;
+    }
+
+    /*  CONTEÚDO DO PAINEL DE STATUS    */
+    .container.status .status-painel {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-top: 2rem;
+        width: 90%;
+        height: 100%;
+    }
+
+    /* Área com nome do usuário e as barras */
+    .container.status .status-painel .status-info {
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        padding-inline: 1rem;
+
+    }
+
+    /* Botão com o nome do usuário */
+    .container.status .status-painel .status-info button.status-nome {
+        width: fit-content;
+        max-width: 60%;
+        background-color: var(--cor3);
+        color: var(--fonte);
+        border: none;
+        padding: 1rem 3rem;
+        border-radius: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    /* Container geral das barras individuais */
+    .container.status .status-painel .status-info .status-barras {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 2.5rem 1rem;
+        border-radius: 10px;
+        height: 70vh;
+        overflow-y: auto;
+
+    }
+
+    .container.status .status-painel .status-info .status-barras::-webkit-scrollbar {
+        display: none;
+    }
+
+    .progress-wrap {
+        height: 2.5rem;
+    }
+
+    /* =========================================
+   CADA ITEM DE STATUS (rótulo + barra + bolinha)
+   ========================================= */
+    .container.status .status-painel .status-info .status-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 1rem;
+    }
+
+    /* Rótulo do conteúdo (ex: Teoria Musical) */
+    .container.status .status-painel .status-info .status-item label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1;
+        color: var(--cor1);
+        margin-bottom: .7rem;
+    }
+
+    /* Barra de progresso */
+    .container.status .status-painel .status-info .status-item progress {
+        width: 100%;
+        height: .8rem;
+        border-radius: 8px;
+        appearance: none;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+
+    /* Estilo do fundo da barra (Chrome, Edge, Safari) */
+    .container.status .status-painel .status-info .status-item progress::-webkit-progress-bar {
+        background-color: var(--cor1);
+        border-radius: 8px;
+    }
+
+    /* Cor da parte preenchida da barra (Chrome, Edge, Safari) */
+    .container.status .status-painel .status-info .status-item progress::-webkit-progress-value {
+        background-color: var(--cor4);
+        /* Personalize conforme necessário */
+        border-radius: 8px;
+    }
+
+    /* Cor da parte preenchida da barra (Firefox) */
+    .container.status .status-painel .status-info .status-item progress::-moz-progress-bar {
+        background-color: var(--cor4);
+        border-radius: 8px;
+    }
+
+    /* Circulozinho opcional de status individual abaixo da barra */
+    .container.status .status-painel .status-info .status-item .status-circular-individual {
+        position: absolute;
+        top: 1.5rem;
+        /* abaixo da barra */
+        background-color: var(--cor6);
+        border: var(--cor2) solid 4px;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        transform: translateX(-50%);
+        /* centraliza a bolinha no ponto */
+    }
+
+    /* =========================================
+   GRÁFICO CIRCULAR DE MÉDIA GERAL (LADO DIREITO)
+   ========================================= */
+    .container.status .status-painel .status-circular {
+        position: absolute;
+        top: 0;
+        right: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        width: 40%;
+
+    }
+
+    .container.status .status-painel .status-circular svg.circular-chart {
+        width: 100%;
+    }
+
+    .container.status .status-painel .status-circular svg .circle-bg {
+        fill: none;
+        stroke: var(--cor1);
+        stroke-width: 2.8;
+    }
+
+    .container.status .status-painel .status-circular svg .circle {
+        fill: none;
+        stroke: var(--cor3);
+        stroke-width: 2.8;
+        stroke-linecap: butt;
+        transition: stroke-dasharray 0.3s ease;
+    }
+
+    .container.status .status-painel .status-circular svg .percentage {
+        fill: var(--cor4);
+        font-weight: 600;
+        font-size: .6rem;
+        text-anchor: middle;
+    }
+
+    /*  BTN SAIR    */
+
+    .btnSair {
+        width: 10vh;
+        padding: 1.5rem 1rem;
+        z-index: 1000;
+    }
+
+    /* Estilos do modal de confirmação */
+    .modal-sair {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+    }
+
+    .modal-conteudo {
+        background: var(--cor1);
+        border: var(--cor3) solid 3px;
+        padding: 30px;
+        border-radius: 30px;
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        height: 35vh;
+        max-width: 100%;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-conteudo p {
+        font-size: 1.6rem;
+        line-height: 1.2;
+        font-weight: 600;
+        width: 70%;
+        margin-bottom: 20px;
+        color: var(--cor7);
+    }
+
+    .modal-conteudo .botoes {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .modal-conteudo button {
+        padding: .8rem 3rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    #confirmarSair {
+        position: relative;
+        overflow: hidden;
+        background-color: var(--cor3);
+        color: var(--cor1);
+        z-index: 1;
+    }
+
+    #confirmarSair::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--cor2);
+        width: 100%;
+        height: 0%;
+        z-index: -1;
+        transition: height 0.2s ease-in-out;
+    }
+
+    #confirmarSair:hover::after {
+        height: 100%;
+    }
+
+    #cancelarSair {
+        position: relative;
+        overflow: hidden;
+        background-color: var(--cor7);
+        color: var(--cor1);
+        z-index: 1;
+    }
+
+    #cancelarSair::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--cor6);
+        width: 100%;
+        height: 0%;
+        z-index: -1;
+        transition: height 0.2s ease-in-out;
+    }
+
+    #cancelarSair:hover::after {
+        height: 100%;
+    }
+
+
+
+    .hidden {
+        display: none;
+    }
+
+
+}

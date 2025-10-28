@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/paginaLoginCadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>STMusic</title>
+</head>
+
+<body data-mensagem="<%= typeof mensagem !== 'undefined' ? mensagem : '' %>">
+    <div class="container">
+        <div class="logo">
+            <h1>ST
+                <div class="imgLogo">
+                    <img src="/assets/img/logo.png" alt="logo">
+                </div>
+            </h1>
+            <h2>Music</h2>
+            <h3>Study Tool Music</h3>
+        </div>
+
+        <div class="login">
+            <!-- Abas -->
+            <ul>
+                <li class="tab active" id="btnLogin">Entrar</li>
+                <li class="tab" id="btnSignup">Cadastrar</li>
+                <div class="underline"></div>
+            </ul>
+
+            <div class="forms-wrapper" id="formsWrapper">
+
+                <!-- LOGIN -->
+                <div class="form-container" id="loginForm">
+                    <form id="formLogin" action="/login" method="post">
+                        <div class="nome">
+                            <label for="nomeLogin">Nome</label>
+                            <input type="text" id="nomeLogin" name="username" placeholder="Nome" required>
+                        </div>
+                        <div class="senha">
+                            <label for="senhaLogin">Senha
+                                <img id="toggleSenhaLogin" src="/assets/img/olhoF.png" alt="Mostrar senha"
+                                    class="eye-icon">
+                            </label>
+                            <input type="password" id="senhaLogin" name="password" placeholder="Senha" required>
+                        </div>
+                        <div class="btnEntrar">
+                            <button type="submit" class="submit-btn">Entrar</button>
+                        </div>
+                        <div class="google-login">
+                            <button type="button" class="google-btn">
+                                <div class="google-icon">
+                                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                                        alt="Google logo">
+                                </div>
+                                <span class="google-text">Continuar com Google</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- CADASTRO -->
+                <div class="form-container hidden" id="signupForm">
+                    <form id="formCadastro" action="/signup" method="post">
+                        <div class="nome">
+                            <label for="nomeCadastro">Nome</label>
+                            <input type="text" id="nomeCadastro" name="username" placeholder="Nome" required>
+                        </div>
+                        <div class="gmail">
+                            <label for="gmailCadastro">Gmail</label>
+                            <input type="text" id="gmailCadastro" name="email" placeholder="Gmail" required>
+                        </div>
+                        <div class="senha">
+                            <label for="senhaCadastro">Senha
+                                <img id="toggleSenhaCadastro" src="/assets/img/olhoF.png" alt="Mostrar senha"
+                                    class="eye-icon">
+                            </label>
+                            <input type="password" id="senhaCadastro" name="password" placeholder="Senha" required>
+                        </div>
+                        <div class="btnEntrar">
+                            <button type="submit" class="submit-btn">Cadastrar</button>
+                        </div>
+                        <div class="google-login">
+                            <button type="button" class="google-btn">
+                                <div class="google-icon">
+                                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                                        alt="Google logo">
+                                </div>
+                                <span class="google-text">Continuar com Google</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <a href="/"><img class="btnVoltar" src="/assets/img/voltar.png" alt="voltar"></a>
+        </div>
+    </div>
+
+    <!-- MODAL DE MENSAGEM -->
+    <div id="modalMensagem" class="modal-sair hidden">
+        <div class="modal-conteudo">
+            <p id="textoMensagem"></p>
+            <div class="botoes">
+                <button id="fecharMensagem">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/paginaLoginCadastro.js"></script>
+
+
+</body>
+
+</html>
