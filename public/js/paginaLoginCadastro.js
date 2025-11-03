@@ -91,6 +91,38 @@ document.addEventListener("DOMContentLoaded", () => {
     setupMensagemModal(mensagem);
 });
 
+function setupFocusCycle(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    // Seleciona inputs de texto e senha dentro do formulário
+    const inputs = form.querySelectorAll('input[type="text"], input[type="password"]');
+    if (inputs.length === 0) return;
+
+    inputs.forEach((input, index) => {
+        input.addEventListener('keydown', function (e) {
+            if (e.key === 'Tab' && !e.shiftKey) {
+                // Se no último input pressionar TAB, volta para o primeiro
+                if (index === inputs.length - 1) {
+                    e.preventDefault();
+                    inputs[0].focus();
+                }
+            }
+            if (e.key === 'Tab' && e.shiftKey) {
+                // Se no primeiro input pressionar Shift+TAB, vai para o último
+                if (index === 0) {
+                    e.preventDefault();
+                    inputs[inputs.length - 1].focus();
+                }
+            }
+        });
+    });
+}
+
+// Configura ciclo de TAB para login e cadastro
+setupFocusCycle('formLogin');
+setupFocusCycle('formCadastro');
+
 
 function autoResizeInputFont(input, minFontSize = 12, maxFontSize = 28) {
     const span = document.createElement("span");
