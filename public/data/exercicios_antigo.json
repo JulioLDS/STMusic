@@ -1,0 +1,126 @@
+{
+    "exercicios": {
+        "iniciante": [
+            {
+                "id": "notas-musicais-ex",
+                "card": {
+                    "titulo": "Exercícios: Notas Musicais",
+                    "descricao": "Teste seu conhecimento sobre as notas musicais básicas",
+                    "img": "../img/exercicio-notas.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual é a ordem correta das notas naturais na escala musical ocidental?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "A-B-C-D-E-F-G",
+                            "C-D-E-F-G-A-B",
+                            "D-E-F-G-A-B-C"
+                        ],
+                        "resposta": 1,
+                        "explicacao": "A escala padrão começa em C (Dó) e segue: C-D-E-F-G-A-B"
+                    },
+                    {
+                        "pergunta": "Qual nota vem imediatamente após E (Mi) na escala natural?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "D (Ré)",
+                            "F (Fá)",
+                            "G (Sol)"
+                        ],
+                        "resposta": 1,
+                        "explicacao": "A sequência é: C-D-E-F-G-A-B"
+                    }
+                ]
+            },
+            {
+                "id": "escalas-ex",
+                "card": {
+                    "titulo": "Exercícios: Escalas",
+                    "descricao": "Pratique identificando escalas musicais",
+                    "img": "../img/exercicio-escalas.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual é o padrão de intervalos da escala maior?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "T-T-S-T-T-T-S",
+                            "T-S-T-T-S-T-T",
+                            "S-T-T-S-T-T-T"
+                        ],
+                        "resposta": 0,
+                        "explicacao": "O padrão é Tom-Tom-Semitom-Tom-Tom-Tom-Semitom"
+                    }
+                ]
+            },
+            {
+                "id": "acordes-ex",
+                "card": {
+                    "titulo": "Exercícios: Acordes",
+                    "descricao": "Teste seu conhecimento sobre formação de acordes",
+                    "img": "../img/exercicio-acordes.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Um acorde maior é formado por:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "Tônica + 3ª menor + 5ª justa",
+                            "Tônica + 3ª maior + 5ª justa",
+                            "Tônica + 3ª maior + 5ª aumentada"
+                        ],
+                        "resposta": 1,
+                        "explicacao": "O acorde maior usa a 3ª maior e 5ª justa"
+                    }
+                ]
+            }
+        ],
+        "intermediario": [
+            {
+                "id": "modos-ex",
+                "card": {
+                    "titulo": "Exercícios: Modos",
+                    "descricao": "Pratique identificando modos musicais",
+                    "img": "../img/exercicio-modos.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual modo começa no segundo grau da escala maior?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "Dórico",
+                            "Frígio",
+                            "Lídio"
+                        ],
+                        "resposta": 0,
+                        "explicacao": "O modo dórico é o segundo modo da escala maior"
+                    }
+                ]
+            }
+        ],
+        "avancado": [
+            {
+                "id": "improvisacao-ex",
+                "card": {
+                    "titulo": "Exercícios: Improvisação",
+                    "descricao": "Desafios para desenvolver sua improvisação",
+                    "img": "../img/exercicio-improvisacao.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "Qual destes NÃO é um elemento importante na improvisação?",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "Escutar os outros músicos",
+                            "Decorar frases prontas",
+                            "Desenvolver ideias melódicas"
+                        ],
+                        "resposta": 1,
+                        "explicacao": "Improvisação é sobre criatividade, não repetição"
+                    }
+                ]
+            }
+        ]
+    }
+}

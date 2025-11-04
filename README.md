@@ -1,0 +1,98 @@
+# 🎵 STMusic — Plataforma de Estudo em Teoria Musical
+
+['images/start.png', 'images/idle.png', 'images/playing.png', 'images/restart.png']
+
+Plataforma destinada a estudantes de teoria musical, com foco em exercícios interativos, videoaulas e acompanhamento de progresso. O objetivo é tornar o aprendizado da teoria musical mais intuitivo e motivador, fornecendo recursos para professores e alunos.
+
+---
+
+## 📌 Visão geral do projeto
+- Plataforma web com conteúdos teóricos, videoaulas e exercícios didáticos.  
+- Cadastro de alunos e rastreamento de progresso por conteúdo.  
+- Interface orientada para aprendizado passo a passo e análise de desempenho.
+
+---
+
+## ✨ Funcionalidades principais
+1. Conteúdos teóricos estruturados por níveis (iniciante → intermediário).  
+2. Videoaulas integradas para cada tema.  
+3. Exercícios interativos para fixação (feedback imediato e pontuação).  
+4. Cadastro e autenticação de alunos.  
+5. Painel com status de progresso e estatísticas por aluno.
+
+---
+
+## 👥 Público-alvo
+Professor de escola musical que deseja facilitar o ensino e acompanhamento dos alunos, além de estudantes iniciantes em teoria musical que buscam prática guiada.
+
+---
+
+## 🎨 Paleta de cores (exemplo)
+<div align="center">
+  <img src="images/palette.png" alt="Paleta de cores" width="420"/>
+</div>
+
+---
+
+## 📆 Objetivos SMART
+
+- S (Specific): Auxiliar alunos iniciantes no estudo de teoria musical, com conteúdos didáticos e exercícios interativos.  
+- M (Measurable): Medir o aprendizado através das estatísticas geradas ao final dos exercícios.  
+- A (Achievable): Conteúdos e aulas serão fornecidos por um professor; o único custo previsto é o hosting.  
+- R (Relevant): Reduzir a taxa de desistência e facilitar o estudo autônomo.  
+- T (Time-bound): Entrega prevista em 20 de Novembro de 2025 (cronograma detalhado abaixo).
+
+---
+
+## 🗓️ Cronograma resumido
+- Mês 1: Design das telas e diagramas.  
+- Mês 2: Organização do conteúdo teórico.  
+- Mês 3: Desenvolvimento de exercícios e usabilidade.  
+- Mês 4: Desenvolvimento Frontend e Backend.  
+- Mês 5: Testes e ajustes (1 mês).
+
+---
+
+## 🖼️ Telas da aplicação (demonstração)
+
+_Início (landing):_  
+<div align="center">
+  <img src="images/inicio.png" alt="Início" width="520"/>
+</div>
+
+_Videoaulas:_  
+<div align="center">
+  <img src="images/videos.png" alt="Videoaulas" width="520"/>
+</div>
+
+_Exercícios interativos:_  
+<div align="center">
+  <img src="images/exercicios.png" alt="Exercícios" width="520"/>
+</div>
+
+_Progresso do aluno:_  
+<div align="center">
+  <img src="images/progresso.png" alt="Progresso" width="520"/>
+</div>
+
+_Cadastro / Contato:_  
+<div align="center">
+  <img src="images/contato.png" alt="Contato" width="520"/>
+</div>
+
+---
+
+## 🛠️ Tecnologias sugeridas
+- Frontend: HTML5, CSS3, JavaScript.  
+- Backend: Node.js.  
+- Banco de dados: MongoDB.  
+- Vídeo: hospedagem externa (YouTube/Vimeo) ou arquivos servidos via CDN.  
+- Deploy: serviço de hosting (Vercel, Netlify para frontend; Heroku / Render / VPS para backend).
+
+---
+
+## 📚 Como contribuir
+- Enviar issues para conteúdos faltantes.  
+- Submeter PRs com exercícios, correções e melhorias na UI.  
+- Professores podem contribuir com videoaulas e material didático.
+

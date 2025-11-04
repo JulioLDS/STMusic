@@ -4,26 +4,26 @@ const password = 'bankofdates';
 const cluster = 'cluster0';
 const dbname = 'STMusic';
 
-const uri = 'mongodb+srv://'+username+ ':'+password+'@'+cluster+'.neeqr7a.mongodb.net/'+dbname+'?retryWrites=true&w=majority&appName=Cluster0';
+const uri = 'mongodb+srv://' + username + ':' + password + '@' + cluster + '.neeqr7a.mongodb.net/' + dbname + '?retryWrites=true&w=majority&appName=Cluster0';
 const connect = mongoose.connect(uri);
 
 // Check database connected or not
 connect.then(() => {
     console.log("Conexão com o banco de dados feita com sucesso");
 })
-.catch(() => {
-    console.log("Não foi possível conectar ao banco de dados");
-})
+    .catch(() => {
+        console.log("Não foi possível conectar ao banco de dados");
+    })
 
 // Create Schema
 const Loginschema = new mongoose.Schema({
     usuario: {
         name: {
-            type:String,
+            type: String,
             required: true
         },
         email: {
-            type:String,
+            type: String,
             required: true
         },
         password: {
@@ -32,12 +32,18 @@ const Loginschema = new mongoose.Schema({
         }
     },
     progresso: {
-        "notas-musicais": Number,
-        "escalas": Number,
-        "acordes": Number,
-        "modos": Number,
-        "harmonia": Number,
-        "improvisacao": Number,
+        "introducao": Number,
+        "propriedades-som": Number,
+        "pentagrama": Number,
+        "claves": Number,
+        "figuras": Number,
+        "ligadura": Number,
+        "ponto-de-aumento": Number,
+        "fermata": Number,
+        "compasso": Number,
+        "barras-de-compasso": Number,
+        "formula-compasso-simples": Number,
+        "formula-compasso-composto": Number,
     }
 });
 
