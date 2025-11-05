@@ -46,7 +46,7 @@ body.no-scroll {
     width: 90%;
     margin: auto;
     display: block;
-    height: calc(100vh - 26.4vh);
+    height: calc(100vh - (15vh + 71px));
     overflow-x: hidden;
     overflow-y: auto;
 

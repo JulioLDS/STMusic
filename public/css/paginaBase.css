@@ -106,13 +106,17 @@ header {
 /* CONTAINER */
 .container {
     width: 100%;
-    height: calc(100vh - (25vh + 71px));
+    height: calc(100vh - 15vh - 71px);
     display: flex;
     gap: 5vw;
     align-items: center;
     justify-content: center;
     position: relative;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor1);
+    /* mesma cor do body */
 }
 
 /* NAVIGATION */
@@ -216,28 +220,29 @@ header {
 
 }
 
+
 .indicador::before {
     content: '';
     position: absolute;
-    top: 55%;
-    left: -20px;
+    top: 52%;
+    left: -23px;
     width: 20px;
     height: 20px;
     border-top-right-radius: 50px;
-    box-shadow: 1px -10px 0px var(--cor1);
-
+    box-shadow: 5px -2px 0px var(--cor1);
+    transform: rotate(-15deg);
 }
 
 .indicador::after {
     content: '';
     position: absolute;
-    top: 55%;
-    right: -20px;
+    top: 52%;
+    right: -23px;
     width: 20px;
     height: 20px;
     border-top-left-radius: 50px;
-    box-shadow: -1px -10px 0 var(--cor1);
-
+    box-shadow: -5px -2px 0 var(--cor1);
+    transform: rotate(15deg);
 }
 
 /*      ===MOBILE===   */

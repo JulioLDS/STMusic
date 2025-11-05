@@ -149,6 +149,6 @@ app.post("/login", async (req, res) => {
 
 // Porta da aplicação
 const port = 5000;
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
     console.log(`Server listening on port ${port}`);
 });
