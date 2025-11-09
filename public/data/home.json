@@ -2,9 +2,14 @@
     "msg1": {
         "class": "msg1",
         "conteudo": [
-            "<h1>Seja<br>Bem-vindo!</h1>",
-            "<p>Somos uma plataforma de estudos sobre teoria musical.</p>",
-            "<p>Nossa plataforma oferece: Videoaulas, exercícios práticos e muito mais.</p>"
+            "<h1>Bem-vindo <br> ao STMusic!</h1>",
+            "<p>",
+            "Explore conteúdos teóricos, assista a videoaulas e teste seus conhecimentos com exercícios dinâmicos que se adaptam ao seu ritmo de aprendizado.",
+            "</p>",
+            "<br>",
+            "<p>",
+            "Comece agora sua jornada musical ♫",
+            "</p>"
         ]
     },
     "msg2": {

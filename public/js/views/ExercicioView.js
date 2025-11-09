@@ -19,7 +19,7 @@ export class ExercicioView {
 
         return `
             <div class="level-section">
-                <h2 class="section-title ${nivel}">${titulos[nivel] || nivel}</h2>
+                <h2 class="section-title" id= "${nivel}">${titulos[nivel] || nivel}</h2>
                 <div class="swiper-button-prev swiper-button-prev-${nivel}"></div>
                 <div class="swiper swiper-${nivel}">
                     <div class="swiper-wrapper">

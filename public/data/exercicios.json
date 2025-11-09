@@ -4,7 +4,7 @@
             {
                 "id": "propriedades-do-som-ex",
                 "card": {
-                    "titulo": "Exercícios: Propriedades do Som",
+                    "titulo": "Propriedades do Som",
                     "descricao": "Teste seu conhecimento sobre as propriedades do som",
                     "img": "../assets/img/default1.png"
                 },
@@ -74,7 +74,7 @@
             {
                 "id": "pentagrama-ex",
                 "card": {
-                    "titulo": "Exercícios: Pentagrama",
+                    "titulo": "Pentagrama",
                     "descricao": "Pratique seu connhecimento sobre pentagrama",
                     "img": "../assets/img/default1.png"
                 },
@@ -144,7 +144,7 @@
             {
                 "id": "clave-ex",
                 "card": {
-                    "titulo": "Exercícios: Clave",
+                    "titulo": "Clave",
                     "descricao": "Teste seu conhecimento sobre clave",
                     "img": "../assets/img/default1.png"
                 },
@@ -214,7 +214,7 @@
             {
                 "id": "figuras-ex",
                 "card": {
-                    "titulo": "Exercícios: Figuras",
+                    "titulo": "Figuras",
                     "descricao": "Teste seu conhecimento sobre figuras",
                     "img": "../assets/img/default1.png"
                 },
@@ -284,7 +284,7 @@
             {
                 "id": "ligadura-ex",
                 "card": {
-                    "titulo": "Exercícios: Ligadura",
+                    "titulo": "Ligadura",
                     "descricao": "Teste seu conhecimento sobre ligadura",
                     "img": "../assets/img/default1.png"
                 },
@@ -352,7 +352,7 @@
             {
                 "id": "ponto-de-aumento-ex",
                 "card": {
-                    "titulo": "Exercícios: Ponto de aumento",
+                    "titulo": "Ponto de aumento",
                     "descricao": "Teste seu conhecimento sobre ponto de aumento",
                     "img": "../assets/img/default1.png"
                 },
@@ -420,7 +420,7 @@
             {
                 "id": "fermata-ex",
                 "card": {
-                    "titulo": "Exercícios: Fermata",
+                    "titulo": "Fermata",
                     "descricao": "Teste seu conhecimento sobre fermata",
                     "img": "../assets/img/default1.png"
                 },
@@ -490,7 +490,7 @@
             {
                 "id": "compasso-ex",
                 "card": {
-                    "titulo": "Exercícios: Compasso",
+                    "titulo": "Compasso",
                     "descricao": "Teste seu conhecimento sobre compasso",
                     "img": "../assets/img/default1.png"
                 },
@@ -560,7 +560,7 @@
             {
                 "id": "formula-compasso-simples-ex",
                 "card": {
-                    "titulo": "Exercícios: Fórmula do compasso simples",
+                    "titulo": "Fórmula do compasso simples",
                     "descricao": "Teste seu conhecimento sobre Fórmula do compasso simples",
                     "img": "../assets/img/default1.png"
                 },
@@ -630,7 +630,7 @@
             {
                 "id": "formula-compasso-composto-ex",
                 "card": {
-                    "titulo": "Exercícios: Fórmula do compasso composto",
+                    "titulo": "Fórmula do compasso composto",
                     "descricao": "Teste seu conhecimento sobre Fórmula do compasso composto",
                     "img": "../assets/img/default1.png"
                 },
@@ -702,7 +702,7 @@
             {
                 "id": "modos-ex",
                 "card": {
-                    "titulo": "Exercícios: Modos",
+                    "titulo": "Modos",
                     "descricao": "Pratique identificando modos musicais",
                     "img": "../assets/img/default1.png"
                 },
@@ -725,7 +725,7 @@
             {
                 "id": "improvisacao-ex",
                 "card": {
-                    "titulo": "Exercícios: Improvisação",
+                    "titulo": "Improvisação",
                     "descricao": "Desafios para desenvolver sua improvisação",
                     "img": "../assets/img/default1.png"
                 },

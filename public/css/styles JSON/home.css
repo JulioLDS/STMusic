@@ -42,6 +42,8 @@ body {
     font-size: 2.5rem;
     font-weight: 600;
     color: var(--cor4);
+    padding-bottom: 2rem;
+
 }
 
 .container.home .msg1 p {
@@ -57,6 +59,7 @@ body {
     font-size: 2.5rem;
     font-weight: 600;
     color: var(--cor4);
+    padding-bottom: 2rem;
 }
 
 .container.home .msg2 ul {
@@ -97,9 +100,7 @@ body {
     /*TIRANDO BARRA DE ROLAGEMs*/
     .container {
         scrollbar-width: none;
-        /* Firefox */
         -ms-overflow-style: none;
-        /* IE e Edge */
     }
 
     .container::-webkit-scrollbar {
@@ -127,6 +128,7 @@ body {
         box-sizing: border-box;
         color: var(--cor6);
         line-height: 1;
+        padding-top: 3rem;
     }
 
     .container.home .msg2 {
@@ -150,7 +152,7 @@ body {
 
     /* MENSAGEM 2 */
     .container.home .msg2 h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
         font-weight: 600;
         color: var(--cor4);
     }
