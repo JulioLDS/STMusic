@@ -25,7 +25,7 @@ export class ConteudoView {
                                     ${(nivel === 'intermediario' || nivel === 'avancado') ? '<div class="ribbon">RESTRITO</div>' : ''}
                                     <div class="card-image">
                                         <img src="${c.card.img}" alt="${c.card.alt || 'Imagem do card'}">
-                                        <p class="card-tag">${c.card.tag || 'Música'}</p>
+                                        <p class="card-tag">${c.card.titulo.toUpperCase()}</p>
                                     </div>
                                     <div class="card-content">
                                         <h3 class="card-title">${c.card.titulo}</h3>
