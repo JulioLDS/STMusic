@@ -36,14 +36,14 @@
                     <form id="formLogin" action="/login" method="post">
                         <div class="nome">
                             <label for="nomeLogin">Nome</label>
-                            <input type="text" id="nomeLogin" name="username" placeholder="Nome" required>
+                            <input type="text" id="nomeLogin" name="username" placeholder="Nome" autocomplete="off" required>
                         </div>
                         <div class="senha">
                             <label for="senhaLogin">Senha
                                 <img id="toggleSenhaLogin" src="/assets/img/olhoF.png" alt="Mostrar senha"
                                     class="eye-icon">
                             </label>
-                            <input type="password" id="senhaLogin" name="password" placeholder="Senha" required>
+                            <input type="password" id="senhaLogin" name="password" placeholder="Senha" autocomplete="new-password" required>
                         </div>
                         <div class="btnEntrar">
                             <button type="submit" class="submit-btn">Entrar</button>
@@ -110,7 +110,14 @@
     </div>
 
     <script src="/js/paginaLoginCadastro.js"></script>
-
+    <script>
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) {
+                // Se a página veio do cache, limpa o formulário
+                document.querySelectorAll("form").forEach(form => form.reset());
+            }
+        });
+    </script>
 
 </body>
 
