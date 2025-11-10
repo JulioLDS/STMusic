@@ -5,8 +5,37 @@ const collection = require("./config");
 
 const app = express();
 
-//variável provisória feia PRA CARALHO só pra pegar o usuario no bd de qualquer parte do código
-let nomeUsuario = null;
+//Sessões
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const mongoose = require("mongoose"); // importa o mesmo mongoose do config.js
+
+app.use(session({
+    secret: "stringsecretausadaparagerarohash",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+        client: mongoose.connection.getClient(),
+        collectionName: "sessions",
+        ttl: 14 * 24 * 60 * 60
+    }),
+    cookie: {
+        maxAge: 14 * 24 * 60 * 60 * 1000
+    }
+}));
+
+// Função middleware para impedir cache (resolve o problema de deslogar 
+// e conseguir voltar para a página inicial logado)
+function autenticar(req, res, next) {
+    if (!req.session.user) {
+        return res.redirect("/");
+    }  
+
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+    next();
+}
 
 // Conversão dos dados para JSON
 app.use(express.json());
@@ -28,19 +57,43 @@ app.get("/login", (req, res) => {
     res.render("login", { mensagem: "" });
 });
 
-// Logout
-app.get("/logout", (req, res) => {
-    res.render("paginaInicial");
+//Rota da home
+app.get("/home", autenticar, (req, res) => {
+    if (!req.session.user) {
+        return res.redirect("/");
+    }  
+    res.render("paginaBase", { mensagem: "Login efetuado com sucesso!" });
 });
 
-//provisório PRA CARALHO (Mas fui eu que pensei nisso :3)
+//Logout(Certo)
+app.get("/logout", async (req, res) => {
+    try {
+        if (req.session) {
+            const sessionId = req.session.id; // ID da sessão atual
+            await req.session.destroy();      // apaga da memória
+            req.sessionStore.destroy(sessionId, err => { // apaga do Mongo
+                if (err) console.error("Erro ao remover sessão do Mongo:", err);
+            });
+        }
+
+        res.clearCookie("connect.sid", { path: "/" });
+        return res.redirect("/");
+    } catch (err) {
+        console.error("Erro no logout:", err);
+        return res.status(500).send("Erro ao fazer logout");
+    }
+});
+
+//Tela de status
 app.get("/status", async (req, res) => {
     try {
-        if (!nomeUsuario) {
+        if (!req.session.user) {
             console.log("Requisição /status sem usuário autenticado");
             return res.status(401).json({ erro: "Usuário não autenticado" });
         }
 
+        const nomeUsuario = req.session.user.nome;
+        
         const usuarioDoc = await collection.findOne({
             $or: [
                 { "usuario.name": nomeUsuario },
@@ -121,8 +174,6 @@ app.post("/signup", async (req, res) => {
 });
 
 
-
-
 // --- LOGIN DO USUÁRIO ---
 app.post("/login", async (req, res) => {
     try {
@@ -133,10 +184,13 @@ app.post("/login", async (req, res) => {
 
         const senhaConfere = await bcrypt.compare(req.body.password, check.usuario.password);
         if (senhaConfere) {
-            // provisório: armazena corretamente o nome do usuário logado (aceita name ou nome)
-            nomeUsuario = check.usuario.name || check.usuario.nome;
+            // salva o usuário logado na sessão
+            req.session.user = {
+                nome: check.usuario.nome || check.usuario.name,
+                email: check.usuario.email
+            };
 
-            return res.render("paginaBase", { mensagem: "Login efetuado com sucesso!" });
+            return res.redirect("/home");
         } else {
             return res.render("login", { mensagem: "Senha incorreta" });
         }
