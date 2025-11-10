@@ -354,7 +354,7 @@ body {
         height: 70vh;
         overflow: hidden;
         background-color: var(--cor7);
-        border-radius: 60px;
+        border-radius: 60px 60px 0px 0px;
     }
 
     /*  CONTEÚDO DO PAINEL DE STATUS    */
@@ -399,7 +399,8 @@ body {
         border-radius: 10px;
         height: 70vh;
         overflow-y: auto;
-
+        margin-top: 1rem;
+        padding-bottom: 25vh;
     }
 
     .container.status .status-painel .status-info .status-barras::-webkit-scrollbar {
@@ -464,15 +465,13 @@ body {
     /* Circulozinho opcional de status individual abaixo da barra */
     .container.status .status-painel .status-info .status-item .status-circular-individual {
         position: absolute;
-        top: 1.5rem;
-        /* abaixo da barra */
+        top: 0.2rem;
         background-color: var(--cor6);
         border: var(--cor2) solid 4px;
         width: 1.2rem;
         height: 1.2rem;
         border-radius: 50%;
         transform: translateX(-50%);
-        /* centraliza a bolinha no ponto */
     }
 
     /* =========================================
@@ -558,18 +557,18 @@ body {
         font-size: 1.6rem;
         line-height: 1.2;
         font-weight: 600;
-        width: 70%;
+        width: 100%;
         margin-bottom: 20px;
         color: var(--cor7);
     }
 
     .modal-conteudo .botoes {
         display: flex;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .modal-conteudo button {
-        padding: .8rem 3rem;
+        padding: .8rem 2rem;
         border: none;
         border-radius: 50px;
         font-size: 1.3rem;

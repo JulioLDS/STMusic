@@ -30,7 +30,7 @@ export class ExercicioView {
                                     ${(nivel === 'intermediario' || nivel === 'avancado') ? '<div class="ribbon">RESTRITO</div>' : ''}
                                     <div class="card-image">
                                         <img src="${ex.card.img}" alt="${ex.card.titulo}">
-                                        <p class="card-tag">Exercício</p>
+                                        <p class="card-tag">${ex.card.titulo}</p>
                                         <p class="card-pontuation">0/10</p>
                                         <p class="card-try">Tentativas: 0</p>
                                     </div>

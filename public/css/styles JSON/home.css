@@ -49,7 +49,7 @@ body {
 .container.home .msg1 p {
     line-height: 1.2;
     font-size: 1.7rem;
-    font-weight: 550;
+    font-weight: 500;
     margin-bottom: 0;
     width: 90%;
 }
@@ -132,27 +132,28 @@ body {
     }
 
     .container.home .msg2 {
-        margin-bottom: 2rem;
+        margin-bottom: 5rem;
     }
 
     /* MENSAGEM 1 */
     .container.home .msg1 h1 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         font-weight: 600;
         color: var(--cor4);
     }
 
     .container.home .msg1 p {
         line-height: 1.2;
-        font-size: 2rem;
-        font-weight: 550;
+        font-size: 1.7rem;
+        font-weight: 500;
         margin-bottom: 0;
         width: 90%;
+        text-align: inherit;
     }
 
     /* MENSAGEM 2 */
     .container.home .msg2 h1 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         font-weight: 600;
         color: var(--cor4);
     }
