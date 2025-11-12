@@ -200,6 +200,63 @@ app.post("/login", async (req, res) => {
     }
 });
 
+//Atualização do progresso - exercicio concluido - de acordo com o tema
+app.post("/muda-progresso", async (req, res) => {
+    try {
+        if (!req.session.user) {
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
+
+        const { id, nivel, media } = req.body;
+
+        // Validação simples
+        if (!id || typeof media !== "number") {
+            return res.status(400).json({ erro: "Dados inválidos. É necessário enviar 'tema' e 'media' numérico." });
+        }
+
+        // Verifica se o tema existe no schema
+        const temasValidos = [
+            "introducao",
+            "propriedades-som",
+            "pentagrama",
+            "claves",
+            "figuras",
+            "ligadura",
+            "ponto-de-aumento",
+            "fermata",
+            "compasso",
+            "barras-de-compasso",
+            "formula-compasso-simples",
+            "formula-compasso-composto",
+        ];
+        if (!temasValidos.includes(id)) {
+            return res.status(400).json({ erro: "Tema inválido." });
+        }
+
+        // Localiza o usuário
+        const usuarioNome = req.session.user.nome;
+        const usuario = await collection.findOne({
+            $or: [
+                { "usuario.name": usuarioNome },
+                { "usuario.nome": usuarioNome }
+            ]
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ erro: "Usuário não encontrado" });
+        }
+
+        // Atualiza o progresso do tema específico
+        usuario.progresso[id] = media;
+        await usuario.save();
+
+        return res.json({ sucesso: true, mensagem: `Progresso em '${id}' atualizado para ${media}.` });
+    } catch (err) {
+        console.error("Erro ao atualizar progresso:", err);
+        return res.status(500).json({ erro: "Erro interno ao atualizar progresso." });
+    }
+});
+
 
 // Porta da aplicação
 const port = 5000;

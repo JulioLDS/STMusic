@@ -30,11 +30,15 @@ export class ExercicioController {
     }
 
     mostrarDetalhe(id, nivel) {
-        const exercicio = this.exercicios.find(e => e.id === id && e.nivel === nivel);
-        if (exercicio) {
-            this.view.renderDetalhe(exercicio, () => this.init());
-        }
+    const exercicio = this.exercicios.find(e => e.id === id && e.nivel === nivel);
+    if (exercicio) {
+        this.view.renderDetalhe(
+            exercicio,
+            () => this.init(),
+            (id, nivel, media) => this.atualizarProgresso(id, nivel, media)
+        );
     }
+}
 
 
     inicializarSwipers() {
@@ -57,5 +61,16 @@ export class ExercicioController {
                 });
             }
         });
+    }
+
+    async atualizarProgresso(id, nivel, media) {
+        try {
+            // Enviando progresso ao back-end via service
+            await ExercicioService.atualizarProgresso({ id, nivel, media });
+
+            console.log(`Progresso atualizado: ${id} - ${media}%`);
+        } catch (err) {
+            console.error("Erro ao atualizar progresso:", err);
+        }
     }
 }

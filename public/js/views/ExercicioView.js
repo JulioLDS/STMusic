@@ -61,10 +61,13 @@ export class ExercicioView {
         if (this.btnVoltar) this.btnVoltar.style.display = "none";
     }
 
-    renderDetalhe(exercicio, onVoltar) {
+    renderDetalhe(exercicio, onVoltar, onFinalizarProgresso) {
         this.currentIndex = 0;
         this.exercicioAtual = exercicio;
         this.onVoltar = onVoltar;
+        this.onFinalizarProgresso = onFinalizarProgresso; // 🆕 callback pro controller
+        this.acertos = 0; // 🆕 contador de acertos
+        this.respondidas = 0;
         this.mostrarPergunta();
     }
 
@@ -128,10 +131,13 @@ export class ExercicioView {
         const botoes = this.container.querySelectorAll(".opcao-btn");
         botoes.forEach(b => b.disabled = true);
 
+        this.respondidas++; // incrementa total respondidas
+
         // feedback visual e emoji
         if (indiceEscolhido === respostaCerta) {
             botao.classList.add("correta");
             this.mostrarEmoji(botao, "😄");
+            this.acertos++; // incrementa acertos
         } else {
             botao.classList.add("errada");
             this.mostrarEmoji(botao, "😢");
@@ -147,8 +153,26 @@ export class ExercicioView {
         if (!nav) return;
 
         if (this.currentIndex === lastIndex) {
-            // estamos na ÚLTIMA pergunta — já mostramos o botão Refazer
-            nav.innerHTML = `<button class="btn-refazer"> Refazer Questionário</button>`;
+        // Calcula média em porcentagem
+        const media = Math.round((this.acertos / this.exercicioAtual.perguntas.length) * 100);
+
+        alert(`Número de acertos: ${this.acertos}`);
+        // Renderiza os botões Refazer + Finalizar
+        nav.innerHTML = `
+            <button class="btn-refazer">Refazer Questionário</button>
+            <button class="btn-finalizar">Finalizar</button>
+        `;
+
+        // Listener do botão "Finalizar"
+        const btnFinalizar = nav.querySelector(".btn-finalizar");
+        btnFinalizar.addEventListener("click", () => {
+            if (this.onFinalizarProgresso) {
+                console.log("Chamando onFinalizarProgresso:");
+                //Essa é a função q tem q chamar
+                this.onFinalizarProgresso(this.exercicioAtual.id, this.exercicioAtual.nivel, media);
+            }
+        });
+
         } else {
             // há próxima pergunta: habilita o Avançar (apenas um botão já existente)
             const btnAvancar = nav.querySelector(".btn-avancar");
@@ -156,6 +180,7 @@ export class ExercicioView {
                 btnAvancar.disabled = false;
             }
         }
+        
     }
 
     // Delegated click handler: gerencia cliques em alternativas, avançar e refazer
@@ -188,6 +213,7 @@ export class ExercicioView {
         const refazerBtn = e.target.closest(".btn-refazer");
         if (refazerBtn) {
             this.currentIndex = 0;
+            this.acertos = 0;
             this.mostrarPergunta();
             return;
         }
