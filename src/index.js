@@ -135,17 +135,17 @@ app.post("/signup", async (req, res) => {
         },
         "progresso": {
             "introducao": 0.0,
-            "propriedades-som": 0.0,
+            "propriedades_do_som": 0.0,
             "pentagrama": 0.0,
             "claves": 0.0,
             "figuras": 0.0,
             "ligadura": 0.0,
-            "ponto-de-aumento": 0.0,
+            "ponto_de_aumento": 0.0,
             "fermata": 0.0,
             "compasso": 0.0,
-            "barras-de-compasso": 0.0,
-            "formula-compasso-simples": 0.0,
-            "formula-compasso-composto": 0.0,
+            "barras_de_compasso": 0.0,
+            "formula_compasso_simples": 0.0,
+            "formula_compasso_composto": 0.0,
         }
     };
 
@@ -202,12 +202,16 @@ app.post("/login", async (req, res) => {
 
 //Atualização do progresso - exercicio concluido - de acordo com o tema
 app.post("/muda-progresso", async (req, res) => {
+    console.log("função muda progresso foi chamada");
     try {
         if (!req.session.user) {
             return res.status(401).json({ erro: "Usuário não autenticado" });
         }
 
-        const { id, nivel, media } = req.body;
+        const { id, nivel, media: mediaString } = req.body;
+        const media = Number(mediaString);
+
+        console.log(`Passou por aqui - id: ${id}, media: ${media}`);
 
         // Validação simples
         if (!id || typeof media !== "number") {
@@ -217,17 +221,17 @@ app.post("/muda-progresso", async (req, res) => {
         // Verifica se o tema existe no schema
         const temasValidos = [
             "introducao",
-            "propriedades-som",
+            "propriedades_do_som",
             "pentagrama",
             "claves",
             "figuras",
             "ligadura",
-            "ponto-de-aumento",
+            "ponto_de_aumento",
             "fermata",
             "compasso",
-            "barras-de-compasso",
-            "formula-compasso-simples",
-            "formula-compasso-composto",
+            "barras_de_compasso",
+            "formula_compasso_simples",
+            "formula_compasso_composto",
         ];
         if (!temasValidos.includes(id)) {
             return res.status(400).json({ erro: "Tema inválido." });
@@ -246,11 +250,14 @@ app.post("/muda-progresso", async (req, res) => {
             return res.status(404).json({ erro: "Usuário não encontrado" });
         }
 
+        console.log("Chegou até a parte de salvar");
+        console.log("Tipo de usuario:", typeof usuario, usuario.constructor?.name);
         // Atualiza o progresso do tema específico
         usuario.progresso[id] = media;
         await usuario.save();
+        console.log("Salvou");
 
-        return res.json({ sucesso: true, mensagem: `Progresso em '${id}' atualizado para ${media}.` });
+        return res.status(200).json({ sucesso: true, mensagem: `Progresso em '${id}' atualizado para ${media}.` });
     } catch (err) {
         console.error("Erro ao atualizar progresso:", err);
         return res.status(500).json({ erro: "Erro interno ao atualizar progresso." });

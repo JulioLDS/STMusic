@@ -33,17 +33,17 @@ const Loginschema = new mongoose.Schema({
     },
     progresso: {
         "introducao": Number,
-        "propriedades-som": Number,
+        "propriedades_do_som": Number,
         "pentagrama": Number,
         "claves": Number,
         "figuras": Number,
         "ligadura": Number,
-        "ponto-de-aumento": Number,
+        "ponto_de_aumento": Number,
         "fermata": Number,
         "compasso": Number,
-        "barras-de-compasso": Number,
-        "formula-compasso-simples": Number,
-        "formula-compasso-composto": Number,
+        "barras_de_compasso": Number,
+        "formula_compasso_simples": Number,
+        "formula_compasso_composto": Number,
     }
 });
 

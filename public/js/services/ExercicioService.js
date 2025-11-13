@@ -8,19 +8,33 @@ export class ExercicioService {
 
     async atualizarProgresso(id, nivel, media) {
         try {
-            console.log(`Atualizando progresso: ${id} - ${nivel} - ${media}%`);
 
-            // Enviando progresso ao back-end via service
-            await ExercicioService.atualizarProgresso({ id, nivel, media });
+            alert(`Atualizando progresso: ${id} - ${nivel} - ${media}%`);
 
-            console.log(`Progresso atualizado com sucesso: ${id} - ${media}%`);
+            // Enviando progresso ao back-end via service (Redundância??)
+            //await ExercicioService.atualizarProgresso({ id, nivel, media });
+            const response = await fetch("/muda-progresso", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id, nivel, media })
+            });
 
-            // Opcional: Voltar para a lista após finalizar
-            this.init();
+            
+            // Aqui verificamos se a requisição foi bem-sucedida
+            if (!response.ok) {
+                const erro = await response.text();
+                throw new Error(`Erro HTTP ${response.status}: ${erro}`);
+            }
+
+            const data = await response.json();
+            alert(`Service chamou o back end com sucesso: ${data.mensagem}`);
+
+            // Atualiza a interface, se necessário
+            //this.init();
 
         } catch (err) {
-            console.error("Erro ao atualizar progresso:", err);
-            alert("Erro ao salvar progresso. Tente novamente.");
+            console.error("Erro ao atualizar progresso no service:", err);
+            alert("Erro ao salvar progresso - service. Tente novamente.");
         }
     }
 }

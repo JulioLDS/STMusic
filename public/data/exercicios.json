@@ -2,7 +2,7 @@
     "exercicios": {
         "iniciante": [
             {
-                "id": "propriedades-do-som-ex",
+                "id": "propriedades_do_som",
                 "card": {
                     "titulo": "Propriedades do Som",
                     "descricao": "Teste seu conhecimento sobre as propriedades do som",
@@ -72,7 +72,7 @@
                 ]
             },
             {
-                "id": "pentagrama-ex",
+                "id": "pentagrama",
                 "card": {
                     "titulo": "Pentagrama",
                     "descricao": "Pratique seu connhecimento sobre pentagrama",
@@ -142,7 +142,7 @@
                 ]
             },
             {
-                "id": "clave-ex",
+                "id": "claves",
                 "card": {
                     "titulo": "Clave",
                     "descricao": "Teste seu conhecimento sobre clave",
@@ -212,7 +212,7 @@
                 ]
             },
             {
-                "id": "figuras-ex",
+                "id": "figuras",
                 "card": {
                     "titulo": "Figuras",
                     "descricao": "Teste seu conhecimento sobre figuras",
@@ -282,7 +282,7 @@
                 ]
             },
             {
-                "id": "ligadura-ex",
+                "id": "ligadura",
                 "card": {
                     "titulo": "Ligadura",
                     "descricao": "Teste seu conhecimento sobre ligadura",
@@ -350,7 +350,7 @@
                 ]
             },
             {
-                "id": "ponto-de-aumento-ex",
+                "id": "ponto_de_aumento",
                 "card": {
                     "titulo": "Ponto de aumento",
                     "descricao": "Teste seu conhecimento sobre ponto de aumento",
@@ -418,7 +418,7 @@
                 ]
             },
             {
-                "id": "fermata-ex",
+                "id": "fermata",
                 "card": {
                     "titulo": "Fermata",
                     "descricao": "Teste seu conhecimento sobre fermata",
@@ -488,7 +488,7 @@
                 ]
             },
             {
-                "id": "compasso-ex",
+                "id": "compasso",
                 "card": {
                     "titulo": "Compasso",
                     "descricao": "Teste seu conhecimento sobre compasso",
@@ -558,7 +558,7 @@
                 ]
             },
             {
-                "id": "formula-compasso-simples-ex",
+                "id": "formula_compasso_simples",
                 "card": {
                     "titulo": "Fórmula do compasso simples",
                     "descricao": "Teste seu conhecimento sobre Fórmula do compasso simples",
@@ -628,7 +628,7 @@
                 ]
             },
             {
-                "id": "formula-compasso-composto-ex",
+                "id": "formula_compasso_composto",
                 "card": {
                     "titulo": "Fórmula do compasso composto",
                     "descricao": "Teste seu conhecimento sobre Fórmula do compasso composto",
@@ -700,7 +700,7 @@
         ],
         "intermediario": [
             {
-                "id": "modos-ex",
+                "id": "modos",
                 "card": {
                     "titulo": "Modos",
                     "descricao": "Pratique identificando modos musicais",
@@ -723,7 +723,7 @@
         ],
         "avancado": [
             {
-                "id": "improvisacao-ex",
+                "id": "improvisacao",
                 "card": {
                     "titulo": "Improvisação",
                     "descricao": "Desafios para desenvolver sua improvisação",

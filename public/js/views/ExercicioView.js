@@ -67,8 +67,8 @@ export class ExercicioView {
         this.currentIndex = 0;
         this.exercicioAtual = exercicio;
         this.onVoltar = onVoltar;
-        this.onFinalizarProgresso = onFinalizarProgresso; // 🆕 callback pro controller
-        this.acertos = 0; // 🆕 contador de acertos
+        this.onFinalizarProgresso = onFinalizarProgresso; // callback pro controller
+        this.acertos = 0; // contador de acertos
         this.respondidas = 0;
         this.mostrarPergunta();
     }
@@ -166,7 +166,7 @@ export class ExercicioView {
         }
     }
 
-    // 🆕 Novo método para mostrar resultado final
+    // Novo método para mostrar resultado final
     mostrarResultadoFinal() {
         const totalPerguntas = this.exercicioAtual.perguntas.length;
         const media = Math.round((this.acertos / totalPerguntas) * 100);
@@ -186,9 +186,10 @@ export class ExercicioView {
         const btnFinalizar = nav.querySelector(".btn-finalizar");
         btnFinalizar.addEventListener("click", () => {
             if (this.onFinalizarProgresso) {
-                console.log("Chamando onFinalizarProgresso:", this.exercicioAtual.id, this.exercicioAtual.nivel, media);
+                //Tá chamando a função já
+                //alert(`Chamando onFinalizarProgresso: ${this.exercicioAtual.id}, ${this.exercicioAtual.nivel}, ${media}`);
 
-                // 🆕 Agora sim mostra o resultado e limpa a tela
+                // Agora sim mostra o resultado e limpa a tela
                 this.mostrarTelaResultado(this.acertos, totalPerguntas, media);
 
                 // Chama o callback para atualizar o progresso
@@ -197,7 +198,7 @@ export class ExercicioView {
         });
     }
 
-    // 🆕 Novo método para mostrar apenas o resultado final
+    // Novo método para mostrar apenas o resultado final
     mostrarTelaResultado(acertos, total, media) {
         // Limpa toda a tela e mostra apenas o resultado
         this.container.innerHTML = `
@@ -221,7 +222,7 @@ export class ExercicioView {
         </div>
     `;
 
-        // 🆕 MOSTRA o botão voltar na tela de resultado
+        // MOSTRA o botão voltar na tela de resultado
         if (this.btnVoltar) {
             this.btnVoltar.style.display = "block";
             this.btnVoltar.onclick = () => {

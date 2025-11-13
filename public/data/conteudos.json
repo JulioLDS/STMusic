@@ -18,7 +18,7 @@
                 ]
             },
             {
-                "id": "propriedades-som",
+                "id": "propriedades_do_som",
                 "card": {
                     "titulo": "Propriedades do Som",
                     "descricao": "As propriedades do som da música.",
@@ -130,7 +130,7 @@
                 ]
             },
             {
-                "id": "ponto-de-aumento",
+                "id": "ponto_de_aumento",
                 "card": {
                     "titulo": "Ponto de Aumento",
                     "descricao": "Ponto colocado ao lado direito da cabeça de uma figura",
@@ -180,7 +180,7 @@
                 ]
             },
             {
-                "id": "barras-de-compasso",
+                "id": "barras_de_compasso",
                 "card": {
                     "titulo": "Barras de Compasso",
                     "descricao": "Barras utilizadas para representar os compassos.",
@@ -197,7 +197,7 @@
                 ]
             },
             {
-                "id": "formula-compasso-simples",
+                "id": "formula_compasso_simples",
                 "card": {
                     "titulo": "Fórmula de Compasso Simples",
                     "descricao": "Os compassos binários, ternários, quaternários, etc.",
@@ -214,7 +214,7 @@
                 ]
             },
             {
-                "id": "formula-compasso-composto",
+                "id": "formula_compasso_composto",
                 "card": {
                     "titulo": "Fórmula de Compasso Composto",
                     "descricao": "No compasso composto sua unidade de tempo tem uma subdivisão ternária.",

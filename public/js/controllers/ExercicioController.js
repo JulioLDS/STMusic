@@ -65,12 +65,18 @@ export class ExercicioController {
 
     async atualizarProgresso(id, nivel, media) {
         try {
-            // Enviando progresso ao back-end via service
-            await ExercicioService.atualizarProgresso({ id, nivel, media });
+            //Função funcionando
+            //alert(`Função atualizar progresso do controller chamada: ${id}, ${nivel}, ${media}`);
+            
+            // Passa os parâmetros separadamente
+            const service = new ExercicioService();
+            await service.atualizarProgresso(id, nivel, media);
 
-            console.log(`Progresso atualizado: ${id} - ${media}%`);
+            //Funciona
+            //alert(`Controller passou a função: ${id} - ${media}%`);
         } catch (err) {
             console.error("Erro ao atualizar progresso:", err);
+            alert("Erro ao atualizar progresso - controller.");
         }
     }
 }
