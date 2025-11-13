@@ -54,10 +54,12 @@ export class ExercicioView {
 
     renderLista(exerciciosPorNivel) {
         this.container.innerHTML = `
-            ${this.renderSecao("iniciante", exerciciosPorNivel.iniciante)}
-            ${this.renderSecao("intermediario", exerciciosPorNivel.intermediario)}
-            ${this.renderSecao("avancado", exerciciosPorNivel.avancado)}
-        `;
+        ${this.renderSecao("iniciante", exerciciosPorNivel.iniciante)}
+        ${this.renderSecao("intermediario", exerciciosPorNivel.intermediario)}
+        ${this.renderSecao("avancado", exerciciosPorNivel.avancado)}
+    `;
+
+        // 🆕 Garante que o botão voltar some quando voltar para a lista
         if (this.btnVoltar) this.btnVoltar.style.display = "none";
     }
 
@@ -147,40 +149,97 @@ export class ExercicioView {
             }
         }
 
-        // decide se mostra Refazer (agora) ou habilita Avançar
+        // decide se mostra botões finais ou habilita Avançar
         const lastIndex = this.exercicioAtual.perguntas.length - 1;
         const nav = this.container.querySelector(".navegacao-pergunta");
         if (!nav) return;
 
         if (this.currentIndex === lastIndex) {
-        // Calcula média em porcentagem
-        const media = Math.round((this.acertos / this.exercicioAtual.perguntas.length) * 100);
-
-        alert(`Número de acertos: ${this.acertos}`);
-        // Renderiza os botões Refazer + Finalizar
-        nav.innerHTML = `
-            <button class="btn-refazer">Refazer Questionário</button>
-            <button class="btn-finalizar">Finalizar</button>
-        `;
-
-        // Listener do botão "Finalizar"
-        const btnFinalizar = nav.querySelector(".btn-finalizar");
-        btnFinalizar.addEventListener("click", () => {
-            if (this.onFinalizarProgresso) {
-                console.log("Chamando onFinalizarProgresso:");
-                //Essa é a função q tem q chamar
-                this.onFinalizarProgresso(this.exercicioAtual.id, this.exercicioAtual.nivel, media);
-            }
-        });
-
+            // Última pergunta - mostra botões finais
+            this.mostrarResultadoFinal();
         } else {
-            // há próxima pergunta: habilita o Avançar (apenas um botão já existente)
+            // há próxima pergunta: habilita o Avançar
             const btnAvancar = nav.querySelector(".btn-avancar");
             if (btnAvancar) {
                 btnAvancar.disabled = false;
             }
         }
-        
+    }
+
+    // 🆕 Novo método para mostrar resultado final
+    mostrarResultadoFinal() {
+        const totalPerguntas = this.exercicioAtual.perguntas.length;
+        const media = Math.round((this.acertos / totalPerguntas) * 100);
+
+        const nav = this.container.querySelector(".navegacao-pergunta");
+        if (!nav) return;
+
+        // Renderiza apenas os botões inicialmente
+        nav.innerHTML = `
+        <div class="botoes-finais">
+            <button class="btn-refazer">Refazer Questionário</button>
+            <button class="btn-finalizar">Finalizar</button>
+        </div>
+    `;
+
+        // Listener do botão "Finalizar"
+        const btnFinalizar = nav.querySelector(".btn-finalizar");
+        btnFinalizar.addEventListener("click", () => {
+            if (this.onFinalizarProgresso) {
+                console.log("Chamando onFinalizarProgresso:", this.exercicioAtual.id, this.exercicioAtual.nivel, media);
+
+                // 🆕 Agora sim mostra o resultado e limpa a tela
+                this.mostrarTelaResultado(this.acertos, totalPerguntas, media);
+
+                // Chama o callback para atualizar o progresso
+                this.onFinalizarProgresso(this.exercicioAtual.id, this.exercicioAtual.nivel, media);
+            }
+        });
+    }
+
+    // 🆕 Novo método para mostrar apenas o resultado final
+    mostrarTelaResultado(acertos, total, media) {
+        // Limpa toda a tela e mostra apenas o resultado
+        this.container.innerHTML = `
+        <div class="tela-resultado-final">
+            <div class="resultado-content">
+                <h2>Questionário Finalizado!</h2>
+                <div class="resultado-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Acertos:</span>
+                        <span class="stat-value">${acertos}/${total}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Aproveitamento:</span>
+                        <span class="stat-value">${media}%</span>
+                    </div>
+                </div>
+                <div class="botoes-resultado">
+                    <button class="btn-refazer-resultado">Refazer Questionário</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+        // 🆕 MOSTRA o botão voltar na tela de resultado
+        if (this.btnVoltar) {
+            this.btnVoltar.style.display = "block";
+            this.btnVoltar.onclick = () => {
+                // volta para a lista (controller trata isso)
+                if (this.onVoltar) this.onVoltar();
+            };
+        }
+
+        // Listener para o botão refazer na tela de resultado
+        const btnRefazer = this.container.querySelector(".btn-refazer-resultado");
+        btnRefazer.addEventListener("click", () => {
+            this.currentIndex = 0;
+            this.acertos = 0;
+            this.respondidas = 0;
+            this.mostrarPergunta();
+
+
+        });
     }
 
     // Delegated click handler: gerencia cliques em alternativas, avançar e refazer

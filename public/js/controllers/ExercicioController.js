@@ -30,15 +30,15 @@ export class ExercicioController {
     }
 
     mostrarDetalhe(id, nivel) {
-    const exercicio = this.exercicios.find(e => e.id === id && e.nivel === nivel);
-    if (exercicio) {
-        this.view.renderDetalhe(
-            exercicio,
-            () => this.init(),
-            (id, nivel, media) => this.atualizarProgresso(id, nivel, media)
-        );
+        const exercicio = this.exercicios.find(e => e.id === id && e.nivel === nivel);
+        if (exercicio) {
+            this.view.renderDetalhe(
+                exercicio,
+                () => this.init(), // callback para voltar
+                (id, nivel, media) => this.atualizarProgresso(id, nivel, media) // callback para finalizar
+            );
+        }
     }
-}
 
 
     inicializarSwipers() {

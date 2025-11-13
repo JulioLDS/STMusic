@@ -6,13 +6,21 @@ export class ExercicioService {
         return await res.json();
     }
 
-    static async atualizarProgresso({ id, nivel, media }) {
-        const response = await fetch('/muda-progresso', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id, nivel, media })
-        });
-        if (!response.ok) throw new Error('Falha ao atualizar progresso');
-        return response.json();
+    async atualizarProgresso(id, nivel, media) {
+        try {
+            console.log(`Atualizando progresso: ${id} - ${nivel} - ${media}%`);
+
+            // Enviando progresso ao back-end via service
+            await ExercicioService.atualizarProgresso({ id, nivel, media });
+
+            console.log(`Progresso atualizado com sucesso: ${id} - ${media}%`);
+
+            // Opcional: Voltar para a lista após finalizar
+            this.init();
+
+        } catch (err) {
+            console.error("Erro ao atualizar progresso:", err);
+            alert("Erro ao salvar progresso. Tente novamente.");
+        }
     }
 }
