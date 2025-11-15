@@ -67,9 +67,25 @@ export class ExercicioView {
         this.currentIndex = 0;
         this.exercicioAtual = exercicio;
         this.onVoltar = onVoltar;
-        this.onFinalizarProgresso = onFinalizarProgresso; // callback pro controller
-        this.acertos = 0; // contador de acertos
+        this.onFinalizarProgresso = onFinalizarProgresso;
+        this.acertos = 0;
         this.respondidas = 0;
+
+        // 🆕 Esconde o botão voltar global ao entrar no exercício
+        if (this.btnVoltar) this.btnVoltar.style.display = "none";
+
+        // 🆕 Bloqueia o back do navegador
+        this.handlePopState = (e) => {
+            e.preventDefault();
+            window.history.pushState(null, null, window.location.href);
+        };
+        window.history.pushState(null, null, window.location.href);
+        window.addEventListener('popstate', this.handlePopState);
+
+        // 🆕 Reset scroll da página e do container
+        window.scrollTo(0, 0);
+        if (this.container) this.container.scrollTop = 0;
+
         this.mostrarPergunta();
     }
 
@@ -78,11 +94,14 @@ export class ExercicioView {
         const q = this.exercicioAtual.perguntas[this.currentIndex];
         const lastIndex = this.exercicioAtual.perguntas.length - 1;
 
-        // Se for a última pergunta, não colocamos botão Avançar no template.
-        // Caso contrário, renderizamos o Avançar desabilitado (será habilitado após resposta).
         const navHtml = (this.currentIndex < lastIndex)
-            ? `<div class="navegacao-pergunta"><button class="btn-avancar" disabled>Avançar ➝</button></div>`
-            : `<div class="navegacao-pergunta"></div>`;
+            ? `<div class="navegacao-pergunta">
+                <button class="btn-voltar-lista">← Voltar para Lista</button>
+                <button class="btn-avancar" disabled>Avançar ➝</button>
+              </div>`
+            : `<div class="navegacao-pergunta">
+                <button class="btn-voltar-lista">← Voltar para Lista</button>
+              </div>`;
 
         this.container.innerHTML = `
         <div class="exercicio-detalhado" tabindex="0">
@@ -107,25 +126,8 @@ export class ExercicioView {
         </div>
         `;
 
-        // garante scroll interno ao topo da pergunta (se tiver scroll)
         const card = this.container.querySelector('.exercicio-detalhado');
         if (card) card.scrollTop = 0;
-
-        // botão voltar global
-        if (this.btnVoltar) {
-            this.btnVoltar.style.display = "block";
-            this.btnVoltar.onclick = () => {
-                // volta para a lista (controller trata isso)
-                if (this.onVoltar) this.onVoltar();
-            };
-        }
-
-        // Avançar começa desabilitado quando existe
-        const nav = this.container.querySelector('.navegacao-pergunta');
-        if (nav) {
-            const btnAvancar = nav.querySelector('.btn-avancar');
-            if (btnAvancar) btnAvancar.disabled = true;
-        }
     }
 
     validarResposta(indiceEscolhido, botao, respostaCerta, explicacao) {
@@ -222,14 +224,8 @@ export class ExercicioView {
         </div>
     `;
 
-        // MOSTRA o botão voltar na tela de resultado
-        if (this.btnVoltar) {
-            this.btnVoltar.style.display = "block";
-            this.btnVoltar.onclick = () => {
-                // volta para a lista (controller trata isso)
-                if (this.onVoltar) this.onVoltar();
-            };
-        }
+        // 🆕 Garante que o botão voltar fique hidden na tela de resultado
+        if (this.btnVoltar) this.btnVoltar.style.display = "none";
 
         // Listener para o botão refazer na tela de resultado
         const btnRefazer = this.container.querySelector(".btn-refazer-resultado");
@@ -238,17 +234,13 @@ export class ExercicioView {
             this.acertos = 0;
             this.respondidas = 0;
             this.mostrarPergunta();
-
-
         });
     }
 
     // Delegated click handler: gerencia cliques em alternativas, avançar e refazer
     handleContainerClick(e) {
-        // evita agir quando não há exercício carregado
         if (!this.exercicioAtual) return;
 
-        // clique em alternativa
         const opcaoBtn = e.target.closest(".opcao-btn");
         if (opcaoBtn && !opcaoBtn.disabled) {
             const idx = parseInt(opcaoBtn.getAttribute("data-index"));
@@ -257,7 +249,22 @@ export class ExercicioView {
             return;
         }
 
-        // clique no Avançar (se existir)
+        // 🆕 Clique no botão "Voltar para Lista"
+        const voltarListaBtn = e.target.closest(".btn-voltar-lista");
+        if (voltarListaBtn) {
+            this.currentIndex = 0;
+            this.acertos = 0;
+            this.respondidas = 0;
+
+            // 🆕 Remove o bloqueio do back ao sair do exercício
+            if (this.handlePopState) {
+                window.removeEventListener('popstate', this.handlePopState);
+            }
+
+            if (this.onVoltar) this.onVoltar();
+            return;
+        }
+
         const avancarBtn = e.target.closest(".btn-avancar");
         if (avancarBtn) {
             if (avancarBtn.disabled) return;
@@ -269,7 +276,6 @@ export class ExercicioView {
             return;
         }
 
-        // clique no Refazer
         const refazerBtn = e.target.closest(".btn-refazer");
         if (refazerBtn) {
             this.currentIndex = 0;
@@ -297,5 +303,13 @@ export class ExercicioView {
                 handler(card.getAttribute("data-id"), card.getAttribute("data-nivel"));
             });
         });
+    }
+
+    // 🆕 Método para liberar o bloqueio do back quando sair
+    liberarBloqueio() {
+        if (this.handlePopState) {
+            window.removeEventListener('popstate', this.handlePopState);
+            this.handlePopState = null;
+        }
     }
 }
