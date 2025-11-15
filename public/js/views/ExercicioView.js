@@ -222,6 +222,7 @@ export class ExercicioView {
                 </div>
                 <div class="botoes-resultado">
                     <button class="btn-refazer-resultado">Voltar para os Exercícios</button>
+                    <button class="btn-refazer-resultado">Voltar para os Exercícios</button>
                 </div>
             </div>
         </div>
@@ -234,9 +235,21 @@ export class ExercicioView {
         const btnRefazer = this.container.querySelector(".btn-refazer-resultado");
         btnRefazer.addEventListener("click", () => {
             // Reseta estados
+            // Reseta estados
             this.currentIndex = 0;
             this.acertos = 0;
             this.respondidas = 0;
+
+            // Remove bloqueio de navegação (popstate)
+            this.liberarBloqueio();
+
+            // Volta para a lista de cards via callback do controller
+            if (this.onVoltar) {
+                this.onVoltar();
+            } else {
+                // fallback: recarrega a página caso callback não esteja disponível
+                window.location.reload();
+            }
 
             // Remove bloqueio de navegação (popstate)
             this.liberarBloqueio();
@@ -311,10 +324,21 @@ export class ExercicioView {
 
     bindSaibaMais(handler) {
         // anexa apenas aos botões "saiba-mais" (iniciante)
+        // anexa apenas aos botões "saiba-mais" (iniciante)
         this.container.querySelectorAll(".saiba-mais").forEach(btn => {
             btn.addEventListener("click", e => {
                 e.preventDefault();
                 const card = btn.closest(".card");
+                const nivel = card.getAttribute("data-nivel");
+                if (nivel !== "iniciante") return; // proteção extra
+                handler(card.getAttribute("data-id"), nivel);
+            });
+        });
+
+        // previne comportamento dos botões restritos (só visual)
+        this.container.querySelectorAll(".saiba-mais-disabled").forEach(el => {
+            el.addEventListener("click", e => {
+                e.preventDefault();
                 const nivel = card.getAttribute("data-nivel");
                 if (nivel !== "iniciante") return; // proteção extra
                 handler(card.getAttribute("data-id"), nivel);

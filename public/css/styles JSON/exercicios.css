@@ -323,6 +323,7 @@ body.no-scroll {
 }
 
 /* === EXERCÍCIO DETALHADO === */
+/* === EXERCÍCIO DETALHADO === */
 .container.exercicios .exercicio-detalhado {
     position: fixed;
     top: 50%;
@@ -337,6 +338,8 @@ body.no-scroll {
     border-radius: 30px;
     background-color: var(--cor7);
     color: var(--cor1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     overflow: hidden;
 }
@@ -467,15 +470,51 @@ body.no-scroll {
     }
 }
 
+.container.exercicios .emoji-feedback.fade-out {
+    animation: emojiOut .4s ease forwards;
+}
+
+@keyframes emojiIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) scale(.6);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-50%) scale(2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.15);
+    }
+}
+
+@keyframes emojiOut {
+    to {
+        opacity: 0;
+        transform: translateY(-60%) scale(.9);
+    }
+}
+
 /* === BOTÕES DE NAVEGAÇÃO === */
+/* RODAPÉ FIXO */
 /* RODAPÉ FIXO */
 .container.exercicios .navegacao-pergunta {
     padding: 1.5rem 2rem;
     border-top: 2px solid var(--cor6);
     background-color: var(--cor7);
+    padding: 1.5rem 2rem;
+    border-top: 2px solid var(--cor6);
+    background-color: var(--cor7);
     display: flex;
     justify-content: space-between;
+    justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
+    gap: 1rem;
+    margin-top: auto;
     flex-shrink: 0;
     gap: 1rem;
     margin-top: auto;
@@ -483,9 +522,12 @@ body.no-scroll {
 
 /* BOTÕES DO RODAPÉ */
 .container.exercicios .btn-voltar-lista {
+/* BOTÕES DO RODAPÉ */
+.container.exercicios .btn-voltar-lista {
     background: transparent;
     border: 2px solid var(--cor1);
     color: var(--cor1);
+    padding: 0.7rem 1.5rem;
     padding: 0.7rem 1.5rem;
     border-radius: 12px;
     font-weight: 600;
@@ -495,8 +537,14 @@ body.no-scroll {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
+.container.exercicios .btn-voltar-lista:hover {
 .container.exercicios .btn-voltar-lista:hover {
     background: var(--cor1);
     color: var(--cor7);
@@ -519,9 +567,30 @@ body.no-scroll {
     background: var(--cor4);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.container.exercicios .btn-avancar {
+    background: var(--cor3);
+    color: var(--fonte);
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.container.exercicios .btn-avancar:hover:not(:disabled) {
+    background: var(--cor4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .container.exercicios .btn-avancar:disabled {
+    background: var(--cor5);
+    opacity: 0.6;
     background: var(--cor5);
     opacity: 0.6;
     cursor: not-allowed;
@@ -592,27 +661,43 @@ body.no-scroll {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    transition: all 0.3s ease;
     min-width: 140px;
     border: 2px solid;
 }
 
 .container.exercicios .btn-refazer {
     background: var(--cor3);
+    background: var(--cor3);
     border-color: var(--cor3);
+    color: var(--fonte);
     color: var(--fonte);
 }
 
 .container.exercicios .btn-refazer:hover {
     transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .container.exercicios .btn-finalizar {
     background: var(--nivel3);
+    background: var(--nivel3);
     border-color: var(--nivel3);
+    color: var(--fonte);
     color: var(--fonte);
 }
 
 .container.exercicios .btn-finalizar:hover {
+    background: #e00a0a;
+    /* Vermelho mais claro para hover */
+    border-color: #e00a0a;
+    transform: scale(1.05);
+}
+
+/* BOTÃO VOLTAR PARA EXERCÍCIOS NA TELA DE RESULTADO */
+.container.exercicios .btn-refazer-resultado {
+    background: var(--cor3);
+    border: 2px solid var(--cor3);
     background: #e00a0a;
     /* Vermelho mais claro para hover */
     border-color: #e00a0a;
@@ -654,15 +739,23 @@ body.no-scroll {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: min(60vw, 900px);
+    height: min(70vh, 600px);
     height: min(70vh, 600px);
     display: flex;
     flex-direction: column;
     padding: 2rem;
     margin-top: 1rem;
+    margin-top: 1rem;
     border-radius: 30px;
     background-color: var(--cor7);
     color: var(--cor1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     overflow: hidden;
 }
