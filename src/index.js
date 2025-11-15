@@ -3,17 +3,12 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 const collection = require("./config");
 
-require("dotenv").config();
-
 const app = express();
 
 //Sessões
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-const mongoose = require("mongoose");
-
-// Passport
-const passport = require("./auth/passport");
+const mongoose = require("mongoose"); // importa o mesmo mongoose do config.js
 
 app.use(session({
     secret: "stringsecretausadaparagerarohash",
@@ -29,6 +24,19 @@ app.use(session({
     }
 }));
 
+// Função middleware para impedir cache (resolve o problema de deslogar 
+// e conseguir voltar para a página inicial logado)
+function autenticar(req, res, next) {
+    if (!req.session.user) {
+        return res.redirect("/");
+    }
+
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+    next();
+}
+
 // Conversão dos dados para JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -38,26 +46,6 @@ app.set('view engine', 'ejs');
 
 // Arquivos estáticos
 app.use(express.static("public"));
-
-//Api google
-const authGoogleRoutes = require("./routes/authGoogle");
-
-//Rota de login com o Google
-app.use("/auth", authGoogleRoutes);
-
-// Função middleware para impedir cache (resolve o problema de deslogar 
-// e conseguir voltar para a página inicial logado)
-function autenticar(req, res, next) {
-    if (!req.session.user) {
-        return res.redirect("/");
-    }  
-
-    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
-    res.set('Pragma', 'no-cache');
-    res.set('Expires', '0');
-    next();
-}
-
 
 // Rota inicial
 app.get("/", (req, res) => {
@@ -73,7 +61,7 @@ app.get("/login", (req, res) => {
 app.get("/home", autenticar, (req, res) => {
     if (!req.session.user) {
         return res.redirect("/");
-    }  
+    }
     res.render("paginaBase", { mensagem: "Login efetuado com sucesso!" });
 });
 
@@ -105,11 +93,11 @@ app.get("/status", async (req, res) => {
         }
 
         const nomeUsuario = req.session.user.nome;
-        
+
         const usuarioDoc = await collection.findOne({
             $or: [
-                { "usuario.name": nomeUsuario.toUpperCase() },
-                { "usuario.nome": nomeUsuario.toUpperCase() }
+                { "usuario.name": nomeUsuario },
+                { "usuario.nome": nomeUsuario }
             ]
         });
 
@@ -121,9 +109,9 @@ app.get("/status", async (req, res) => {
         // Normaliza para { usuario, progresso } e fornece ambos os campos nome/name
         const infoUsuario = {
             usuario: {
-                nome: capitalizeName(req.session.user.nome) || "Usuário",
-                name: capitalizeName(req.session.user.nome) || "Usuário",
-                email: req.session.user.email || ""
+                nome: usuarioDoc.usuario.nome || usuarioDoc.usuario.name || "Usuário",
+                name: usuarioDoc.usuario.name || usuarioDoc.usuario.nome || "Usuário",
+                email: usuarioDoc.usuario.email || ""
             },
             progresso: usuarioDoc.progresso || {}
         };
@@ -174,10 +162,6 @@ app.post("/signup", async (req, res) => {
         const criptoSenha = await bcrypt.hash(data.usuario.password, saltRounds);
         data.usuario.password = criptoSenha;
 
-        //Normalização dos dados (Maiúsculos)
-        data.usuario.name = data.usuario.name.toUpperCase().trim();
-        data.usuario.email = data.usuario.email.toUpperCase().trim();
-
         const userdata = await collection.insertOne(data);
         console.log("Usuário cadastrado:", userdata);
 
@@ -193,17 +177,17 @@ app.post("/signup", async (req, res) => {
 // --- LOGIN DO USUÁRIO ---
 app.post("/login", async (req, res) => {
     try {
-        const check = await collection.findOne({ $or: [{ "usuario.name": req.body.username.toUpperCase() }, { "usuario.nome": req.body.username.toUpperCase() }] });
+        const check = await collection.findOne({ $or: [{ "usuario.name": req.body.username }, { "usuario.nome": req.body.username }] });
         if (!check) {
             return res.render("login", { mensagem: "Usuário não encontrado" });
         }
 
         const senhaConfere = await bcrypt.compare(req.body.password, check.usuario.password);
         if (senhaConfere) {
-            // salva o usuário logado na sessão formatando o nome
+            // salva o usuário logado na sessão
             req.session.user = {
-                nome: capitalizeName(check.usuario.nome || check.usuario.name),
-                email: check.usuario.email.toLowerCase()
+                nome: check.usuario.nome || check.usuario.name,
+                email: check.usuario.email
             };
 
             return res.redirect("/home");
@@ -257,8 +241,8 @@ app.post("/muda-progresso", async (req, res) => {
         const usuarioNome = req.session.user.nome;
         const usuario = await collection.findOne({
             $or: [
-                { "usuario.name": usuarioNome.toUpperCase() },
-                { "usuario.nome": usuarioNome.toUpperCase() }
+                { "usuario.name": usuarioNome },
+                { "usuario.nome": usuarioNome }
             ]
         });
 
@@ -280,14 +264,6 @@ app.post("/muda-progresso", async (req, res) => {
     }
 });
 
-//Função para fazer title case do nome - mudar de "JOÃO GOMES SILVA" para "João Gomes Silva"
-function capitalizeName(nome) {
-  return nome
-    .toLowerCase()
-    .split(" ")
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
-}
 
 // Porta da aplicação
 const port = 5000;
