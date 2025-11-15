@@ -99,11 +99,11 @@ export class ExercicioView {
 
         const navHtml = (this.currentIndex < lastIndex)
             ? `<div class="navegacao-pergunta">
-                <button class="btn-voltar-lista">← Voltar para Lista</button>
-                <button class="btn-avancar" disabled>Avançar ➝</button>
+                <button class="btn-voltar-lista">Sair do Exercício</button>
+                <button class="btn-avancar" disabled>Avançar</button>
               </div>`
             : `<div class="navegacao-pergunta">
-                <button class="btn-voltar-lista">← Voltar para Lista</button>
+                <button class="btn-voltar-lista">Sair do Exercício</button>
               </div>`;
 
         this.container.innerHTML = `
