@@ -67,7 +67,7 @@ export class ExercicioController {
         try {
             //Função funcionando
             //alert(`Função atualizar progresso do controller chamada: ${id}, ${nivel}, ${media}`);
-            
+
             // Passa os parâmetros separadamente
             const service = new ExercicioService();
             await service.atualizarProgresso(id, nivel, media);

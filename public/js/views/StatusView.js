@@ -11,7 +11,10 @@ export class StatusView {
 
     render(statusModel) {
         const barrasHtml = Object.entries(statusModel.progresso || {}).map(([chave, valor]) => {
-            const label = chave.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            // Remove underscores e capitaliza cada palavra
+            const label = chave
+                .replace(/_/g, ' ')
+                .replace(/\b\w/g, l => l.toUpperCase());
             const percent = Math.round(valor * 100);
             return `
                 <div class="status-item">
