@@ -3,12 +3,17 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 const collection = require("./config");
 
+require("dotenv").config();
+
 const app = express();
 
 //Sessões
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-const mongoose = require("mongoose"); // importa o mesmo mongoose do config.js
+const mongoose = require("mongoose");
+
+// Passport
+const passport = require("./auth/passport");
 
 app.use(session({
     secret: "stringsecretausadaparagerarohash",
