@@ -96,8 +96,8 @@ app.get("/status", async (req, res) => {
         
         const usuarioDoc = await collection.findOne({
             $or: [
-                { "usuario.name": nomeUsuario },
-                { "usuario.nome": nomeUsuario }
+                { "usuario.name": nomeUsuario.toUpperCase() },
+                { "usuario.nome": nomeUsuario.toUpperCase() }
             ]
         });
 
@@ -109,9 +109,9 @@ app.get("/status", async (req, res) => {
         // Normaliza para { usuario, progresso } e fornece ambos os campos nome/name
         const infoUsuario = {
             usuario: {
-                nome: usuarioDoc.usuario.nome || usuarioDoc.usuario.name || "Usuário",
-                name: usuarioDoc.usuario.name || usuarioDoc.usuario.nome || "Usuário",
-                email: usuarioDoc.usuario.email || ""
+                nome: req.session.user.nome || "Usuário",
+                name: req.session.user.nome || "Usuário",
+                email: req.session.user.email || ""
             },
             progresso: usuarioDoc.progresso || {}
         };
@@ -162,6 +162,10 @@ app.post("/signup", async (req, res) => {
         const criptoSenha = await bcrypt.hash(data.usuario.password, saltRounds);
         data.usuario.password = criptoSenha;
 
+        //Normalização dos dados (Maiúsculos)
+        data.usuario.name = data.usuario.name.toUpperCase().trim();
+        data.usuario.email = data.usuario.email.toUpperCase().trim();
+
         const userdata = await collection.insertOne(data);
         console.log("Usuário cadastrado:", userdata);
 
@@ -177,17 +181,17 @@ app.post("/signup", async (req, res) => {
 // --- LOGIN DO USUÁRIO ---
 app.post("/login", async (req, res) => {
     try {
-        const check = await collection.findOne({ $or: [{ "usuario.name": req.body.username }, { "usuario.nome": req.body.username }] });
+        const check = await collection.findOne({ $or: [{ "usuario.name": req.body.username.toUpperCase() }, { "usuario.nome": req.body.username.toUpperCase() }] });
         if (!check) {
             return res.render("login", { mensagem: "Usuário não encontrado" });
         }
 
         const senhaConfere = await bcrypt.compare(req.body.password, check.usuario.password);
         if (senhaConfere) {
-            // salva o usuário logado na sessão
+            // salva o usuário logado na sessão formatando o nome
             req.session.user = {
-                nome: check.usuario.nome || check.usuario.name,
-                email: check.usuario.email
+                nome: capitalizeName(check.usuario.nome || check.usuario.name),
+                email: check.usuario.email.toLowerCase()
             };
 
             return res.redirect("/home");
@@ -241,8 +245,8 @@ app.post("/muda-progresso", async (req, res) => {
         const usuarioNome = req.session.user.nome;
         const usuario = await collection.findOne({
             $or: [
-                { "usuario.name": usuarioNome },
-                { "usuario.nome": usuarioNome }
+                { "usuario.name": usuarioNome.toUpperCase() },
+                { "usuario.nome": usuarioNome.toUpperCase() }
             ]
         });
 
@@ -264,6 +268,14 @@ app.post("/muda-progresso", async (req, res) => {
     }
 });
 
+//Função para fazer title case do nome - mudar de "JOÃO GOMES SILVA" para "João Gomes Silva"
+function capitalizeName(nome) {
+  return nome
+    .toLowerCase()
+    .split(" ")
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
 
 // Porta da aplicação
 const port = 5000;
