@@ -128,8 +128,6 @@ app.get("/status", async (req, res) => {
             progresso: usuarioDoc.progresso || {}
         };
 
-        
-
         console.log("Deu certo pegar o json, enviando objeto normalizado para o front");
         return res.json(infoUsuario);
     } catch (err) {
