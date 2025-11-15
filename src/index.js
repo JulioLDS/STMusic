@@ -3,12 +3,17 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 const collection = require("./config");
 
+require("dotenv").config();
+
 const app = express();
 
 //Sessões
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-const mongoose = require("mongoose"); // importa o mesmo mongoose do config.js
+const mongoose = require("mongoose");
+
+// Passport
+const passport = require("./auth/passport");
 
 app.use(session({
     secret: "stringsecretausadaparagerarohash",
@@ -24,6 +29,22 @@ app.use(session({
     }
 }));
 
+// Conversão dos dados para JSON
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// Usa o EJS como view engine
+app.set('view engine', 'ejs');
+
+// Arquivos estáticos
+app.use(express.static("public"));
+
+//Api google
+const authGoogleRoutes = require("./routes/authGoogle");
+
+//Rota de login com o Google
+app.use("/auth", authGoogleRoutes);
+
 // Função middleware para impedir cache (resolve o problema de deslogar 
 // e conseguir voltar para a página inicial logado)
 function autenticar(req, res, next) {
@@ -37,15 +58,6 @@ function autenticar(req, res, next) {
     next();
 }
 
-// Conversão dos dados para JSON
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// Usa o EJS como view engine
-app.set('view engine', 'ejs');
-
-// Arquivos estáticos
-app.use(express.static("public"));
 
 // Rota inicial
 app.get("/", (req, res) => {
@@ -109,12 +121,14 @@ app.get("/status", async (req, res) => {
         // Normaliza para { usuario, progresso } e fornece ambos os campos nome/name
         const infoUsuario = {
             usuario: {
-                nome: req.session.user.nome || "Usuário",
-                name: req.session.user.nome || "Usuário",
+                nome: capitalizeName(req.session.user.nome) || "Usuário",
+                name: capitalizeName(req.session.user.nome) || "Usuário",
                 email: req.session.user.email || ""
             },
             progresso: usuarioDoc.progresso || {}
         };
+
+        
 
         console.log("Deu certo pegar o json, enviando objeto normalizado para o front");
         return res.json(infoUsuario);

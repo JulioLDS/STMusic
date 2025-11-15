@@ -28,7 +28,7 @@ const Loginschema = new mongoose.Schema({
         },
         password: {
             type: String,
-            required: true
+            required: false //Pra n quebrar o login com google
         }
     },
     progresso: {
