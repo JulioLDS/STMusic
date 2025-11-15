@@ -37,9 +37,9 @@ export class ExercicioView {
                                     <div class="card-content">
                                         <h3 class="card-title">${ex.card.titulo}</h3>
                                         <p class="card-text">${ex.card.descricao}</p>
-                                        <div class="card-footer">
+                                                      <div class="card-footer">
                                             ${(nivel === 'intermediario' || nivel === 'avancado')
-                ? `<a class="card-button saiba-mais-disabled" title="Conteúdo restrito">Praticar</a>`
+                ? `<a href="#" class="card-button saiba-mais-disabled" title="Conteúdo restrito">Praticar</a>`
                 : `<a href="#" class="card-button saiba-mais">Praticar</a>`
             }
                                         </div>
