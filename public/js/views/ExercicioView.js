@@ -111,7 +111,7 @@ export class ExercicioView {
             <h2 class="exercicio-titulo">${this.exercicioAtual.card.titulo}</h2>
 
             <div class="pergunta-group">
-                <p class="pergunta-titulo"><strong>${this.currentIndex + 1}. ${q.pergunta}</strong></p>
+                <p class="pergunta-titulo"><strong>${this.currentIndex + 1}.</strong> ${q.pergunta}</p>
                 <div class="opcoes-grid-container">
                     <div class="opcoes-container">
                         ${q.opcoes.map((opcao, j) => `
