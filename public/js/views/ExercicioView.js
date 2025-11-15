@@ -38,7 +38,10 @@ export class ExercicioView {
                                         <h3 class="card-title">${ex.card.titulo}</h3>
                                         <p class="card-text">${ex.card.descricao}</p>
                                         <div class="card-footer">
-                                            <a href="#" class="card-button saiba-mais">Praticar</a>
+                                            ${(nivel === 'intermediario' || nivel === 'avancado')
+                ? `<a class="card-button saiba-mais-disabled" title="Conteúdo restrito">Praticar</a>`
+                : `<a href="#" class="card-button saiba-mais">Praticar</a>`
+            }
                                         </div>
                                     </div>
                                 </div>
@@ -218,7 +221,7 @@ export class ExercicioView {
                     </div>
                 </div>
                 <div class="botoes-resultado">
-                    <button class="btn-refazer-resultado">Refazer Questionário</button>
+                    <button class="btn-refazer-resultado">Voltar para os Exercícios</button>
                 </div>
             </div>
         </div>
@@ -230,10 +233,21 @@ export class ExercicioView {
         // Listener para o botão refazer na tela de resultado
         const btnRefazer = this.container.querySelector(".btn-refazer-resultado");
         btnRefazer.addEventListener("click", () => {
+            // Reseta estados
             this.currentIndex = 0;
             this.acertos = 0;
             this.respondidas = 0;
-            this.mostrarPergunta();
+
+            // Remove bloqueio de navegação (popstate)
+            this.liberarBloqueio();
+
+            // Volta para a lista de cards via callback do controller
+            if (this.onVoltar) {
+                this.onVoltar();
+            } else {
+                // fallback: recarrega a página caso callback não esteja disponível
+                window.location.reload();
+            }
         });
     }
 
@@ -296,11 +310,21 @@ export class ExercicioView {
     }
 
     bindSaibaMais(handler) {
+        // anexa apenas aos botões "saiba-mais" (iniciante)
         this.container.querySelectorAll(".saiba-mais").forEach(btn => {
             btn.addEventListener("click", e => {
                 e.preventDefault();
                 const card = btn.closest(".card");
-                handler(card.getAttribute("data-id"), card.getAttribute("data-nivel"));
+                const nivel = card.getAttribute("data-nivel");
+                if (nivel !== "iniciante") return; // proteção extra
+                handler(card.getAttribute("data-id"), nivel);
+            });
+        });
+
+        // previne comportamento dos botões restritos (só visual)
+        this.container.querySelectorAll(".saiba-mais-disabled").forEach(el => {
+            el.addEventListener("click", e => {
+                e.preventDefault();
             });
         });
     }
