@@ -21,7 +21,7 @@ export class ConteudoView {
                     <div class="swiper-wrapper">
                         ${conteudos.map(c => `
                             <div class="swiper-slide">
-                                <div class="card ${(nivel === 'intermediario' || nivel === 'avancado') ? 'card-restrito' : ''}" data-id="${c.id}">
+                                <div class="card ${(nivel === 'intermediario' || nivel === 'avancado') ? 'card-restrito' : ''}" data-id="${c.id}" data-nivel="${nivel}">
                                     ${(nivel === 'intermediario' || nivel === 'avancado') ? '<div class="ribbon">RESTRITO</div>' : ''}
                                     <div class="card-image">
                                         <img src="${c.card.img}" alt="${c.card.alt || 'Imagem do card'}">
@@ -31,7 +31,10 @@ export class ConteudoView {
                                         <h3 class="card-title">${c.card.titulo}</h3>
                                         <p class="card-text">${c.card.descricao}</p>
                                         <div class="card-footer">
-                                            <a href="#" class="card-button saiba-mais">Saiba Mais</a>
+                                            ${(nivel === 'intermediario' || nivel === 'avancado')
+                ? `<a href="#" class="card-button saiba-mais-disabled" title="Conteúdo restrito">Saiba Mais</a>`
+                : `<a href="#" class="card-button saiba-mais">Saiba Mais</a>`
+            }
                                         </div>
                                     </div>
                                 </div>
@@ -70,11 +73,21 @@ export class ConteudoView {
     }
 
     bindSaibaMais(handler) {
+        // anexa apenas aos botões "saiba-mais" (iniciante)
         this.container.querySelectorAll(".saiba-mais").forEach(btn => {
             btn.addEventListener("click", e => {
                 e.preventDefault();
                 const card = btn.closest(".card");
                 handler(card.getAttribute("data-id"));
+            });
+        });
+
+        // previne comportamento dos botões restritos (só visual)
+        this.container.querySelectorAll(".saiba-mais-disabled").forEach(el => {
+            el.addEventListener("click", e => {
+                e.preventDefault();
+                // opcional: mostrar tooltip/alerta leve informando que é restrito
+                // ex: toast("Conteúdo restrito. Em breve disponível.");
             });
         });
     }
