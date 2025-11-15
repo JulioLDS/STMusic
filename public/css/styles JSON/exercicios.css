@@ -329,10 +329,11 @@ body.no-scroll {
     left: 50%;
     transform: translate(-50%, -50%);
     width: min(70vw, 900px);
-    height: min(85vh, 800px);
+    height: min(70vh, 700px);
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 2rem;
+    margin-top: 1rem;
     border-radius: 30px;
     background-color: var(--cor7);
     color: var(--cor1);
@@ -437,6 +438,34 @@ body.no-scroll {
     animation: emojiIn .50s ease forwards;
 }
 
+.container.exercicios .emoji-feedback.fade-out {
+    animation: emojiOut .4s ease forwards;
+}
+
+@keyframes emojiIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) scale(.6);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-50%) scale(2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.15);
+    }
+}
+
+@keyframes emojiOut {
+    to {
+        opacity: 0;
+        transform: translateY(-60%) scale(.9);
+    }
+}
+
 /* === BOTÕES DE NAVEGAÇÃO === */
 /* RODAPÉ FIXO */
 .container.exercicios .navegacao-pergunta {
@@ -499,7 +528,55 @@ body.no-scroll {
     box-shadow: none;
 }
 
-/* BOTÕES FINAIS - REFAZER E FINALIZAR */
+/* BOTÕES DO RODAPÉ - COM BACKGROUND SÓLIDO */
+.container.exercicios .btn-voltar-lista {
+    background: var(--cor6);
+    border: 2px solid var(--cor6);
+    color: var(--fonte);
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.container.exercicios .btn-voltar-lista:hover {
+    background: var(--cor5);
+    border-color: var(--cor5);
+    transform: scale(1.05);
+    color: var(--fonte);
+
+}
+
+.container.exercicios .btn-avancar {
+    background: var(--cor3);
+    color: var(--fonte);
+    border: 2px solid var(--cor3);
+    padding: 0.8rem 1.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.container.exercicios .btn-avancar:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.container.exercicios .btn-avancar:disabled {
+    background: var(--cor5);
+    border-color: var(--cor5);
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* BOTÕES FINAIS - CORES ESPECÍFICAS E CENTRALIZADOS */
 .container.exercicios .botoes-finais {
     display: flex;
     gap: 1rem;
@@ -509,35 +586,53 @@ body.no-scroll {
 
 .container.exercicios .btn-refazer,
 .container.exercicios .btn-finalizar {
-    background: transparent;
-    border: 2px solid var(--cor1);
-    color: var(--cor1);
     padding: 0.8rem 1.5rem;
     border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 140px;
+    border: 2px solid;
 }
 
 .container.exercicios .btn-refazer {
+    background: var(--cor3);
     border-color: var(--cor3);
-    color: var(--cor3);
+    color: var(--fonte);
 }
 
 .container.exercicios .btn-refazer:hover {
-    background: var(--cor3);
-    color: var(--fonte);
+    transform: scale(1.05);
 }
 
 .container.exercicios .btn-finalizar {
+    background: var(--nivel3);
     border-color: var(--nivel3);
-    color: var(--nivel3);
+    color: var(--fonte);
 }
 
 .container.exercicios .btn-finalizar:hover {
-    background: var(--nivel3);
+    background: #e00a0a;
+    /* Vermelho mais claro para hover */
+    border-color: #e00a0a;
+    transform: scale(1.05);
+}
+
+/* BOTÃO VOLTAR PARA EXERCÍCIOS NA TELA DE RESULTADO */
+.container.exercicios .btn-refazer-resultado {
+    background: var(--cor3);
+    border: 2px solid var(--cor3);
     color: var(--fonte);
+    padding: 0.9rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.container.exercicios .btn-refazer-resultado:hover {
+    transform: scale(1.05);
 }
 
 /* OVERLAY DE FUNDO */
@@ -563,6 +658,7 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    margin-top: 1rem;
     border-radius: 30px;
     background-color: var(--cor7);
     color: var(--cor1);
