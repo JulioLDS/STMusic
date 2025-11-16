@@ -44,6 +44,31 @@ const Loginschema = new mongoose.Schema({
         "barras_de_compasso": Number,
         "formula_compasso_simples": Number,
         "formula_compasso_composto": Number,
+    },
+    estatisticas: {
+        type: Object,
+        default: {} 
+    }
+});
+
+//Schema home 
+const HomeSchema = new mongoose.Schema({
+    data: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true
+    }
+});
+
+//Schema conteúdos - Flexível pra não ser gigante desnecessariamente
+const ConteudosSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    data: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true
     }
 });
 
@@ -63,9 +88,15 @@ const ExerciciosSchema = new mongoose.Schema({
 // collection part
 const collection = new mongoose.model("users", Loginschema);
 
+const homeModel = new mongoose.model("home", HomeSchema);
+
+const conteudosModel = new mongoose.model("conteudos", ConteudosSchema);
+
 const exerciciosModel = new mongoose.model("exercicios", ExerciciosSchema);
 
 module.exports = {
     collection,
+    homeModel,
+    conteudosModel,
     exerciciosModel
 };

@@ -61,6 +61,13 @@ async function carregarConteudo(className) {
       return;
     }
 
+    // HOME
+    /*
+    if (className === 'home') {
+      new HomeController().init();
+      return;
+    }*/
+
     // OUTROS (home, exercicios etc)
     const res = await fetch(`../../data/${className}.json`);
     const data = await res.json();
