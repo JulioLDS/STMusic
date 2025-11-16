@@ -47,18 +47,25 @@ const Loginschema = new mongoose.Schema({
     }
 });
 
-//Schema exercicios
-/*const ExerciciosSchema = new mongoose.Schema({
-    titulo: String,
-    tema: String,
-    nivel: String,
-    enunciado: String,
-    alternativas: Array,
-    resposta: String,
-    // etc.
-});*/
+//Schema exercicios - Flexível pra não ser gigante desnecessariamente
+const ExerciciosSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    data: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true
+    }
+});
 
 // collection part
 const collection = new mongoose.model("users", Loginschema);
 
-module.exports = collection;
+const exerciciosModel = new mongoose.model("exercicios", ExerciciosSchema);
+
+module.exports = {
+    collection,
+    exerciciosModel
+};
