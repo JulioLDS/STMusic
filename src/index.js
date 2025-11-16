@@ -50,14 +50,13 @@ app.use("/auth", authGoogleRoutes);
 function autenticar(req, res, next) {
     if (!req.session.user) {
         return res.redirect("/");
-    }  
+    }
 
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
     res.set('Pragma', 'no-cache');
     res.set('Expires', '0');
     next();
 }
-
 
 // Rota inicial
 app.get("/", (req, res) => {
@@ -73,7 +72,7 @@ app.get("/login", (req, res) => {
 app.get("/home", autenticar, (req, res) => {
     if (!req.session.user) {
         return res.redirect("/");
-    }  
+    }
     res.render("paginaBase", { mensagem: "Login efetuado com sucesso!" });
 });
 
@@ -105,7 +104,7 @@ app.get("/status", async (req, res) => {
         }
 
         const nomeUsuario = req.session.user.nome;
-        
+
         const usuarioDoc = await collection.findOne({
             $or: [
                 { "usuario.name": nomeUsuario.toUpperCase() },
@@ -125,7 +124,8 @@ app.get("/status", async (req, res) => {
                 name: capitalizeName(req.session.user.nome) || "Usuário",
                 email: req.session.user.email || ""
             },
-            progresso: usuarioDoc.progresso || {}
+            progresso: usuarioDoc.progresso || {},
+            estatisticas: usuarioDoc.estatisticas || {} // 🆕 Adiciona estatísticas
         };
 
         console.log("Deu certo pegar o json, enviando objeto normalizado para o front");
@@ -135,7 +135,6 @@ app.get("/status", async (req, res) => {
         return res.status(500).json({ erro: "Erro ao buscar progresso" });
     }
 });
-
 
 // --- CADASTRO DE USUÁRIO ---
 app.post("/signup", async (req, res) => {
@@ -158,7 +157,8 @@ app.post("/signup", async (req, res) => {
             "barras_de_compasso": 0.0,
             "formula_compasso_simples": 0.0,
             "formula_compasso_composto": 0.0,
-        }
+        },
+        "estatisticas": {} // 🆕 Inicializa estatísticas vazias
     };
 
     try {
@@ -188,7 +188,6 @@ app.post("/signup", async (req, res) => {
         return res.render("login", { mensagem: "Erro ao cadastrar. Tente novamente." });
     }
 });
-
 
 // --- LOGIN DO USUÁRIO ---
 app.post("/login", async (req, res) => {
@@ -280,13 +279,102 @@ app.post("/muda-progresso", async (req, res) => {
     }
 });
 
+// 🆕 NOVA ROTA: Atualizar estatísticas dos exercícios
+app.post("/atualizar-estatisticas", async (req, res) => {
+    console.log("🔄 Rota /atualizar-estatisticas chamada");
+    try {
+        if (!req.session.user) {
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
+
+        const { exercicioId, nivel, tentativas, melhorPontuacao, ultimaPontuacao } = req.body;
+
+        console.log(`📊 Dados recebidos: ${exercicioId}_${nivel} - Tentativas: ${tentativas}, Melhor: ${melhorPontuacao}%, Última: ${ultimaPontuacao}%`);
+
+        // Validação
+        if (!exercicioId || !nivel || typeof tentativas !== "number") {
+            return res.status(400).json({ erro: "Dados inválidos para estatísticas." });
+        }
+
+        // Localiza o usuário
+        const usuarioNome = req.session.user.nome;
+        const usuario = await collection.findOne({
+            $or: [
+                { "usuario.name": usuarioNome.toUpperCase() },
+                { "usuario.nome": usuarioNome.toUpperCase() }
+            ]
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ erro: "Usuário não encontrado" });
+        }
+
+        // Chave única para o exercício
+        const chave = `${exercicioId}_${nivel}`;
+
+        // Inicializa o objeto de estatísticas se não existir
+        if (!usuario.estatisticas) {
+            usuario.estatisticas = {};
+        }
+
+        // Atualiza as estatísticas do exercício específico
+        usuario.estatisticas[chave] = {
+            tentativas: tentativas,
+            melhorPontuacao: melhorPontuacao,
+            ultimaPontuacao: ultimaPontuacao,
+            ultimaAtualizacao: new Date()
+        };
+
+        await usuario.save();
+        console.log("✅ Estatísticas salvas no banco de dados");
+
+        return res.status(200).json({
+            sucesso: true,
+            mensagem: `Estatísticas de '${chave}' atualizadas.`
+        });
+    } catch (err) {
+        console.error("❌ Erro ao atualizar estatísticas:", err);
+        return res.status(500).json({ erro: "Erro interno ao atualizar estatísticas." });
+    }
+});
+
+// 🆕 NOVA ROTA: Buscar estatísticas do usuário
+app.get("/estatisticas-usuario", async (req, res) => {
+    try {
+        if (!req.session.user) {
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
+
+        const usuarioNome = req.session.user.nome;
+        const usuario = await collection.findOne({
+            $or: [
+                { "usuario.name": usuarioNome.toUpperCase() },
+                { "usuario.nome": usuarioNome.toUpperCase() }
+            ]
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ erro: "Usuário não encontrado" });
+        }
+
+        // Retorna todas as estatísticas do usuário
+        return res.status(200).json({
+            sucesso: true,
+            estatisticas: usuario.estatisticas || {}
+        });
+    } catch (err) {
+        console.error("❌ Erro ao buscar estatísticas:", err);
+        return res.status(500).json({ erro: "Erro interno ao buscar estatísticas." });
+    }
+});
+
 //Função para fazer title case do nome - mudar de "JOÃO GOMES SILVA" para "João Gomes Silva"
 function capitalizeName(nome) {
-  return nome
-    .toLowerCase()
-    .split(" ")
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
+    return nome
+        .toLowerCase()
+        .split(" ")
+        .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(" ");
 }
 
 // Porta da aplicação

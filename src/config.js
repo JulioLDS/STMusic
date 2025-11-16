@@ -44,6 +44,11 @@ const Loginschema = new mongoose.Schema({
         "barras_de_compasso": Number,
         "formula_compasso_simples": Number,
         "formula_compasso_composto": Number,
+    },
+    // 🆕 ADICIONE ESTE CAMPO PARA AS ESTATÍSTICAS
+    estatisticas: {
+        type: Object,
+        default: {} // Inicializa como objeto vazio
     }
 });
 
