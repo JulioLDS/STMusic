@@ -522,8 +522,6 @@ body.no-scroll {
 
 /* BOTÕES DO RODAPÉ */
 .container.exercicios .btn-voltar-lista {
-/* BOTÕES DO RODAPÉ */
-.container.exercicios .btn-voltar-lista {
     background: transparent;
     border: 2px solid var(--cor1);
     color: var(--cor1);
@@ -544,7 +542,7 @@ body.no-scroll {
     gap: 0.5rem;
 }
 
-.container.exercicios .btn-voltar-lista:hover {
+
 .container.exercicios .btn-voltar-lista:hover {
     background: var(--cor1);
     color: var(--cor7);
@@ -1113,4 +1111,5 @@ body.no-scroll {
         padding: 1rem 1.8rem;
         font-size: 1.1rem;
     }
+
 }
