@@ -96,6 +96,22 @@ app.get("/logout", async (req, res) => {
     }
 });
 
+/*
+app.get("/exercicios", async (req, res) => {
+    try {
+        if (!req.session.user) {
+            console.log("Requisição /status sem usuário autenticado");
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
+        const exercicios = await collection.findOne({});
+
+        res.json(exercicios);
+    } catch (err) {
+        console.error("Erro ao buscar exercícios:", err);
+        return res.status(500).json({ erro: "Erro ao buscar progresso" });
+    }
+});*/
+
 //Tela de status
 app.get("/status", async (req, res) => {
     try {
