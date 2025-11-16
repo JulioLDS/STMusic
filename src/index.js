@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require("path");
 const bcrypt = require("bcrypt");
-const collection = require("./config");
+const { collection, exerciciosModel } = require("./config");
 
 require("dotenv").config();
 
@@ -96,21 +96,23 @@ app.get("/logout", async (req, res) => {
     }
 });
 
-/*
+
 app.get("/exercicios", async (req, res) => {
     try {
         if (!req.session.user) {
-            console.log("Requisição /status sem usuário autenticado");
+            console.log("Requisição /exercicios sem usuário autenticado");
             return res.status(401).json({ erro: "Usuário não autenticado" });
         }
-        const exercicios = await collection.findOne({});
+        //id do exercício caso precise  
+        //const idExercicios = "6919286f980ea9ec69bec63f"
+        const exercicios = await exerciciosModel.findOne({});
 
         res.json(exercicios);
     } catch (err) {
         console.error("Erro ao buscar exercícios:", err);
         return res.status(500).json({ erro: "Erro ao buscar progresso" });
     }
-});*/
+});
 
 //Tela de status
 app.get("/status", async (req, res) => {
