@@ -6,6 +6,51 @@ export class ExercicioController {
     constructor() {
         this.view = new ExercicioView(".container.exercicios");
         this.exercicios = [];
+        this.progresso = this.carregarProgressoLocal(); // Progresso local
+    }
+
+    // Carrega progresso do localStorage
+    carregarProgressoLocal() {
+        const salvo = localStorage.getItem('progressoExercicios');
+        return salvo ? JSON.parse(salvo) : {};
+    }
+
+    // Salva progresso no localStorage
+    salvarProgressoLocal() {
+        localStorage.setItem('progressoExercicios', JSON.stringify(this.progresso));
+    }
+
+
+
+    // Busca estatísticas de um exercício
+    getEstatisticasExercicio(id, nivel) {
+        const chave = `${id}_${nivel}`;
+        return this.progresso[chave] || {
+            tentativas: 0,
+            melhorPontuacao: 0,
+            ultimaPontuacao: 0
+        };
+    }
+
+    // Renderiza lista com dados atualizados
+    renderListaComProgresso(exerciciosPorNivel) {
+        // Atualiza os cards com dados reais
+        const exerciciosAtualizados = {
+            iniciante: exerciciosPorNivel.iniciante?.map(ex => ({
+                ...ex,
+                estatisticas: this.getEstatisticasExercicio(ex.id, 'iniciante')
+            })) || [],
+            intermediario: exerciciosPorNivel.intermediario?.map(ex => ({
+                ...ex,
+                estatisticas: this.getEstatisticasExercicio(ex.id, 'intermediario')
+            })) || [],
+            avancado: exerciciosPorNivel.avancado?.map(ex => ({
+                ...ex,
+                estatisticas: this.getEstatisticasExercicio(ex.id, 'avancado')
+            })) || []
+        };
+
+        this.view.renderLista(exerciciosAtualizados);
     }
 
     async init() {
@@ -19,7 +64,8 @@ export class ExercicioController {
                 ...(data.exercicios.avancado || []).map(e => new Exercicio({ ...e, nivel: "avancado" }))
             ];
 
-            this.view.renderLista(data.exercicios);
+            // Renderiza com progresso
+            this.renderListaComProgresso(data.exercicios);
             this.view.bindSaibaMais((id, nivel) => this.mostrarDetalhe(id, nivel));
 
             this.inicializarSwipers();
@@ -34,8 +80,11 @@ export class ExercicioController {
         if (exercicio) {
             this.view.renderDetalhe(
                 exercicio,
-                () => this.init(), // callback para voltar
-                (id, nivel, media) => this.atualizarProgresso(id, nivel, media) // callback para finalizar
+                () => {
+                    // 🆕 ATUALIZA A VIEW AO VOLTAR
+                    this.atualizarView();
+                },
+                (id, nivel, media) => this.atualizarProgresso(id, nivel, media)
             );
         }
     }
@@ -63,20 +112,49 @@ export class ExercicioController {
         });
     }
 
+    // Atualiza progresso quando exercício é finalizado
     async atualizarProgresso(id, nivel, media) {
         try {
-            //Função funcionando
-            //alert(`Função atualizar progresso do controller chamada: ${id}, ${nivel}, ${media}`);
+            console.log(`🔄 ATUALIZANDO PROGRESSO: ${id}_${nivel} - ${media}%`);
 
-            // Passa os parâmetros separadamente
+            // Chave única para o exercício
+            const chave = `${id}_${nivel}`;
+
+            // Inicializa se não existir
+            if (!this.progresso[chave]) {
+                this.progresso[chave] = {
+                    tentativas: 0,
+                    melhorPontuacao: 0,
+                    ultimaPontuacao: 0
+                };
+            }
+
+            // Atualiza estatísticas
+            this.progresso[chave].tentativas++;
+            this.progresso[chave].ultimaPontuacao = media;
+
+            if (media > this.progresso[chave].melhorPontuacao) {
+                this.progresso[chave].melhorPontuacao = media;
+            }
+
+            console.log(`📊 NOVAS ESTATÍSTICAS:`, this.progresso[chave]);
+
+            // Salva localmente
+            this.salvarProgressoLocal();
+
+            // Atualiza no servidor também
             const service = new ExercicioService();
             await service.atualizarProgresso(id, nivel, media);
 
-            //Funciona
-            //alert(`Controller passou a função: ${id} - ${media}%`);
+            console.log(`✅ Progresso atualizado: ${chave} - ${media}%`);
+
         } catch (err) {
-            console.error("Erro ao atualizar progresso:", err);
-            alert("Erro ao atualizar progresso - controller.");
+            console.error("❌ Erro ao atualizar progresso:", err);
         }
+    }
+
+    atualizarView() {
+        // Recarrega a lista com os dados atualizados
+        this.init();
     }
 }
