@@ -2,6 +2,76 @@
     "exercicios": {
         "iniciante": [
             {
+                "id": "introducao",
+                "card": {
+                    "titulo": "Introdução",
+                    "descricao": "Comece a praticar seus conhecimentos",
+                    "img": "../assets/img/default1.png"
+                },
+                "perguntas": [
+                    {
+                        "pergunta": "A música é conhecida como:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) A arte das imagens",
+                            "b) A arte dos movimentos",
+                            "c) A arte dos sons",
+                            "d) A arte das palavras"
+                        ],
+                        "resposta": 2,
+                        "explicacao": "A música é tradicionalmente definida como “a arte dos sons”, pois utiliza o som como sua matéria-prima essencial."
+                    },
+                    {
+                        "pergunta": "O som pode ser definido como:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Tudo o que vemos",
+                            "b) Tudo o que cheiramos",
+                            "c) Tudo o que ouvimos",
+                            "d) Tudo o que tocamos"
+                        ],
+                        "resposta": 2,
+                        "explicacao": "Som é qualquer vibração percebida pelo ouvido humano, ou seja, tudo aquilo que conseguimos ouvir."
+                    },
+                    {
+                        "pergunta": "Sons como o vento, trovões e chuva são classificados como:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Sons produzidos",
+                            "b) Sons artificiais",
+                            "c) Sons naturais",
+                            "d) Sons musicais"
+                        ],
+                        "resposta": 2,
+                        "explicacao": "Esses sons são emitidos pela própria natureza, sem intervenção humana, por isso são considerados sons naturais."
+                    },
+                    {
+                        "pergunta": "A voz humana e os instrumentos musicais produzem:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) Sons naturais",
+                            "b) Sons produzidos ",
+                            "c) Sons invisíveis",
+                            "d) Sons silenciosos"
+                        ],
+                        "resposta": 1,
+                        "explicacao": "A voz e os instrumentos dependem da ação humana para gerar som, portanto são classificados como sons produzidos."
+                    },
+                    {
+                        "pergunta": "A matéria-prima utilizada para construir a música é:",
+                        "tipo": "multipla_escolha",
+                        "opcoes": [
+                            "a) A luz",
+                            "b) A cor ",
+                            "c) O som",
+                            "d) O movimento"
+                        ],
+                        "resposta": 2,
+                        "explicacao": "Toda música é formada a partir de sons organizados. Por isso, o som é a matéria-prima fundamental da música."
+                    }
+                ]
+            },
+            {
                 "id": "propriedades_do_som",
                 "card": {
                     "titulo": "Propriedades do Som",
@@ -19,7 +89,7 @@
                             "d) Duração"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "A altura determina a frequência do som. Sons graves têm frequência baixa e sons agudos têm frequência alta. Por isso, a altura distingue grave de agudo."
                     },
                     {
                         "pergunta": "A propriedade relacionada ao tempo de um som:",
@@ -31,7 +101,7 @@
                             "d) Altura"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "A duração indica quanto tempo o som permanece sendo ouvido, se é curto ou longo. Por isso essa propriedade está ligada ao tempo."
                     },
                     {
                         "pergunta": "O que caracteriza a intensidade do som?",
@@ -43,7 +113,7 @@
                             "d) Brilhante ou opaco"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "A intensidade está ligada ao volume sonoro. Um som pode ser forte (alto) ou fraco (baixo). "
                     },
                     {
                         "pergunta": "O que nos permite reconhecer a origem do som?",
@@ -55,19 +125,19 @@
                             "d) Duração"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "O timbre é a qualidade do som que diferencia uma voz ou instrumento de outro. Assim, é ele que permite identificar a origem."
                     },
                     {
-                        "pergunta": "Qual propriedade indica quanto tempo dura um som?",
+                        "pergunta": "Se dois instrumentos tocam a mesma nota com a mesma intensidade, mas ainda assim soam diferentes, isso acontece por causa:",
                         "tipo": "multipla_escolha",
                         "opcoes": [
-                            "a) Altura",
-                            "b) Intensidade ",
-                            "c) Timbre",
-                            "d) Duração"
+                            "a) Da altura",
+                            "b) Do timbre ",
+                            "c) Da duração",
+                            "d) Da velocidade do som"
                         ],
-                        "resposta": 3,
-                        "explicacao": ""
+                        "resposta": 1,
+                        "explicacao": "Mesmo que os sons tenham a mesma altura e intensidade, os instrumentos têm timbres diferentes, por isso soam distintos."
                     }
                 ]
             },
@@ -89,7 +159,7 @@
                             "d) 7"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "O pentagrama é formado por 5 linhas horizontais sendo essa a definição padrão da escrita musical."
                     },
                     {
                         "pergunta": "Qual é a sequência correta das sete notas?",
@@ -101,7 +171,7 @@
                             "d) dó – mi – ré – fá – sol – lá – si"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "Essa é a ordem natural e universal das sete notas musicais."
                     },
                     {
                         "pergunta": "O pentagrama tem quantos espaços?",
@@ -113,7 +183,7 @@
                             "d) 6"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Entre suas 5 linhas, formam-se 4 espaços. "
                     },
                     {
                         "pergunta": "O que representa a letra C na notação internacional?",
@@ -125,7 +195,7 @@
                             "d) ré"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "Na notação internacional, cada letra representa uma nota: A = lá, B = si, C = dó, D = ré, E = mi, F = fá e G = sol."
                     },
                     {
                         "pergunta": "O conjunto de sinais usados para escrever música se chama:",
@@ -137,7 +207,7 @@
                             "d) Compasso"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "\"Notação musical\" é o nome do sistema que reúne todos os símbolos usados para escrever música (figuras, pausas, claves etc.)."
                     }
                 ]
             },
@@ -159,7 +229,7 @@
                             "d) Clave de si"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "O violino utiliza a clave de sol. Esta clave é a mais comum para instrumentos agudos e define que a segunda linha do pentagrama representa a nota Sol."
                     },
                     {
                         "pergunta": "A clave de fá normalmente aparece na:",
@@ -171,7 +241,7 @@
                             "d) 4ª linha "
                         ],
                         "resposta": 3,
-                        "explicacao": ""
+                        "explicacao": "A clave de fá padrão sempre se coloca na quarta linha, indicando que ali está a nota Fá."
                     },
                     {
                         "pergunta": "Qual clave pode ser escrita em qualquer linha?",
@@ -183,7 +253,7 @@
                             "d) Si"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "A clave de dó é móvel. Ela pode aparecer em diferentes linhas para indicar onde está a nota dó e facilitar a leitura."
                     },
                     {
                         "pergunta": "Qual instrumento utiliza a clave de dó:",
@@ -195,7 +265,7 @@
                             "d) Viola"
                         ],
                         "resposta": 3,
-                        "explicacao": ""
+                        "explicacao": "A viola utiliza a clave de dó como sua escrita padrão, sendo a mais comum na terceira linha (conhecida como clave de viola)."
                     },
                     {
                         "pergunta": "A clave define:",
@@ -206,8 +276,8 @@
                             "c) O ritmo",
                             "d) O timbre do som"
                         ],
-                        "resposta": 3,
-                        "explicacao": ""
+                        "resposta": 1,
+                        "explicacao": "A clave determina o nome e a altura das notas no pentagrama. Sem ela, não saberíamos quais notas estão escritas."
                     }
                 ]
             },
@@ -229,7 +299,7 @@
                             "d) Colcheia"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "A semibreve é a figura com maior duração dentro do sistema básico."
                     },
                     {
                         "pergunta": "Quantas colcheias cabem em uma semibreve?",
@@ -241,7 +311,7 @@
                             "d) 16"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "Dentro do sistema padrão a semibreve vale 4 tempos; cada colcheia vale 1/2 tempo: 4 ÷ 0,5 = 8 colcheias."
                     },
                     {
                         "pergunta": "Qual figura tem valor 4?",
@@ -253,7 +323,7 @@
                             "d) Fusa"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Dentro de uma semibreve cabem 2 mínimas, dentro de 2 mínimas cabem 4 semínimas, ou seja, metade de uma mínima e um quarto de uma semibreve. "
                     },
                     {
                         "pergunta": "O elemento “bandeirola” está presente em:",
@@ -265,7 +335,7 @@
                             "d) Todas as figuras"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "A colcheia tem haste e uma bandeirola, o que a caracteriza visualmente."
                     },
                     {
                         "pergunta": "Qual figura vale metade da mínima?",
@@ -276,8 +346,8 @@
                             "c) Fusa",
                             "d) Semínima"
                         ],
-                        "resposta": 3,
-                        "explicacao": ""
+                        "resposta": 0,
+                        "explicacao": "A mínima vale metade da semibreve, então a semibreve é o dobro da mínima."
                     }
                 ]
             },
@@ -299,7 +369,7 @@
                             "d) De altura"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "A ligadura de valor soma o tempo de notas iguais, criando uma nota mais longa."
                     },
                     {
                         "pergunta": "Qual ligadura identifica semifrases ou frases?",
@@ -311,19 +381,19 @@
                             "d) De fraseado"
                         ],
                         "resposta": 3,
-                        "explicacao": ""
+                        "explicacao": "O fraseado indica musicalmente um trecho que deve ser tocado ligado, como uma ideia musical."
                     },
                     {
                         "pergunta": "A ligadura de portamento liga:",
                         "tipo": "multipla_escolha",
                         "opcoes": [
                             "a) Notas de alturas iguais",
-                            "b) Notas alturas diferentes ",
+                            "b) Notas de alturas diferentes ",
                             "c) Compassos",
                             "d) Silêncios"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Ela conecta notas com alturas diferentes, criando o efeito de “deslizar” entre os sons."
                     },
                     {
                         "pergunta": "Ligaduras aparecem como:",
@@ -335,7 +405,7 @@
                             "d) Nenhuma"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Todas as ligaduras são desenhadas como linhas curvas, nunca retas."
                     },
                     {
                         "pergunta": "A ligadura pode ligar notas de compassos diferentes?",
@@ -345,7 +415,7 @@
                             "b) Não"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "A ligadura de valor pode ultrapassar a barra de compasso para manter uma nota prolongada."
                     }
                 ]
             },
@@ -367,7 +437,7 @@
                             "d) O valor inteiro"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Um ponto acrescenta metade do valor da figura ou pausa à qual está ligado."
                     },
                     {
                         "pergunta": "Quantos pontos podem ser usados no máximo?",
@@ -379,7 +449,7 @@
                             "d) 4"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "Tecnicamente podem ser acrescentados até três pontos, cada um com valor decrescente."
                     },
                     {
                         "pergunta": "O 2º ponto aumenta:",
@@ -391,7 +461,7 @@
                             "d) Nada"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "O primeiro ponto aumenta metade da figura, e o segundo aumenta metade do valor do primeiro ponto."
                     },
                     {
                         "pergunta": "É possível pontuar uma pausa?",
@@ -401,7 +471,7 @@
                             "b) Não"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "Assim como notas, pausas podem receber ponto para aumentar sua duração."
                     },
                     {
                         "pergunta": "O ponto de diminuição faz o quê?",
@@ -413,7 +483,7 @@
                             "d) Duplica"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "O ponto de diminuição retira metade do valor da figura."
                     }
                 ]
             },
@@ -435,7 +505,7 @@
                             "d) Muda a clave"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "Ela indica que a nota ou pausa deve durar mais do que o valor normal."
                     },
                     {
                         "pergunta": "Outro nome para fermata:",
@@ -447,7 +517,7 @@
                             "d) Pausa"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "O símbolo da fermata parece visualmente uma coroa, por isso recebe esse nome."
                     },
                     {
                         "pergunta": "Uma fermata sobre pausa chama-se:",
@@ -459,7 +529,7 @@
                             "d) Suspensão"
                         ],
                         "resposta": 3,
-                        "explicacao": ""
+                        "explicacao": "Quando em uma pausa, significa que o intérprete deve prolongar a pausa: isso é chamado suspensão."
                     },
                     {
                         "pergunta": "Quando aparece no final de um trecho é:",
@@ -471,7 +541,7 @@
                             "d) Unida"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Ela sinaliza que aquele trecho terminou e deve ser finalizado com sustentação."
                     },
                     {
                         "pergunta": "Fermata sobre a barra de compasso indica:",
@@ -483,7 +553,7 @@
                             "d) Diminuição"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Quando aparece sobre a barra, indica uma interrupção momentânea na música."
                     }
                 ]
             },
@@ -505,7 +575,7 @@
                             "d) Figuras"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "Ele organiza a música em unidades chamadas tempos."
                     },
                     {
                         "pergunta": "Quantos tempos há em um compasso ternário?",
@@ -517,7 +587,7 @@
                             "d) 6"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Ternário significa “três tempos”, então esse tipo de compasso contém três tempos."
                     },
                     {
                         "pergunta": "O compasso binário agrupa:",
@@ -529,7 +599,7 @@
                             "d) 6 tempos"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "Binário significa “dois tempos”, então esse tipo de compasso contém dois tempos."
                     },
                     {
                         "pergunta": "Como se chama a barra que finaliza a música?",
@@ -541,7 +611,7 @@
                             "d) Cesura"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "A barra dupla é usada para indicar encerramento ou final."
                     },
                     {
                         "pergunta": "O que são barras de compasso?",
@@ -553,15 +623,15 @@
                             "d) Aumentam o ritmo"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "As barras servem para separar um compasso do outro."
                     }
                 ]
             },
             {
                 "id": "formula_compasso_simples",
                 "card": {
-                    "titulo": "Fórmula do compasso simples",
-                    "descricao": "Teste seu conhecimento sobre Fórmula do compasso simples",
+                    "titulo": "Fórmula de compasso simples",
+                    "descricao": "Teste seu conhecimento sobre fórmula do compasso simples",
                     "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
@@ -575,7 +645,7 @@
                             "d) Um sinal de clave"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "A fórmula de compasso usa dois números: o superior e o inferior."
                     },
                     {
                         "pergunta": "No compasso simples, o número superior indica:",
@@ -587,7 +657,7 @@
                             "d) Figura musical"
                         ],
                         "resposta": 2,
-                        "explicacao": ""
+                        "explicacao": "Ele mostra quantos tempos existem naquele compasso."
                     },
                     {
                         "pergunta": "O número inferior indica:",
@@ -599,7 +669,7 @@
                             "d) O compasso"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "O número de baixo diz que figura representa um tempo (4 = semínima, 8 = colcheia)."
                     },
                     {
                         "pergunta": "Um compasso 3/4 tem:",
@@ -611,7 +681,7 @@
                             "d) 4 colcheias"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "No compasso simples 3/4, o \"4\" indica semínima e o \"3\" indica quantas delas cabem no compasso."
                     },
                     {
                         "pergunta": "A unidade de compasso é a soma de:",
@@ -623,15 +693,15 @@
                             "d) Semibreves"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Somando todas as unidades de tempo (UT) do compasso, obtemos a unidade de compasso."
                     }
                 ]
             },
             {
                 "id": "formula_compasso_composto",
                 "card": {
-                    "titulo": "Fórmula do compasso composto",
-                    "descricao": "Teste seu conhecimento sobre Fórmula do compasso composto",
+                    "titulo": "Fórmula de compasso composto",
+                    "descricao": "Teste seu conhecimento sobre Fórmula de compasso composto",
                     "img": "../assets/img/default1.png"
                 },
                 "perguntas": [
@@ -645,7 +715,7 @@
                             "d) 4"
                         ],
                         "resposta": 3,
-                        "explicacao": ""
+                        "explicacao": "O número 4 indica compasso simples. Compostos começam com 6, 9 ou 12."
                     },
                     {
                         "pergunta": "Os compassos compostos possuem subdivisão:",
@@ -657,7 +727,7 @@
                             "d) Quinária"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "Nos compassos compostos, cada tempo se divide em 3 partes iguais."
                     },
                     {
                         "pergunta": "Uma fórmula composta 6/8 indica:",
@@ -669,10 +739,10 @@
                             "d) 6 tempos simples"
                         ],
                         "resposta": 1,
-                        "explicacao": ""
+                        "explicacao": "O 6/8 agrupa seus 6 tempos pequenos em dois grandes tempos, cada um com três subdivisões."
                     },
                     {
-                        "pergunta": "No compasso composto, a U.T. é formada por:",
+                        "pergunta": "No compasso composto, a U.T.(Unidade de Tempo) é formada por:",
                         "tipo": "multipla_escolha",
                         "opcoes": [
                             "a) 3 figuras de movimento",
@@ -681,7 +751,7 @@
                             "d) 6 figuras de movimento"
                         ],
                         "resposta": 0,
-                        "explicacao": ""
+                        "explicacao": "Cada tempo composto contém três subdivisões rítmicas."
                     },
                     {
                         "pergunta": "O que indica a unidade de som?",
@@ -693,7 +763,7 @@
                             "d) Ligadura"
                         ],
                         "resposta": 3,
-                        "explicacao": ""
+                        "explicacao": "A ligadura agrupa as notas que formam um único tempo composto."
                     }
                 ]
             }
