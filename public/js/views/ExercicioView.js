@@ -105,17 +105,22 @@ export class ExercicioView {
 
         const navHtml = (this.currentIndex < lastIndex)
             ? `<div class="navegacao-pergunta">
-                <button class="btn-voltar-lista">Sair do Exercício</button>
-                <button class="btn-avancar" disabled>Avançar</button>
-              </div>`
+            <button class="btn-voltar-lista">Sair do Exercício</button>
+            <button class="btn-avancar" disabled>Avançar</button>
+          </div>`
             : `<div class="navegacao-pergunta">
-                <button class="btn-voltar-lista">Sair do Exercício</button>
-              </div>`;
+            <button class="btn-voltar-lista">Sair do Exercício</button>
+          </div>`;
 
         this.container.innerHTML = `
-        <div class="exercicio-detalhado" tabindex="0">
+    <div class="exercicio-detalhado" tabindex="0">
+        <!-- HEADER FIXO -->
+        <div class="exercicio-header">
             <h2 class="exercicio-titulo">${this.exercicioAtual.card.titulo}</h2>
+        </div>
 
+        <!-- CONTEÚDO ROLÁVEL -->
+        <div class="exercicio-content">
             <div class="pergunta-group">
                 <p class="pergunta-titulo"><strong>${this.currentIndex + 1}.</strong> ${q.pergunta}</p>
                 <div class="opcoes-grid-container">
@@ -130,13 +135,19 @@ export class ExercicioView {
 
                 ${q.explicacao ? `<div class="explicacao" style="display:none;">${q.explicacao}</div>` : ''}
             </div>
-
-            ${navHtml}
         </div>
-        `;
 
+        <!-- NAVEGAÇÃO FIXA -->
+        ${navHtml}
+    </div>
+    `;
+
+        // Foca no container para melhor acessibilidade
         const card = this.container.querySelector('.exercicio-detalhado');
-        if (card) card.scrollTop = 0;
+        if (card) {
+            card.focus();
+            card.scrollTop = 0;
+        }
     }
 
     validarResposta(indiceEscolhido, botao, respostaCerta, explicacao) {
@@ -156,7 +167,17 @@ export class ExercicioView {
             this.mostrarEmoji(botao, "😢");
             if (explicacao) {
                 const expEl = this.container.querySelector(".explicacao");
-                if (expEl) expEl.style.display = "block";
+                if (expEl) {
+                    expEl.style.display = "block";
+
+                    // 🆕 SCROLL AUTOMÁTICO PARA A EXPLICAÇÃO
+                    setTimeout(() => {
+                        expEl.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }); // Pequeno delay para a animação do emoji
+                }
             }
         }
 
