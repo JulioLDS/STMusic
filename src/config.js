@@ -47,6 +47,17 @@ const Loginschema = new mongoose.Schema({
     }
 });
 
+//Schema exercicios
+/*const ExerciciosSchema = new mongoose.Schema({
+    titulo: String,
+    tema: String,
+    nivel: String,
+    enunciado: String,
+    alternativas: Array,
+    resposta: String,
+    // etc.
+});*/
+
 // collection part
 const collection = new mongoose.model("users", Loginschema);
 
