@@ -11,6 +11,31 @@ export class ExercicioController {
         this.carregandoEstatisticas = false;
     }
 
+    async init() {
+        try {
+            // Carrega estatísticas do banco primeiro
+            await this.carregarEstatisticasBanco();
+    
+            const data = await ExercicioService.getExercicios();
+    
+            // Criar lista de models
+            this.exercicios = [
+                ...(data.exercicios.iniciante || []).map(e => new Exercicio({ ...e, nivel: "iniciante" })),
+                ...(data.exercicios.intermediario || []).map(e => new Exercicio({ ...e, nivel: "intermediario" })),
+                ...(data.exercicios.avancado || []).map(e => new Exercicio({ ...e, nivel: "avancado" }))
+            ];
+    
+            // Renderiza com progresso do banco
+            this.renderListaComProgresso(data.exercicios);
+            this.view.bindSaibaMais((id, nivel) => this.mostrarDetalhe(id, nivel));
+    
+            this.inicializarSwipers();
+        } catch (err) {
+            console.error(err);
+            this.view.container.innerHTML = `<p class="erro-carregamento">Erro ao carregar exercícios.</p>`;
+        }
+    }
+
     // Carrega estatísticas do banco de dados
     async carregarEstatisticasBanco() {
         if (this.carregandoEstatisticas) return;
@@ -30,6 +55,7 @@ export class ExercicioController {
 
     // Busca estatísticas de um exercício (agora do banco)
     getEstatisticasExercicio(id, nivel) {
+        nivel = nivel.trim().toLowerCase();
         const chave = `${id}_${nivel}`;
         const estatisticasBanco = this.progresso[chave];
 
@@ -70,30 +96,6 @@ export class ExercicioController {
         this.view.renderLista(exerciciosAtualizados);
     }
 
-    async init() {
-        try {
-            // Carrega estatísticas do banco primeiro
-            await this.carregarEstatisticasBanco();
-
-            const data = await ExercicioService.getExercicios();
-
-            // Criar lista de models
-            this.exercicios = [
-                ...(data.exercicios.iniciante || []).map(e => new Exercicio({ ...e, nivel: "iniciante" })),
-                ...(data.exercicios.intermediario || []).map(e => new Exercicio({ ...e, nivel: "intermediario" })),
-                ...(data.exercicios.avancado || []).map(e => new Exercicio({ ...e, nivel: "avancado" }))
-            ];
-
-            // Renderiza com progresso do banco
-            this.renderListaComProgresso(data.exercicios);
-            this.view.bindSaibaMais((id, nivel) => this.mostrarDetalhe(id, nivel));
-
-            this.inicializarSwipers();
-        } catch (err) {
-            console.error(err);
-            this.view.container.innerHTML = `<p class="erro-carregamento">Erro ao carregar exercícios.</p>`;
-        }
-    }
 
     mostrarDetalhe(id, nivel) {
         const exercicio = this.exercicios.find(e => e.id === id && e.nivel === nivel);
@@ -101,7 +103,7 @@ export class ExercicioController {
             this.view.renderDetalhe(
                 exercicio,
                 () => {
-                    // 🆕 ATUALIZA A VIEW AO VOLTAR (recarrega do banco)
+                    // ATUALIZA A VIEW AO VOLTAR (recarrega do banco)
                     this.atualizarView();
                 },
                 (id, nivel, media) => this.atualizarProgresso(id, nivel, media)
@@ -134,6 +136,9 @@ export class ExercicioController {
     // Atualiza progresso quando exercício é finalizado (agora salva no banco)
     async atualizarProgresso(id, nivel, media) {
         try {
+            //Padronização
+            nivel = nivel.trim().toLowerCase();
+
             console.log(`ATUALIZANDO PROGRESSO: ${id}_${nivel} - ${media}%`);
 
             // Chave única para o exercício
@@ -169,11 +174,12 @@ export class ExercicioController {
                 ultimaAtualizacao: new Date()
             };
 
-            console.log(`Progresso atualizado no banco: ${chave} - ${media}%`);
-
+            
             // Atualiza também o progresso do tema
+            console.log(`chamando atualizar progresso: ${id}, ${nivel}, ${media}`);
             await this.service.atualizarProgresso(id, nivel, media);
-
+            console.log(`Progresso atualizado no banco: ${chave} - ${media}%`);
+            
         } catch (err) {
             console.error("Erro ao atualizar progresso:", err);
         }

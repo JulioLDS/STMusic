@@ -220,7 +220,7 @@ export class ExercicioView {
             if (this.onFinalizarProgresso) {
                 // ATUALIZA O PROGRESSO ANTES DE MOSTRAR O RESULTADO
                 this.onFinalizarProgresso(this.exercicioAtual.id, this.exercicioAtual.nivel, media);
-
+                
                 // Agora mostra o resultado
                 this.mostrarTelaResultado(this.acertos, totalPerguntas, media);
             }

@@ -2,7 +2,7 @@ const express = require('express');
 const path = require("path");
 const bcrypt = require("bcrypt");
 const { collection, 
-        HomeModel, 
+        homeModel, 
         conteudosModel, 
         exerciciosModel 
         } = require("./config");
@@ -108,7 +108,8 @@ app.get("/infoHome", async (req, res) => {
             return res.status(401).json({ erro: "Usuário não autenticado" });
         }
         
-        const home = await HomeModel.findOne({});
+        //Busca no banco de dados
+        const home = await homeModel.findOne({});
 
         console.log("Conteudo da home obtido com sucesso");
         res.json(home);
@@ -288,7 +289,7 @@ app.post("/muda-progresso", async (req, res) => {
         const { id, nivel, media: mediaString } = req.body;
         const media = Number(mediaString);
 
-        console.log(`Passou por aqui - id: ${id}, media: ${media}`);
+        //console.log(`Passou por aqui - id: ${id}, media: ${media}`);
 
         // Validação simples
         if (!id || typeof media !== "number") {
@@ -327,12 +328,12 @@ app.post("/muda-progresso", async (req, res) => {
             return res.status(404).json({ erro: "Usuário não encontrado" });
         }
 
-        console.log("Chegou até a parte de salvar");
-        console.log("Tipo de usuario:", typeof usuario, usuario.constructor?.name);
+        //console.log("Chegou até a parte de salvar");
+        
         // Atualiza o progresso do tema específico
         usuario.progresso[id] = media;
         await usuario.save();
-        console.log("Salvou");
+        //console.log("Salvou");
 
         return res.status(200).json({ sucesso: true, mensagem: `Progresso em '${id}' atualizado para ${media}.` });
     } catch (err) {
@@ -371,8 +372,9 @@ app.post("/atualizar-estatisticas", async (req, res) => {
             return res.status(404).json({ erro: "Usuário não encontrado" });
         }
 
+        let nivelPadronizado = nivel.trim().toLowerCase();
         // Chave única para o exercício
-        const chave = `${exercicioId}_${nivel}`;
+        const chave = `${exercicioId}_${nivelPadronizado}`;
 
         // Inicializa o objeto de estatísticas se não existir
         if (!usuario.estatisticas) {

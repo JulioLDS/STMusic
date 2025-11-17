@@ -15,7 +15,7 @@ connect.then(() => {
         console.log("Não foi possível conectar ao banco de dados");
     })
 
-// Create Schema
+// Schema Login
 const Loginschema = new mongoose.Schema({
     usuario: {
         name: {
@@ -88,7 +88,7 @@ const ExerciciosSchema = new mongoose.Schema({
 // collection part
 const collection = new mongoose.model("users", Loginschema);
 
-const homeModel = new mongoose.model("home", HomeSchema);
+const homeModel = new mongoose.model("home", HomeSchema, "home");
 
 const conteudosModel = new mongoose.model("conteudos", ConteudosSchema);
 

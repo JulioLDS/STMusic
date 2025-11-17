@@ -1,3 +1,4 @@
+import { HomeController } from "/js/controllers/HomeController.js";
 import { ConteudoController } from "/js/controllers/ConteudoController.js";
 import { ExercicioController } from "/js/controllers/ExercicioController.js";
 import { StatusController } from "/js/controllers/StatusController.js";
@@ -49,6 +50,12 @@ async function carregarConteudo(className) {
       return;
     }
 
+    // HOME 
+    if (className === 'home') {
+      new HomeController().init();
+      return;
+    }
+
     // CONTEÚDOS
     if (className === 'conteudos') {
       new ConteudoController().init();
@@ -60,13 +67,6 @@ async function carregarConteudo(className) {
       new ExercicioController().init();
       return;
     }
-
-    // HOME
-    /*
-    if (className === 'home') {
-      new HomeController().init();
-      return;
-    }*/
 
     // OUTROS (home, exercicios etc)
     const res = await fetch(`../../data/${className}.json`);
