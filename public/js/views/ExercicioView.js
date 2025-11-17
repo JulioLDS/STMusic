@@ -68,7 +68,7 @@ export class ExercicioView {
         ${this.renderSecao("avancado", exerciciosPorNivel.avancado)}
     `;
 
-        // 🆕 Garante que o botão voltar some quando voltar para a lista
+        // Garante que o botão voltar some quando voltar para a lista
         if (this.btnVoltar) this.btnVoltar.style.display = "none";
     }
 
@@ -80,10 +80,10 @@ export class ExercicioView {
         this.acertos = 0;
         this.respondidas = 0;
 
-        // 🆕 Esconde o botão voltar global ao entrar no exercício
+        // Esconde o botão voltar global ao entrar no exercício
         if (this.btnVoltar) this.btnVoltar.style.display = "none";
 
-        // 🆕 Bloqueia o back do navegador
+        // Bloqueia o back do navegador
         this.handlePopState = (e) => {
             e.preventDefault();
             window.history.pushState(null, null, window.location.href);
@@ -91,7 +91,7 @@ export class ExercicioView {
         window.history.pushState(null, null, window.location.href);
         window.addEventListener('popstate', this.handlePopState);
 
-        // 🆕 Reset scroll da página e do container
+        // Reset scroll da página e do container
         window.scrollTo(0, 0);
         if (this.container) this.container.scrollTop = 0;
 
@@ -170,7 +170,7 @@ export class ExercicioView {
                 if (expEl) {
                     expEl.style.display = "block";
 
-                    // 🆕 SCROLL AUTOMÁTICO PARA A EXPLICAÇÃO
+                    // SCROLL AUTOMÁTICO PARA A EXPLICAÇÃO
                     setTimeout(() => {
                         expEl.scrollIntoView({
                             behavior: 'smooth',
@@ -218,7 +218,7 @@ export class ExercicioView {
         const btnFinalizar = nav.querySelector(".btn-finalizar");
         btnFinalizar.addEventListener("click", () => {
             if (this.onFinalizarProgresso) {
-                // 🆕 ATUALIZA O PROGRESSO ANTES DE MOSTRAR O RESULTADO
+                // ATUALIZA O PROGRESSO ANTES DE MOSTRAR O RESULTADO
                 this.onFinalizarProgresso(this.exercicioAtual.id, this.exercicioAtual.nivel, media);
 
                 // Agora mostra o resultado
@@ -251,7 +251,7 @@ export class ExercicioView {
     </div>
     `;
 
-        // 🆕 Garante que o botão voltar fique hidden na tela de resultado
+        // Garante que o botão voltar fique hidden na tela de resultado
         if (this.btnVoltar) this.btnVoltar.style.display = "none";
 
         // Listener para o botão refazer na tela de resultado
@@ -287,14 +287,14 @@ export class ExercicioView {
             return;
         }
 
-        // 🆕 Clique no botão "Voltar para Lista"
+        // Clique no botão "Voltar para Lista"
         const voltarListaBtn = e.target.closest(".btn-voltar-lista");
         if (voltarListaBtn) {
             this.currentIndex = 0;
             this.acertos = 0;
             this.respondidas = 0;
 
-            // 🆕 Remove o bloqueio do back ao sair do exercício
+            // Remove o bloqueio do back ao sair do exercício
             if (this.handlePopState) {
                 window.removeEventListener('popstate', this.handlePopState);
             }
@@ -341,7 +341,7 @@ export class ExercicioView {
                 const card = btn.closest(".card");
                 const nivel = card.getAttribute("data-nivel");
                 if (nivel !== "iniciante") return; // proteção extra
-                // 🆕 Força atualização da lista após exercício (para atualizar stats)
+                // Força atualização da lista após exercício (para atualizar stats)
                 setTimeout(() => {
                     handler(card.getAttribute("data-id"), nivel);
                 }, 50);
@@ -355,7 +355,7 @@ export class ExercicioView {
         });
     }
 
-    // 🆕 Método para liberar o bloqueio do back quando sair
+    // Método para liberar o bloqueio do back quando sair
     liberarBloqueio() {
         if (this.handlePopState) {
             window.removeEventListener('popstate', this.handlePopState);

@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require("path");
 const bcrypt = require("bcrypt");
-const { collection, exerciciosModel } = require("./config");
+const { collection,
+    homeModel,
+    conteudosModel,
+    exerciciosModel
+} = require("./config");
 
 require("dotenv").config();
 
@@ -50,7 +54,7 @@ app.use("/auth", authGoogleRoutes);
 function autenticar(req, res, next) {
     if (!req.session.user) {
         return res.redirect("/");
-    }  
+    }
 
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
     res.set('Pragma', 'no-cache');
@@ -73,7 +77,7 @@ app.get("/login", (req, res) => {
 app.get("/home", autenticar, (req, res) => {
     if (!req.session.user) {
         return res.redirect("/");
-    }  
+    }
     res.render("paginaBase", { mensagem: "Login efetuado com sucesso!" });
 });
 
@@ -96,7 +100,44 @@ app.get("/logout", async (req, res) => {
     }
 });
 
+//Pega os json das informações da home
+app.get("/infoHome", async (req, res) => {
+    try {
+        if (!req.session.user) {
+            console.log("Requisição /infoHome sem usuário autenticado");
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
 
+        //Busca no banco de dados
+        const home = await homeModel.findOne({});
+
+        console.log("Conteudo da home obtido com sucesso");
+        res.json(home);
+    } catch (err) {
+        console.error("Erro ao buscar conteúdo da home:", err);
+        return res.status(500).json({ erro: "Erro ao buscar conteúdo da home" });
+    }
+});
+
+//Pega os conteúdos do banco de dados
+app.get("/conteudos", async (req, res) => {
+    try {
+        if (!req.session.user) {
+            console.log("Requisição /conteudos sem usuário autenticado");
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
+
+        const conteudos = await conteudosModel.findOne({});
+
+        console.log("Conteudos obtidos com sucesso");
+        res.json(conteudos);
+    } catch (err) {
+        console.error("Erro ao buscar conteúdos:", err);
+        return res.status(500).json({ erro: "Erro ao buscar conteúdos" });
+    }
+});
+
+//Pega os exercicios do banco de dados
 app.get("/exercicios", async (req, res) => {
     try {
         if (!req.session.user) {
@@ -107,10 +148,11 @@ app.get("/exercicios", async (req, res) => {
         //const idExercicios = "6919286f980ea9ec69bec63f"
         const exercicios = await exerciciosModel.findOne({});
 
+        console.log("Exercicios obtidos com sucesso");
         res.json(exercicios);
     } catch (err) {
         console.error("Erro ao buscar exercícios:", err);
-        return res.status(500).json({ erro: "Erro ao buscar progresso" });
+        return res.status(500).json({ erro: "Erro ao buscar exercícios" });
     }
 });
 
@@ -123,7 +165,7 @@ app.get("/status", async (req, res) => {
         }
 
         const nomeUsuario = req.session.user.nome;
-        
+
         const usuarioDoc = await collection.findOne({
             $or: [
                 { "usuario.name": nomeUsuario.toUpperCase() },
@@ -143,7 +185,8 @@ app.get("/status", async (req, res) => {
                 name: capitalizeName(req.session.user.nome) || "Usuário",
                 email: req.session.user.email || ""
             },
-            progresso: usuarioDoc.progresso || {}
+            progresso: usuarioDoc.progresso || {},
+            estatisticas: usuarioDoc.estatisticas || {} // Adiciona estatísticas
         };
 
         console.log("Deu certo pegar o json, enviando objeto normalizado para o front");
@@ -176,7 +219,8 @@ app.post("/signup", async (req, res) => {
             "barras_de_compasso": 0.0,
             "formula_compasso_simples": 0.0,
             "formula_compasso_composto": 0.0,
-        }
+        },
+        "estatisticas": {} // Inicializa estatísticas vazias
     };
 
     try {
@@ -245,7 +289,7 @@ app.post("/muda-progresso", async (req, res) => {
         const { id, nivel, media: mediaString } = req.body;
         const media = Number(mediaString);
 
-        console.log(`Passou por aqui - id: ${id}, media: ${media}`);
+        //console.log(`Passou por aqui - id: ${id}, media: ${media}`);
 
         // Validação simples
         if (!id || typeof media !== "number") {
@@ -284,12 +328,12 @@ app.post("/muda-progresso", async (req, res) => {
             return res.status(404).json({ erro: "Usuário não encontrado" });
         }
 
-        console.log("Chegou até a parte de salvar");
-        console.log("Tipo de usuario:", typeof usuario, usuario.constructor?.name);
+        //console.log("Chegou até a parte de salvar");
+
         // Atualiza o progresso do tema específico
         usuario.progresso[id] = media;
         await usuario.save();
-        console.log("Salvou");
+        //console.log("Salvou");
 
         return res.status(200).json({ sucesso: true, mensagem: `Progresso em '${id}' atualizado para ${media}.` });
     } catch (err) {
@@ -298,13 +342,103 @@ app.post("/muda-progresso", async (req, res) => {
     }
 });
 
+// Atualizar estatísticas dos exercícios
+app.post("/atualizar-estatisticas", async (req, res) => {
+    console.log("Rota /atualizar-estatisticas chamada");
+    try {
+        if (!req.session.user) {
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
+
+        const { exercicioId, nivel, tentativas, melhorPontuacao, ultimaPontuacao } = req.body;
+
+        console.log(`Dados recebidos: ${exercicioId}_${nivel} - Tentativas: ${tentativas}, Melhor: ${melhorPontuacao}%, Última: ${ultimaPontuacao}%`);
+
+        // Validação
+        if (!exercicioId || !nivel || typeof tentativas !== "number") {
+            return res.status(400).json({ erro: "Dados inválidos para estatísticas." });
+        }
+
+        // Localiza o usuário
+        const usuarioNome = req.session.user.nome;
+        const usuario = await collection.findOne({
+            $or: [
+                { "usuario.name": usuarioNome.toUpperCase() },
+                { "usuario.nome": usuarioNome.toUpperCase() }
+            ]
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ erro: "Usuário não encontrado" });
+        }
+
+        let nivelPadronizado = nivel.trim().toLowerCase();
+        // Chave única para o exercício
+        const chave = `${exercicioId}_${nivelPadronizado}`;
+
+        // Inicializa o objeto de estatísticas se não existir
+        if (!usuario.estatisticas) {
+            usuario.estatisticas = {};
+        }
+
+        // Atualiza as estatísticas do exercício específico
+        usuario.estatisticas[chave] = {
+            tentativas: tentativas,
+            melhorPontuacao: melhorPontuacao,
+            ultimaPontuacao: ultimaPontuacao,
+            ultimaAtualizacao: new Date()
+        };
+
+        await usuario.save();
+        console.log("Estatísticas salvas no banco de dados");
+
+        return res.status(200).json({
+            sucesso: true,
+            mensagem: `Estatísticas de '${chave}' atualizadas.`
+        });
+    } catch (err) {
+        console.error("Erro ao atualizar estatísticas:", err);
+        return res.status(500).json({ erro: "Erro interno ao atualizar estatísticas." });
+    }
+});
+
+// Buscar estatísticas do usuário
+app.get("/estatisticas-usuario", async (req, res) => {
+    try {
+        if (!req.session.user) {
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
+
+        const usuarioNome = req.session.user.nome;
+        const usuario = await collection.findOne({
+            $or: [
+                { "usuario.name": usuarioNome.toUpperCase() },
+                { "usuario.nome": usuarioNome.toUpperCase() }
+            ]
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ erro: "Usuário não encontrado" });
+        }
+
+        // Retorna todas as estatísticas do usuário
+        return res.status(200).json({
+            sucesso: true,
+            estatisticas: usuario.estatisticas || {}
+        });
+    } catch (err) {
+        console.error("Erro ao buscar estatísticas:", err);
+        return res.status(500).json({ erro: "Erro interno ao buscar estatísticas." });
+    }
+});
+
 //Função para fazer title case do nome - mudar de "JOÃO GOMES SILVA" para "João Gomes Silva"
 function capitalizeName(nome) {
-  return nome
-    .toLowerCase()
-    .split(" ")
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
+    return nome
+        .toLowerCase()
+        .split(" ")
+        .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(" ");
 }
 
 // Porta da aplicação
