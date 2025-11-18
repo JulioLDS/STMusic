@@ -70,7 +70,4 @@ const collection = new mongoose.model("users", Loginschema);
 
 const exerciciosModel = new mongoose.model("exercicios", ExerciciosSchema);
 
-module.exports = {
-    collection,
-    exerciciosModel
-};
+module.exports = { collection, exerciciosModel };

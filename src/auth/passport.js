@@ -1,6 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth2").Strategy;
-const collection = require("../config"); // sua model "users"
+const { collection } = require("../config"); // ✅ Desestrutura collection
 
 passport.serializeUser((user, done) => {
     done(null, user._id);
@@ -52,7 +52,8 @@ passport.use(
                             barras_de_compasso: 0,
                             formula_compasso_simples: 0,
                             formula_compasso_composto: 0
-                        }
+                        },
+                        estatisticas: {}
                     };
 
                     const result = await collection.create(novoUsuario);
