@@ -49,11 +49,11 @@ export class ExercicioService {
             }
 
             const data = await response.json();
-            //console.log(`Estatísticas atualizadas no banco: ${data.mensagem}`);
+            console.log(`✅ Estatísticas atualizadas no banco: ${data.mensagem}`);
             return data;
 
         } catch (err) {
-            console.error("Erro ao atualizar estatísticas no service:", err);
+            console.error("❌ Erro ao atualizar estatísticas no service:", err);
             throw err;
         }
     }

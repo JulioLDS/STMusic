@@ -64,12 +64,39 @@ export class ConteudoView {
                 ${conteudo.conteudo.join("\n")}
             </div>
             <div class="pratica">
-                <iframe width='560' height='315' src='${conteudo.video || ""}' ...></iframe>
+                <!-- <iframe width='560' height='315' src='${conteudo.video || ""}' ...></iframe> -->
+                <img src='../../assets/img/default1.png'>
                 <a href='#' class='btn-praticar'>Praticar</a>
             </div>
         </div>
     `;
         this.btnVoltar.style.display = "block";
+
+        this.bindPraticar();
+    }
+
+    // abre a tela de exercícios (usa carregarConteudo global como primeira opção)
+    bindPraticar() {
+        this.container.querySelectorAll(".btn-praticar").forEach(btn => {
+            btn.addEventListener("click", e => {
+                e.preventDefault();
+
+                // tenta simular clique no item do menu (índice 2) — isso garante que a classe active e o indicador mudem
+                const navItems = document.querySelectorAll('.navegacao ul li');
+                if (navItems && navItems[2]) {
+                    navItems.forEach(li => li.classList.remove('active'));
+                    navItems[2].classList.add('active');
+                    navItems[2].click();
+                    return;
+                }
+
+                // fallback: usa a função global se existir
+                if (typeof window.carregarConteudo === "function") {
+                    window.carregarConteudo("exercicios");
+                    return;
+                }
+            });
+        });
     }
 
     bindSaibaMais(handler) {

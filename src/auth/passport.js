@@ -53,7 +53,7 @@ passport.use(
                             formula_compasso_simples: 0,
                             formula_compasso_composto: 0
                         },
-                        "estatisticas": {}
+                        estatisticas: {}
                     };
 
                     const result = await collection.create(novoUsuario);

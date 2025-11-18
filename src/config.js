@@ -68,9 +68,13 @@ const ConteudosSchema = new mongoose.Schema({
     },
     data: {
         type: mongoose.Schema.Types.Mixed,
-        required: true
+        required: true,
+    // 🆕 ADICIONE ESTE CAMPO PARA AS ESTATÍSTICAS
+    estatisticas: {
+        type: Object,
+        default: {} // Inicializa como objeto vazio
     }
-});
+}});
 
 //Schema exercicios - Flexível pra não ser gigante desnecessariamente
 const ExerciciosSchema = new mongoose.Schema({

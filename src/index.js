@@ -62,7 +62,6 @@ function autenticar(req, res, next) {
     next();
 }
 
-
 // Rota inicial
 app.get("/", (req, res) => {
     res.render("paginaInicial");
@@ -197,7 +196,6 @@ app.get("/status", async (req, res) => {
     }
 });
 
-
 // --- CADASTRO DE USUÁRIO ---
 app.post("/signup", async (req, res) => {
     const data = {
@@ -250,7 +248,6 @@ app.post("/signup", async (req, res) => {
         return res.render("login", { mensagem: "Erro ao cadastrar. Tente novamente." });
     }
 });
-
 
 // --- LOGIN DO USUÁRIO ---
 app.post("/login", async (req, res) => {
@@ -434,6 +431,95 @@ app.get("/estatisticas-usuario", async (req, res) => {
         });
     } catch (err) {
         console.error("Erro ao buscar estatísticas:", err);
+        return res.status(500).json({ erro: "Erro interno ao buscar estatísticas." });
+    }
+});
+
+// 🆕 NOVA ROTA: Atualizar estatísticas dos exercícios
+app.post("/atualizar-estatisticas", async (req, res) => {
+    console.log("🔄 Rota /atualizar-estatisticas chamada");
+    try {
+        if (!req.session.user) {
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
+
+        const { exercicioId, nivel, tentativas, melhorPontuacao, ultimaPontuacao } = req.body;
+
+        console.log(`📊 Dados recebidos: ${exercicioId}_${nivel} - Tentativas: ${tentativas}, Melhor: ${melhorPontuacao}%, Última: ${ultimaPontuacao}%`);
+
+        // Validação
+        if (!exercicioId || !nivel || typeof tentativas !== "number") {
+            return res.status(400).json({ erro: "Dados inválidos para estatísticas." });
+        }
+
+        // Localiza o usuário
+        const usuarioNome = req.session.user.nome;
+        const usuario = await collection.findOne({
+            $or: [
+                { "usuario.name": usuarioNome.toUpperCase() },
+                { "usuario.nome": usuarioNome.toUpperCase() }
+            ]
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ erro: "Usuário não encontrado" });
+        }
+
+        // Chave única para o exercício
+        const chave = `${exercicioId}_${nivel}`;
+
+        // Inicializa o objeto de estatísticas se não existir
+        if (!usuario.estatisticas) {
+            usuario.estatisticas = {};
+        }
+
+        // Atualiza as estatísticas do exercício específico
+        usuario.estatisticas[chave] = {
+            tentativas: tentativas,
+            melhorPontuacao: melhorPontuacao,
+            ultimaPontuacao: ultimaPontuacao,
+            ultimaAtualizacao: new Date()
+        };
+
+        await usuario.save();
+        console.log("✅ Estatísticas salvas no banco de dados");
+
+        return res.status(200).json({
+            sucesso: true,
+            mensagem: `Estatísticas de '${chave}' atualizadas.`
+        });
+    } catch (err) {
+        console.error("❌ Erro ao atualizar estatísticas:", err);
+        return res.status(500).json({ erro: "Erro interno ao atualizar estatísticas." });
+    }
+});
+
+// 🆕 NOVA ROTA: Buscar estatísticas do usuário
+app.get("/estatisticas-usuario", async (req, res) => {
+    try {
+        if (!req.session.user) {
+            return res.status(401).json({ erro: "Usuário não autenticado" });
+        }
+
+        const usuarioNome = req.session.user.nome;
+        const usuario = await collection.findOne({
+            $or: [
+                { "usuario.name": usuarioNome.toUpperCase() },
+                { "usuario.nome": usuarioNome.toUpperCase() }
+            ]
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ erro: "Usuário não encontrado" });
+        }
+
+        // Retorna todas as estatísticas do usuário
+        return res.status(200).json({
+            sucesso: true,
+            estatisticas: usuario.estatisticas || {}
+        });
+    } catch (err) {
+        console.error("❌ Erro ao buscar estatísticas:", err);
         return res.status(500).json({ erro: "Erro interno ao buscar estatísticas." });
     }
 });

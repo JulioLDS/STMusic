@@ -11,21 +11,38 @@ export class ExercicioController {
         this.carregandoEstatisticas = false;
     }
 
-    // Carrega progresso do localStorage
-    carregarProgressoLocal() {
-        const salvo = localStorage.getItem('progressoExercicios');
-        return salvo ? JSON.parse(salvo) : {};
+    // 🆕 Carrega estatísticas do banco de dados
+    async carregarEstatisticasBanco() {
+        if (this.carregandoEstatisticas) return;
+
+        this.carregandoEstatisticas = true;
+        try {
+            console.log("📥 Carregando estatísticas do banco...");
+            this.progresso = await this.service.getEstatisticasUsuario();
+            console.log("✅ Estatísticas carregadas do banco:", this.progresso);
+        } catch (err) {
+            console.error("❌ Erro ao carregar estatísticas do banco:", err);
+            this.progresso = {};
+        } finally {
+            this.carregandoEstatisticas = false;
+        }
     }
 
-    // Salva progresso no localStorage
-    salvarProgressoLocal() {
-        localStorage.setItem('progressoExercicios', JSON.stringify(this.progresso));
-    }
-
-    // Busca estatísticas de um exercício
+    // Busca estatísticas de um exercício (agora do banco)
     getEstatisticasExercicio(id, nivel) {
         const chave = `${id}_${nivel}`;
-        return this.progresso[chave] || {
+        const estatisticasBanco = this.progresso[chave];
+
+        if (estatisticasBanco) {
+            return {
+                tentativas: estatisticasBanco.tentativas || 0,
+                melhorPontuacao: estatisticasBanco.melhorPontuacao || 0,
+                ultimaPontuacao: estatisticasBanco.ultimaPontuacao || 0
+            };
+        }
+
+        // Fallback caso não exista no banco
+        return {
             tentativas: 0,
             melhorPontuacao: 0,
             ultimaPontuacao: 0
@@ -237,6 +254,21 @@ export class ExercicioController {
 
     async atualizarView() {
         // Recarrega as estatísticas do banco antes de atualizar a view
+        await this.carregarEstatisticasBanco();
+
+        // Recarrega a lista com os dados atualizados do banco
+        try {
+            const data = await ExercicioService.getExercicios();
+            this.renderListaComProgresso(data.exercicios);
+            this.view.bindSaibaMais((id, nivel) => this.mostrarDetalhe(id, nivel));
+            this.inicializarSwipers();
+        } catch (err) {
+            console.error("Erro ao atualizar view:", err);
+        }
+    }
+
+    async atualizarView() {
+        // 🆕 Recarrega as estatísticas do banco antes de atualizar a view
         await this.carregarEstatisticasBanco();
 
         // Recarrega a lista com os dados atualizados do banco
