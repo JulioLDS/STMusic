@@ -1,3 +1,4 @@
+import { HomeController } from "/js/controllers/HomeController.js";
 import { ConteudoController } from "/js/controllers/ConteudoController.js";
 import { ExercicioController } from "/js/controllers/ExercicioController.js";
 import { StatusController } from "/js/controllers/StatusController.js";
@@ -46,6 +47,12 @@ async function carregarConteudo(className) {
       } else {
         container.innerHTML = `<h1>Função "carregarStatus" não encontrada.</h1>`;
       }
+      return;
+    }
+
+    // HOME 
+    if (className === 'home') {
+      new HomeController().init();
       return;
     }
 

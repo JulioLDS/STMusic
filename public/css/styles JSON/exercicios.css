@@ -323,7 +323,6 @@ body.no-scroll {
 }
 
 /* === EXERCÍCIO DETALHADO === */
-/* === EXERCÍCIO DETALHADO === */
 .container.exercicios .exercicio-detalhado {
     position: fixed;
     top: 50%;
@@ -340,8 +339,15 @@ body.no-scroll {
     color: var(--cor1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
+}
+
+/* Header fixo */
+.container.exercicios .exercicio-header {
+    padding: 0 0 1rem 0;
+    /* Remove padding superior, mantém inferior */
+    border-bottom: 2px solid var(--cor6);
+    background-color: var(--cor7);
+    flex-shrink: 0;
 }
 
 .container.exercicios .exercicio-titulo {
@@ -353,6 +359,28 @@ body.no-scroll {
     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
+}
+
+/* Content com scroll - ÁREA MAIOR */
+.container.exercicios .exercicio-content {
+    flex: 1;
+    padding: 1rem 0;
+    /* Remove padding lateral para mais espaço */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: calc(100% - 100px);
+    /* Altura maior */
+
+    /* Remove estilo da barra de rolagem */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE e Edge */
+}
+
+.container.exercicios .exercicio-content::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari e Opera */
 }
 
 .container.exercicios .opcoes-grid-container {
@@ -403,6 +431,33 @@ body.no-scroll {
     transform-origin: left;
     transition: transform .35s ease;
     z-index: 1;
+}
+
+/* ESTILO DA EXPLICAÇÃO */
+.container.exercicios .explicacao {
+    background-color: var(--cor1);
+    color: var(--cor7);
+    padding: 1.2rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border-left: 4px solid var(--cor3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* Animação para quando a explicação aparecer */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container.exercicios .opcao-btn.correta {
@@ -499,7 +554,6 @@ body.no-scroll {
 }
 
 /* === BOTÕES DE NAVEGAÇÃO === */
-/* RODAPÉ FIXO */
 /* RODAPÉ FIXO */
 .container.exercicios .navegacao-pergunta {
     padding: 1.5rem 2rem;
@@ -1107,18 +1161,20 @@ body.no-scroll {
         margin-bottom: .5rem;
     }
 
-    /* CONTENT COM SCROLL - ajustado */
+    /* CONTENT COM SCROLL - ajustado para rolar tudo */
     .container.exercicios .exercicio-content {
         flex: 1;
         padding: 1rem 0;
         overflow-y: visible;
         /* Remove scroll interno */
         -webkit-overflow-scrolling: touch;
+        display: flex;
+        flex-direction: column;
     }
 
     /* PERGUNTA E OPÇÕES */
     .container.exercicios .pergunta-group {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     .container.exercicios .pergunta-titulo {
@@ -1144,21 +1200,19 @@ body.no-scroll {
         align-items: center;
     }
 
-    /* NAVEGAÇÃO - NÃO FIXA, FLUXO NORMAL */
+    /* NAVEGAÇÃO - AGORA NO FLUXO NORMAL (NÃO FIXA) */
     .container.exercicios .navegacao-pergunta {
         position: relative;
-        /* Remove sticky */
-        bottom: auto;
         width: 100%;
-        padding: 1rem 0 0 0;
-        border-top: 2px solid var(--cor6);
+        padding: 2rem 0 0 0;
+        /* Aumentei o padding superior de 1.5rem para 2rem */
+        border-top: none;
         background-color: transparent;
         display: flex;
         flex-direction: row;
-        /* Um ao lado do outro */
         gap: 1rem;
-        margin-top: auto;
-        /* Empurra para baixo */
+        margin-top: 2rem;
+        flex-shrink: 0;
     }
 
     /* BOTÕES UM AO LADO DO OUTRO */
@@ -1207,12 +1261,20 @@ body.no-scroll {
         font-size: 1.5rem;
     }
 
-    /* EXPLICAÇÃO NO MOBILE */
+    /* EXPLICAÇÃO NO MOBILE - AGORA FICA ACIMA DOS BOTÕES E EMPURRA ELES PRA BAIXO */
     .container.exercicios .explicacao {
-        margin-top: 1rem;
-        padding: 1rem;
-        font-size: 0.9rem;
+        margin-top: 10rem;
+        margin-bottom: 4rem;
+        padding: 1.2rem;
+        font-size: 0.95rem;
         border-radius: 15px;
+        background-color: var(--cor1);
+        color: var(--cor7);
+        border-left: 4px solid var(--cor3);
+        line-height: 1.5;
+        animation: fadeInUp 0.4s ease-out;
+        display: none;
+        /* Garante que comece escondida */
     }
 
     /* TELA DE RESULTADO FINAL NO MOBILE - ajustada */
