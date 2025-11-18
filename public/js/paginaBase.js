@@ -84,6 +84,9 @@ async function carregarConteudo(className) {
 positionIndicador(document.querySelector('.navegacao ul li.active'));
 carregarConteudo('home');
 
+// Exponha a função para uso por outras views (ex.: botão "Praticar")
+window.carregarConteudo = carregarConteudo;
+
 // Listener para clique no menu
 listItems.forEach((item, index) => {
   item.addEventListener('click', function (e) {
