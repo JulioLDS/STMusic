@@ -6,6 +6,7 @@ export class ExercicioService {
     }
 
     async atualizarProgresso(id, nivel, media) {
+        console.log(">> FUNÇÃO atualizarProgresso executando…");
         try {
             const response = await fetch("/muda-progresso", {
                 method: "POST",
@@ -15,6 +16,7 @@ export class ExercicioService {
 
             if (!response.ok) {
                 const erro = await response.text();
+                console.log(`Erro HTTP ${response.status}: ${erro}`);
                 throw new Error(`Erro HTTP ${response.status}: ${erro}`);
             }
 

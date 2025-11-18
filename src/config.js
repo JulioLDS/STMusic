@@ -88,13 +88,13 @@ const ExerciciosSchema = new mongoose.Schema({
 
 
 // collection part
-const collection = new mongoose.model("users", Loginschema);
+const collection = mongoose.model("users", Loginschema);
 
-const homeModel = new mongoose.model("home", HomeSchema, "home");
+const homeModel = mongoose.model("home", HomeSchema, "home");
 
-const conteudosModel = new mongoose.model("conteudos", ConteudosSchema);
+const conteudosModel = mongoose.model("conteudos", ConteudosSchema);
 
-const exerciciosModel = new mongoose.model("exercicios", ExerciciosSchema);
+const exerciciosModel = mongoose.model("exercicios", ExerciciosSchema);
 
 module.exports = {
     collection,

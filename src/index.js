@@ -280,19 +280,21 @@ app.post("/login", async (req, res) => {
 
 //Atualização do progresso - exercicio concluido - de acordo com o tema
 app.post("/muda-progresso", async (req, res) => {
-    console.log("função muda progresso foi chamada");
     try {
+        console.log(">> ENTROU NA ROTA /muda-progresso");
         if (!req.session.user) {
+            alert("Usuário não autenticado");
             return res.status(401).json({ erro: "Usuário não autenticado" });
         }
 
         const { id, nivel, media: mediaString } = req.body;
         const media = Number(mediaString);
 
-        //console.log(`Passou por aqui - id: ${id}, media: ${media}`);
+        console.log(`Passou por aqui - id: ${id}, media: ${media}`);
 
         // Validação simples
         if (!id || typeof media !== "number") {
+            alert("Dados inválidos. É necessário enviar 'tema' e 'media' numérico.");
             return res.status(400).json({ erro: "Dados inválidos. É necessário enviar 'tema' e 'media' numérico." });
         }
 
@@ -312,6 +314,7 @@ app.post("/muda-progresso", async (req, res) => {
             "formula_compasso_composto",
         ];
         if (!temasValidos.includes(id)) {
+            alert("Tema inválido.");
             return res.status(400).json({ erro: "Tema inválido." });
         }
 
@@ -325,18 +328,20 @@ app.post("/muda-progresso", async (req, res) => {
         });
 
         if (!usuario) {
+            alert("Usuário não encontrado");
             return res.status(404).json({ erro: "Usuário não encontrado" });
         }
 
-        //console.log("Chegou até a parte de salvar");
+        console.log("Chegou até a parte de salvar");
 
         // Atualiza o progresso do tema específico
         usuario.progresso[id] = media;
         await usuario.save();
-        //console.log("Salvou");
+        console.log("Salvou");
 
         return res.status(200).json({ sucesso: true, mensagem: `Progresso em '${id}' atualizado para ${media}.` });
     } catch (err) {
+        alert("Erro ao atualizar progresso:", err);
         console.error("Erro ao atualizar progresso:", err);
         return res.status(500).json({ erro: "Erro interno ao atualizar progresso." });
     }
@@ -389,6 +394,7 @@ app.post("/atualizar-estatisticas", async (req, res) => {
             ultimaAtualizacao: new Date()
         };
 
+        console.log("Tem método save?", typeof usuario.save);
         await usuario.save();
         console.log("Estatísticas salvas no banco de dados");
 

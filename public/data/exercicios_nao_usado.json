@@ -338,7 +338,7 @@
                         "explicacao": "A colcheia tem haste e uma bandeirola, o que a caracteriza visualmente."
                     },
                     {
-                        "pergunta": "Qual figura vale metade da mínima?",
+                        "pergunta": "Qual figura vale o dobro da mínima?",
                         "tipo": "multipla_escolha",
                         "opcoes": [
                             "a) Semibreve",

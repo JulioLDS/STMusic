@@ -68,15 +68,20 @@ export class ExercicioView {
         ${this.renderSecao("avancado", exerciciosPorNivel.avancado)}
     `;
 
+    // GARANTE QUE O LISTENER EXISTE AO INICIAR UM EXERCÍCIO
+    this.container.removeEventListener("click", this.handleContainerClick);
+    this.handleContainerClick = this.handleContainerClick.bind(this);
+    this.container.addEventListener("click", this.handleContainerClick);
+
         // Garante que o botão voltar some quando voltar para a lista
         if (this.btnVoltar) this.btnVoltar.style.display = "none";
     }
 
-    renderDetalhe(exercicio, onVoltar, onFinalizarProgresso) {
+    renderDetalhe(exercicio, onVoltar, atualizarProgresso) {
         this.currentIndex = 0;
         this.exercicioAtual = exercicio;
         this.onVoltar = onVoltar;
-        this.onFinalizarProgresso = onFinalizarProgresso;
+        this.atualizarProgresso = atualizarProgresso;
         this.acertos = 0;
         this.respondidas = 0;
 
@@ -217,9 +222,9 @@ export class ExercicioView {
         // Listener do botão "Finalizar"
         const btnFinalizar = nav.querySelector(".btn-finalizar");
         btnFinalizar.addEventListener("click", () => {
-            if (this.onFinalizarProgresso) {
+            if (this.atualizarProgresso) {
                 // ATUALIZA O PROGRESSO ANTES DE MOSTRAR O RESULTADO
-                this.onFinalizarProgresso(this.exercicioAtual.id, this.exercicioAtual.nivel, media);
+                this.atualizarProgresso(this.exercicioAtual.id, this.exercicioAtual.nivel, media);
 
                 // Agora mostra o resultado
                 this.mostrarTelaResultado(this.acertos, totalPerguntas, media);
@@ -264,6 +269,9 @@ export class ExercicioView {
 
             // Remove bloqueio de navegação (popstate)
             this.liberarBloqueio();
+            
+            //Reseta event listener
+            this.container.removeEventListener('click', this.handleContainerClick);
 
             // Volta para a lista de cards via callback do controller
             if (this.onVoltar) {
@@ -277,6 +285,7 @@ export class ExercicioView {
 
     // Delegated click handler: gerencia cliques em alternativas, avançar e refazer
     handleContainerClick(e) {
+        console.log("click handler ativo", this.exercicioAtual?.id);
         if (!this.exercicioAtual) return;
 
         const opcaoBtn = e.target.closest(".opcao-btn");
