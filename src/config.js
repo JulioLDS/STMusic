@@ -11,9 +11,17 @@ const connect = mongoose.connect(uri);
 connect.then(() => {
     console.log("Conexão com o banco de dados feita com sucesso");
 })
-    .catch(() => {
-        console.log("Não foi possível conectar ao banco de dados");
-    })
+.catch(() => {
+    console.log("Não foi possível conectar ao banco de dados");
+});
+
+
+const EstatisticaSchema = new mongoose.Schema({
+    tentativas: { type: Number, default: 0 },
+    melhorPontuacao: { type: Number, default: 0 },
+    ultimaPontuacao: { type: Number, default: 0 },
+    ultimaAtualizacao: { type: Date, default: null }
+});
 
 // Schema Login
 const Loginschema = new mongoose.Schema({
@@ -46,8 +54,18 @@ const Loginschema = new mongoose.Schema({
         "formula_compasso_composto": Number,
     },
     estatisticas: {
-        type: Object,
-        default: {}
+        introducao_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        propriedades_do_som_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        pentagrama_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        claves_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        figuras_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        ligadura_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        ponto_de_aumento_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        fermata_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        compasso_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        barras_de_compasso_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        formula_compasso_simples_iniciante: { type: EstatisticaSchema, default: () => ({}) },
+        formula_compasso_composto_iniciante: { type: EstatisticaSchema, default: () => ({}) },
     }
 });
 

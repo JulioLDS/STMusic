@@ -217,8 +217,7 @@ app.post("/signup", async (req, res) => {
             "barras_de_compasso": 0.0,
             "formula_compasso_simples": 0.0,
             "formula_compasso_composto": 0.0,
-        },
-        "estatisticas": {} // Inicializa estatísticas vazias
+        }
     };
 
     try {
@@ -343,7 +342,7 @@ app.post("/muda-progresso", async (req, res) => {
         return res.status(500).json({ erro: "Erro interno ao atualizar progresso." });
     }
 });
-
+/*
 // Atualizar estatísticas dos exercícios
 app.post("/atualizar-estatisticas", async (req, res) => {
     console.log("Rota /atualizar-estatisticas chamada");
@@ -433,7 +432,7 @@ app.get("/estatisticas-usuario", async (req, res) => {
         console.error("Erro ao buscar estatísticas:", err);
         return res.status(500).json({ erro: "Erro interno ao buscar estatísticas." });
     }
-});
+});*/
 
 // 🆕 NOVA ROTA: Atualizar estatísticas dos exercícios
 app.post("/atualizar-estatisticas", async (req, res) => {

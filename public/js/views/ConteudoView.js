@@ -65,7 +65,7 @@ export class ConteudoView {
             </div>
             <div class="pratica">
                 <!-- <iframe width='560' height='315' src='${conteudo.video || ""}' ...></iframe> -->
-                <img src='../../assets/img/default1.png'>
+                <img src='../../assets/img/video-default.png'>
                 <a href='#' class='btn-praticar'>Praticar</a>
             </div>
         </div>
